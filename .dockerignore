@@ -1,0 +1,9 @@
+.git
+.env
+.venv
+__pycache__
+data
+uploads
+*.pdf
+*.db
+*.log
