@@ -82,12 +82,21 @@ $env:DATABASE_URL='postgresql+psycopg://YOUR_USER:YOUR_PASSWORD@localhost:5432/Y
 
 ## Статус проверки
 
-На подключённом Windows-компьютере Docker не найден в PATH, стандартных каталогах
-Docker Desktop, Chocolatey/Scoop и списке служб. Docker не устанавливался,
-параметры системы не менялись. Поэтому `docker compose up --build`, миграция
-на реальном PostgreSQL и HTTP-проверка `/health` **не выполнялись**.
-Критерий готовности по запуску пока не подтверждён. Unit/integration-тесты
-не написаны и не запускались согласно запросу.
+После установки и запуска Docker пользователем выполнено
+`docker compose up --build -d` на подключённом Windows-компьютере:
+
+- Docker Engine 29.9.2, Compose 5.6.1, контекст `desktop-linux`.
+- Образ API собран, оба контейнера работают; `db` имеет статус `healthy`.
+- В API — Python 3.11.17; в базе — PostgreSQL 16.15 и pgvector 0.8.7.
+- В реальной базе подтверждена версия Alembic `0001`, таблицы `documents`,
+  `chunks`, `query_logs` и тип колонки `embedding`: `vector(384)`.
+- `GET http://127.0.0.1:8000/health` вернул **HTTP 200** и `{"status":"ok"}`.
+
+Критерий запуска каркаса подтверждён. Бизнес-функции остаются заглушками.
+Unit/integration-тесты не написаны и не запускались согласно запросу.
+Системные настройки, сторонние службы и нативная установка PostgreSQL не менялись.
+
+Ранее выполненная проверка без Docker:
 
 Для нативного запуска обнаружены Python 3.14 (3.11 не найден) и работающий
 PostgreSQL 18 на `localhost:5432`, принимающий подключения по `pg_isready`.
