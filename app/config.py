@@ -8,7 +8,8 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "intfloat/multilingual-e5-small"
     EMBEDDING_DIM: int = 384
     LLM_API_KEY: str = ""
-    LLM_MODEL: str = ""
+    LLM_MODEL: str = "gpt-5.6-terra"
+    LLM_BASE_URL: str = "https://api.openai.com/v1"
     CHUNK_SIZE: int = 800
     CHUNK_OVERLAP: int = 100
 
