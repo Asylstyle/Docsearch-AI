@@ -1,4 +1,7 @@
-from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ChunkData(BaseModel):
@@ -30,3 +33,14 @@ class AnswerResult(BaseModel):
 class AskRequest(BaseModel):
     question: str
     k: int = Field(default=5, ge=1)
+
+
+class HistoryItem(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    query_type: Literal["search", "ask"]
+    question: str
+    answer: str | None
+    sources: list[SourceRef]
+    created_at: datetime
