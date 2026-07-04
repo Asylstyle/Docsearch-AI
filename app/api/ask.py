@@ -1,10 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
+from sqlalchemy import select
 
 from app.db import get_db
 from app.models import QueryLog
 from app.rag.service import answer_question
-from app.schemas import AnswerResult, AskRequest
+from app.schemas import AnswerResult, AskRequest, HistoryItem
 
 router = APIRouter(tags=["questions"])
 
@@ -19,14 +20,16 @@ def ask(request: AskRequest, db: Session = Depends(get_db)):
                        sources=[source.model_dump() for source in result.sources]))
         db.commit()
         return result
-    except RuntimeError as exc:
+    except RuntimeError:
         db.rollback()
-        raise HTTPException(503, str(exc)) from None
+        raise HTTPException(503, "Question answering unavailable; check LLM_API_KEY, LLM_MODEL and LLM_BASE_URL") from None
     except Exception:
         db.rollback()
         raise HTTPException(503, "Question answering unavailable") from None
 
 
-@router.get("/history", responses={501: {"description": "Scaffold only"}})
+@router.get("/history", response_model=list[HistoryItem])
 def history(limit: int = Query(default=20, ge=1), db: Session = Depends(get_db)):
-    raise NotImplementedError
+    if limit > 100:
+        raise HTTPException(422, "limit must be between 1 and 100")
+    return db.scalars(select(QueryLog).order_by(QueryLog.created_at.desc(), QueryLog.id.desc()).limit(limit)).all()
