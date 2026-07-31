@@ -11,3 +11,4 @@ pypdf>=6,<7
 torch==2.9.0+cpu
 sentence-transformers>=5.1,<6
 openai>=2,<3
+scikit-learn==1.9.1
