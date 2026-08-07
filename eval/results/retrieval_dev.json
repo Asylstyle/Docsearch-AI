@@ -1,0 +1,3336 @@
+{
+  "split": "dev",
+  "k": 5,
+  "created_at": "2026-10-23T22:37:46.059111+00:00",
+  "answerable_count": 24,
+  "ignored_unanswerable_count": 6,
+  "type_denominators": {
+    "cross_university": 6,
+    "paraphrase": 9,
+    "simple": 9
+  },
+  "test_integrity": {
+    "expected": "369910a237ad347605eafe18b76192db51681e357fd37e17d5a8caf60c76836f",
+    "actual": "369910a237ad347605eafe18b76192db51681e357fd37e17d5a8caf60c76836f",
+    "matches": true
+  },
+  "evaluated_questions_sha256": "97fbf7f2da1ddc9ff8325c6e83fc7674521bb15ca0396d5944f2f4f75c98c012",
+  "settings": {
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "embedding_dim": 384,
+    "chunk_size": 800,
+    "chunk_overlap": 100
+  },
+  "environment": {
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "python": "3.11.17",
+    "packages": {
+      "scikit-learn": "1.9.1",
+      "sentence-transformers": "5.7.0",
+      "torch": "2.9.0+cpu",
+      "SQLAlchemy": "2.0.55",
+      "pgvector": "0.5.1"
+    }
+  },
+  "setup_timings": {
+    "tfidf_word": {
+      "index_build_ms": 69.93217999979606,
+      "warmup_ms": 2.0014789997730986
+    },
+    "tfidf_char": {
+      "index_build_ms": 461.35754700026155,
+      "warmup_ms": 31.172106999747484
+    },
+    "e5": {
+      "index_build_ms": 0,
+      "warmup_ms": 15814.094055999703
+    }
+  },
+  "methods": {
+    "tfidf_word": {
+      "n": 24,
+      "Hit@1": 0.2916666666666667,
+      "Hit@5": 0.625,
+      "MRR@5": 0.38958333333333334,
+      "Doc-Hit@5": 0.9583333333333334,
+      "mean_search_ms": 1.7333904583551885,
+      "by_type": {
+        "cross_university": {
+          "n": 6,
+          "hits": 4,
+          "Hit@5": 0.6666666666666666
+        },
+        "paraphrase": {
+          "n": 9,
+          "hits": 6,
+          "Hit@5": 0.6666666666666666
+        },
+        "simple": {
+          "n": 9,
+          "hits": 5,
+          "Hit@5": 0.5555555555555556
+        }
+      }
+    },
+    "tfidf_char": {
+      "n": 24,
+      "Hit@1": 0.3333333333333333,
+      "Hit@5": 0.7083333333333334,
+      "MRR@5": 0.47013888888888894,
+      "Doc-Hit@5": 1.0,
+      "mean_search_ms": 9.619050249985625,
+      "by_type": {
+        "cross_university": {
+          "n": 6,
+          "hits": 3,
+          "Hit@5": 0.5
+        },
+        "paraphrase": {
+          "n": 9,
+          "hits": 7,
+          "Hit@5": 0.7777777777777778
+        },
+        "simple": {
+          "n": 9,
+          "hits": 7,
+          "Hit@5": 0.7777777777777778
+        }
+      }
+    },
+    "e5": {
+      "n": 24,
+      "Hit@1": 0.5416666666666666,
+      "Hit@5": 0.7083333333333334,
+      "MRR@5": 0.5951388888888889,
+      "Doc-Hit@5": 1.0,
+      "mean_search_ms": 230.15489962496835,
+      "by_type": {
+        "cross_university": {
+          "n": 6,
+          "hits": 4,
+          "Hit@5": 0.6666666666666666
+        },
+        "paraphrase": {
+          "n": 9,
+          "hits": 6,
+          "Hit@5": 0.6666666666666666
+        },
+        "simple": {
+          "n": 9,
+          "hits": 7,
+          "Hit@5": 0.7777777777777778
+        }
+      }
+    }
+  },
+  "records": {
+    "tfidf_word": [
+      {
+        "id": "q04",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 4.02931600001466,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.15306002097747048
+          },
+          {
+            "chunk_id": 371,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.11480927587227002
+          },
+          {
+            "chunk_id": 117,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 3,
+            "score": 0.10695654901120127
+          },
+          {
+            "chunk_id": 115,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 2,
+            "score": 0.10326224256229652
+          },
+          {
+            "chunk_id": 97,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 2,
+            "score": 0.07058149225428118
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1.706521999949473,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.13367319630663013
+          },
+          {
+            "chunk_id": 117,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 3,
+            "score": 0.12749732754823856
+          },
+          {
+            "chunk_id": 115,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 2,
+            "score": 0.1234301731687461
+          },
+          {
+            "chunk_id": 635,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 43,
+            "score": 0.08063071605242528
+          },
+          {
+            "chunk_id": 97,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 2,
+            "score": 0.07715428513692109
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "type": "cross_university",
+        "rank": 5,
+        "doc_hit": true,
+        "latency_ms": 1.3664560001416248,
+        "hits": [
+          {
+            "chunk_id": 371,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.19703659158315373
+          },
+          {
+            "chunk_id": 163,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 12,
+            "score": 0.13484699243529089
+          },
+          {
+            "chunk_id": 164,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 12,
+            "score": 0.09171439648740025
+          },
+          {
+            "chunk_id": 148,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.0758061124531237
+          },
+          {
+            "chunk_id": 364,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 6,
+            "score": 0.074094267125366
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.5408880003633385,
+        "hits": [
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.0845629865816075
+          },
+          {
+            "chunk_id": 177,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.061460119237840734
+          },
+          {
+            "chunk_id": 142,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 6,
+            "score": 0.059458179970204
+          },
+          {
+            "chunk_id": 498,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 5,
+            "score": 0.05868124582148354
+          },
+          {
+            "chunk_id": 469,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 21,
+            "score": 0.05569125545774062
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "type": "cross_university",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 1.3702599999305676,
+        "hits": [
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.0899215288697765
+          },
+          {
+            "chunk_id": 289,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 29,
+            "score": 0.08010901713741236
+          },
+          {
+            "chunk_id": 123,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 2,
+            "score": 0.0742866065268571
+          },
+          {
+            "chunk_id": 148,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.07311663199771193
+          },
+          {
+            "chunk_id": 634,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 42,
+            "score": 0.0631059913523604
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1.3315750002220739,
+        "hits": [
+          {
+            "chunk_id": 135,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 5,
+            "score": 0.11081674346208713
+          },
+          {
+            "chunk_id": 148,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.09126741493103821
+          },
+          {
+            "chunk_id": 197,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.06585146852990047
+          },
+          {
+            "chunk_id": 634,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 42,
+            "score": 0.06562684041170817
+          },
+          {
+            "chunk_id": 136,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 5,
+            "score": 0.06152623123910307
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.3057420001132414,
+        "hits": [
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.09051293896328143
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.0902344112925393
+          },
+          {
+            "chunk_id": 197,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.059843757540442424
+          },
+          {
+            "chunk_id": 328,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 10,
+            "score": 0.05836063877290481
+          },
+          {
+            "chunk_id": 302,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 3,
+            "score": 0.056958483990387845
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.3897220001126698,
+        "hits": [
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.09934870818199765
+          },
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.09467946248228656
+          },
+          {
+            "chunk_id": 348,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 18,
+            "score": 0.06269096504149577
+          },
+          {
+            "chunk_id": 344,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 16,
+            "score": 0.06264324969876645
+          },
+          {
+            "chunk_id": 543,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 17,
+            "score": 0.062265457484194146
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "type": "paraphrase",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 1.515611999820976,
+        "hits": [
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.09574686806368614
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.06738903797749897
+          },
+          {
+            "chunk_id": 338,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 13,
+            "score": 0.05789397390994267
+          },
+          {
+            "chunk_id": 499,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 5,
+            "score": 0.05556647329944512
+          },
+          {
+            "chunk_id": 595,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 31,
+            "score": 0.05481461685244522
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": false,
+        "latency_ms": 1.4318749999802094,
+        "hits": [
+          {
+            "chunk_id": 114,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.06523305552966412
+          },
+          {
+            "chunk_id": 81,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 17,
+            "score": 0.0640151622693116
+          },
+          {
+            "chunk_id": 66,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 13,
+            "score": 0.05919269903398451
+          },
+          {
+            "chunk_id": 149,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.05497642319845034
+          },
+          {
+            "chunk_id": 175,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.04942629676664203
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1.425429999926564,
+        "hits": [
+          {
+            "chunk_id": 42,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.08536106012089226
+          },
+          {
+            "chunk_id": 12,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.08508574381803585
+          },
+          {
+            "chunk_id": 503,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 6,
+            "score": 0.07140286677498157
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.06658269140541556
+          },
+          {
+            "chunk_id": 428,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 12,
+            "score": 0.05783453106240685
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.3540850000026694,
+        "hits": [
+          {
+            "chunk_id": 12,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.10120715114117536
+          },
+          {
+            "chunk_id": 503,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 6,
+            "score": 0.08493174538220294
+          },
+          {
+            "chunk_id": 66,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 13,
+            "score": 0.056405715162854066
+          },
+          {
+            "chunk_id": 24,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.05549011098046945
+          },
+          {
+            "chunk_id": 61,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 12,
+            "score": 0.05207614556369107
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1.476151000133541,
+        "hits": [
+          {
+            "chunk_id": 21,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.10383057617898225
+          },
+          {
+            "chunk_id": 66,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 13,
+            "score": 0.09833505323450083
+          },
+          {
+            "chunk_id": 24,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.08857579164367976
+          },
+          {
+            "chunk_id": 41,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.08823354765561417
+          },
+          {
+            "chunk_id": 12,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.08757621567464369
+          }
+        ]
+      },
+      {
+        "id": "q26",
+        "type": "simple",
+        "rank": 5,
+        "doc_hit": true,
+        "latency_ms": 1.6113960000438965,
+        "hits": [
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.14162273503065914
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.11283789741183753
+          },
+          {
+            "chunk_id": 436,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 14,
+            "score": 0.11262667408910484
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.09991330579133784
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.09166975348797178
+          }
+        ]
+      },
+      {
+        "id": "q27",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.512321000063821,
+        "hits": [
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.18382769078180328
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.1582921083693556
+          },
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.13854239212558275
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.12206777463108576
+          },
+          {
+            "chunk_id": 461,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 20,
+            "score": 0.11376148844611106
+          }
+        ]
+      },
+      {
+        "id": "q28",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.481772999795794,
+        "hits": [
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.13880000040470034
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.12539543894308255
+          },
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.11545461474285655
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.09669933857317659
+          },
+          {
+            "chunk_id": 461,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 20,
+            "score": 0.08771049959993589
+          }
+        ]
+      },
+      {
+        "id": "q31",
+        "type": "simple",
+        "rank": 2,
+        "doc_hit": true,
+        "latency_ms": 2.1603210002467677,
+        "hits": [
+          {
+            "chunk_id": 231,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 16,
+            "score": 0.07622444127711198
+          },
+          {
+            "chunk_id": 193,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.06763585872339009
+          },
+          {
+            "chunk_id": 198,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 9,
+            "score": 0.06377254747362535
+          },
+          {
+            "chunk_id": 219,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 13,
+            "score": 0.06162212399957285
+          },
+          {
+            "chunk_id": 204,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 10,
+            "score": 0.0607405930828865
+          }
+        ]
+      },
+      {
+        "id": "q32",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 3.229343999919365,
+        "hits": [
+          {
+            "chunk_id": 172,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.15471999536282494
+          },
+          {
+            "chunk_id": 211,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 12,
+            "score": 0.12372797402688562
+          },
+          {
+            "chunk_id": 229,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.11272731266106234
+          },
+          {
+            "chunk_id": 174,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.10940634155923956
+          },
+          {
+            "chunk_id": 267,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 24,
+            "score": 0.09690159465627657
+          }
+        ]
+      },
+      {
+        "id": "q33",
+        "type": "paraphrase",
+        "rank": 4,
+        "doc_hit": true,
+        "latency_ms": 2.3250050003298384,
+        "hits": [
+          {
+            "chunk_id": 267,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 24,
+            "score": 0.15688966448617592
+          },
+          {
+            "chunk_id": 265,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 23,
+            "score": 0.12543555333092923
+          },
+          {
+            "chunk_id": 251,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 21,
+            "score": 0.12146453687208492
+          },
+          {
+            "chunk_id": 223,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.08857495032865992
+          },
+          {
+            "chunk_id": 252,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 21,
+            "score": 0.08310823323494511
+          }
+        ]
+      },
+      {
+        "id": "q34",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1.7325560002063867,
+        "hits": [
+          {
+            "chunk_id": 228,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.14617772111974714
+          },
+          {
+            "chunk_id": 278,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 26,
+            "score": 0.1388855785703846
+          },
+          {
+            "chunk_id": 166,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 1,
+            "score": 0.09896216247397119
+          },
+          {
+            "chunk_id": 227,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.09435305154901154
+          },
+          {
+            "chunk_id": 193,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.08610250744960199
+          }
+        ]
+      },
+      {
+        "id": "q36",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.59920099986266,
+        "hits": [
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.15670093653603556
+          },
+          {
+            "chunk_id": 521,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 11,
+            "score": 0.13536680705559967
+          },
+          {
+            "chunk_id": 524,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 12,
+            "score": 0.131096080873232
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.12869558159244532
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.12236495812303619
+          }
+        ]
+      },
+      {
+        "id": "q37",
+        "type": "simple",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 1.575641999806976,
+        "hits": [
+          {
+            "chunk_id": 548,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 18,
+            "score": 0.23084925955051827
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.15733902093894936
+          },
+          {
+            "chunk_id": 601,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 32,
+            "score": 0.148691043347238
+          },
+          {
+            "chunk_id": 600,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 32,
+            "score": 0.13747773716082778
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.1307704731197638
+          }
+        ]
+      },
+      {
+        "id": "q39",
+        "type": "paraphrase",
+        "rank": 5,
+        "doc_hit": true,
+        "latency_ms": 1.527193999663723,
+        "hits": [
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.16174635574495932
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.1328392910929997
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.12819098632675938
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.10355421074282947
+          },
+          {
+            "chunk_id": 516,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 10,
+            "score": 0.09490735143274888
+          }
+        ]
+      },
+      {
+        "id": "q40",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1.6029839998736861,
+        "hits": [
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.1701023415947297
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.1397019077594109
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.13282987559607148
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.13154801021988263
+          },
+          {
+            "chunk_id": 481,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 24,
+            "score": 0.1154215176839734
+          }
+        ]
+      }
+    ],
+    "tfidf_char": [
+      {
+        "id": "q04",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 11.231102999772702,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.16431406797224568
+          },
+          {
+            "chunk_id": 221,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.14332102132381774
+          },
+          {
+            "chunk_id": 112,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.12408643151423186
+          },
+          {
+            "chunk_id": 371,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.10625584387532862
+          },
+          {
+            "chunk_id": 128,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 3,
+            "score": 0.10285799501462398
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 9.321746999830793,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.22134867314217016
+          },
+          {
+            "chunk_id": 103,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.1859799465652778
+          },
+          {
+            "chunk_id": 113,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.1852055372947159
+          },
+          {
+            "chunk_id": 370,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.17890387211245312
+          },
+          {
+            "chunk_id": 338,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 13,
+            "score": 0.17678581191452267
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 9.696906000044692,
+        "hits": [
+          {
+            "chunk_id": 371,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.2831020267950736
+          },
+          {
+            "chunk_id": 370,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.1644885843390215
+          },
+          {
+            "chunk_id": 163,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 12,
+            "score": 0.15796419608832557
+          },
+          {
+            "chunk_id": 362,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 5,
+            "score": 0.13210090488529086
+          },
+          {
+            "chunk_id": 148,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.12563669504225264
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 10.254021999571705,
+        "hits": [
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.23354455907711338
+          },
+          {
+            "chunk_id": 121,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.2178016185247383
+          },
+          {
+            "chunk_id": 142,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 6,
+            "score": 0.20805746349095136
+          },
+          {
+            "chunk_id": 177,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.1834280386839172
+          },
+          {
+            "chunk_id": 166,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 1,
+            "score": 0.16199146581535967
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "type": "cross_university",
+        "rank": 5,
+        "doc_hit": true,
+        "latency_ms": 10.028615999999602,
+        "hits": [
+          {
+            "chunk_id": 121,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.2331335869130058
+          },
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.22583221395486486
+          },
+          {
+            "chunk_id": 148,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.21014833094565102
+          },
+          {
+            "chunk_id": 142,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 6,
+            "score": 0.20338678265112642
+          },
+          {
+            "chunk_id": 124,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 2,
+            "score": 0.19036546239061158
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 12.948692999998457,
+        "hits": [
+          {
+            "chunk_id": 135,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 5,
+            "score": 0.21342356895922024
+          },
+          {
+            "chunk_id": 338,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 13,
+            "score": 0.1909214987655763
+          },
+          {
+            "chunk_id": 103,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.17582536623780634
+          },
+          {
+            "chunk_id": 324,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 9,
+            "score": 0.17450216432013246
+          },
+          {
+            "chunk_id": 113,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.16809241208370074
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 9.346887999981845,
+        "hits": [
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.15859163997431
+          },
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.14291980421219783
+          },
+          {
+            "chunk_id": 305,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 4,
+            "score": 0.1425921324738611
+          },
+          {
+            "chunk_id": 128,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 3,
+            "score": 0.1366514964972024
+          },
+          {
+            "chunk_id": 302,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 3,
+            "score": 0.1365506853458761
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 9.688348000054248,
+        "hits": [
+          {
+            "chunk_id": 328,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 10,
+            "score": 0.14788986786261674
+          },
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.1417551856812379
+          },
+          {
+            "chunk_id": 418,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.13999343281157703
+          },
+          {
+            "chunk_id": 489,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 3,
+            "score": 0.13467114119500312
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.13080914536253663
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 8.73970200018448,
+        "hits": [
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.15947385143811638
+          },
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.11603807873116882
+          },
+          {
+            "chunk_id": 93,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 1,
+            "score": 0.11166072708803135
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.11086027935547547
+          },
+          {
+            "chunk_id": 370,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.10616502870367557
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 9.57087999995565,
+        "hits": [
+          {
+            "chunk_id": 7,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.37497996166159897
+          },
+          {
+            "chunk_id": 6,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.11312495217995273
+          },
+          {
+            "chunk_id": 8,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.1010360883519893
+          },
+          {
+            "chunk_id": 150,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.09015725244717376
+          },
+          {
+            "chunk_id": 175,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.08787619782798331
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 9.63709600000584,
+        "hits": [
+          {
+            "chunk_id": 42,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.23603125756243062
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.1928084729082985
+          },
+          {
+            "chunk_id": 14,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.17564418018803804
+          },
+          {
+            "chunk_id": 380,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 3,
+            "score": 0.17187488861757444
+          },
+          {
+            "chunk_id": 26,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 4,
+            "score": 0.1501289457335233
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 11.232049000227562,
+        "hits": [
+          {
+            "chunk_id": 12,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.17629643542963588
+          },
+          {
+            "chunk_id": 50,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 9,
+            "score": 0.1754261500661892
+          },
+          {
+            "chunk_id": 113,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.14877557683321369
+          },
+          {
+            "chunk_id": 21,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.14596285941370057
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.1427587820770479
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 8.020100000067032,
+        "hits": [
+          {
+            "chunk_id": 21,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.3092911318741545
+          },
+          {
+            "chunk_id": 24,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.2156409072937183
+          },
+          {
+            "chunk_id": 41,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.19400230905446247
+          },
+          {
+            "chunk_id": 23,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.17725236661162636
+          },
+          {
+            "chunk_id": 20,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.17295450903209203
+          }
+        ]
+      },
+      {
+        "id": "q26",
+        "type": "simple",
+        "rank": 2,
+        "doc_hit": true,
+        "latency_ms": 9.815936999984842,
+        "hits": [
+          {
+            "chunk_id": 373,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 2,
+            "score": 0.22320591455699623
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.2142580321927988
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.209695629761714
+          },
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.16944017970865957
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.16881266492454847
+          }
+        ]
+      },
+      {
+        "id": "q27",
+        "type": "simple",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 8.539160000054835,
+        "hits": [
+          {
+            "chunk_id": 21,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.2865940546685189
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.21376671628250096
+          },
+          {
+            "chunk_id": 405,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 8,
+            "score": 0.20822889526116667
+          },
+          {
+            "chunk_id": 373,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 2,
+            "score": 0.1929619046071625
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.1886897994332738
+          }
+        ]
+      },
+      {
+        "id": "q28",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 8.677847999933874,
+        "hits": [
+          {
+            "chunk_id": 41,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.18048856227124876
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.17300326296413768
+          },
+          {
+            "chunk_id": 373,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 2,
+            "score": 0.16462854703979948
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.15952267254018548
+          },
+          {
+            "chunk_id": 456,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 18,
+            "score": 0.15048703693710203
+          }
+        ]
+      },
+      {
+        "id": "q31",
+        "type": "simple",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 8.540841000012733,
+        "hits": [
+          {
+            "chunk_id": 231,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 16,
+            "score": 0.19825774036010446
+          },
+          {
+            "chunk_id": 204,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 10,
+            "score": 0.19646139790990036
+          },
+          {
+            "chunk_id": 196,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.19444037234221612
+          },
+          {
+            "chunk_id": 212,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 12,
+            "score": 0.15316599855273863
+          },
+          {
+            "chunk_id": 170,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.14543415535780416
+          }
+        ]
+      },
+      {
+        "id": "q32",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 9.696957999949518,
+        "hits": [
+          {
+            "chunk_id": 172,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.19482506737413877
+          },
+          {
+            "chunk_id": 211,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 12,
+            "score": 0.18817306879711573
+          },
+          {
+            "chunk_id": 174,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 4,
+            "score": 0.1838092730706455
+          },
+          {
+            "chunk_id": 171,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.1775878752471556
+          },
+          {
+            "chunk_id": 203,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 10,
+            "score": 0.155377344237232
+          }
+        ]
+      },
+      {
+        "id": "q33",
+        "type": "paraphrase",
+        "rank": 2,
+        "doc_hit": true,
+        "latency_ms": 8.425218999946082,
+        "hits": [
+          {
+            "chunk_id": 267,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 24,
+            "score": 0.3968766085699421
+          },
+          {
+            "chunk_id": 224,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.3519226278466997
+          },
+          {
+            "chunk_id": 265,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 23,
+            "score": 0.31283635651038205
+          },
+          {
+            "chunk_id": 223,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.294868592822578
+          },
+          {
+            "chunk_id": 225,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.2799058256869539
+          }
+        ]
+      },
+      {
+        "id": "q34",
+        "type": "paraphrase",
+        "rank": 4,
+        "doc_hit": true,
+        "latency_ms": 12.400295000134065,
+        "hits": [
+          {
+            "chunk_id": 259,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 22,
+            "score": 0.20811666917828564
+          },
+          {
+            "chunk_id": 265,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 23,
+            "score": 0.20290801655616025
+          },
+          {
+            "chunk_id": 256,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 22,
+            "score": 0.20166510967580037
+          },
+          {
+            "chunk_id": 228,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.1959848642328118
+          },
+          {
+            "chunk_id": 227,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.1939971786815896
+          }
+        ]
+      },
+      {
+        "id": "q36",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 8.783177000168507,
+        "hits": [
+          {
+            "chunk_id": 521,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 11,
+            "score": 0.19295681611948895
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.17780683855061996
+          },
+          {
+            "chunk_id": 553,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 19,
+            "score": 0.17100192627221963
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.1685682953467641
+          },
+          {
+            "chunk_id": 524,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 12,
+            "score": 0.15885666641171334
+          }
+        ]
+      },
+      {
+        "id": "q37",
+        "type": "simple",
+        "rank": 2,
+        "doc_hit": true,
+        "latency_ms": 8.754020999731438,
+        "hits": [
+          {
+            "chunk_id": 548,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 18,
+            "score": 0.2824606137898288
+          },
+          {
+            "chunk_id": 601,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 32,
+            "score": 0.2567844921081752
+          },
+          {
+            "chunk_id": 600,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 32,
+            "score": 0.23814502427141154
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.18734728102378054
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.18711852924705888
+          }
+        ]
+      },
+      {
+        "id": "q39",
+        "type": "paraphrase",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 8.932675999858475,
+        "hits": [
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.19589311558917008
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.19545721187512116
+          },
+          {
+            "chunk_id": 517,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 10,
+            "score": 0.16693776287881135
+          },
+          {
+            "chunk_id": 490,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 3,
+            "score": 0.165095318694746
+          },
+          {
+            "chunk_id": 372,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 1,
+            "score": 0.16464197670465183
+          }
+        ]
+      },
+      {
+        "id": "q40",
+        "type": "paraphrase",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 8.574924000186002,
+        "hits": [
+          {
+            "chunk_id": 491,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 3,
+            "score": 0.2200026150786814
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.2115044575956441
+          },
+          {
+            "chunk_id": 630,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 40,
+            "score": 0.2031134642097281
+          },
+          {
+            "chunk_id": 370,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.20071041304562687
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.1992363189413027
+          }
+        ]
+      }
+    ],
+    "e5": [
+      {
+        "id": "q04",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 1750.3037790002054,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.8708654642105103
+          },
+          {
+            "chunk_id": 98,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 2,
+            "score": 0.8620816551398259
+          },
+          {
+            "chunk_id": 114,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.8601903998738304
+          },
+          {
+            "chunk_id": 129,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 3,
+            "score": 0.8590727960510743
+          },
+          {
+            "chunk_id": 342,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 14,
+            "score": 0.8576965416850736
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 55.87038700014091,
+        "hits": [
+          {
+            "chunk_id": 110,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.8988269567489624
+          },
+          {
+            "chunk_id": 105,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 5,
+            "score": 0.8701463341712952
+          },
+          {
+            "chunk_id": 97,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 2,
+            "score": 0.8659240167231601
+          },
+          {
+            "chunk_id": 103,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.8603433966636658
+          },
+          {
+            "chunk_id": 102,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.8597753047943115
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 437.60308599985365,
+        "hits": [
+          {
+            "chunk_id": 369,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.8796836805532184
+          },
+          {
+            "chunk_id": 371,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 7,
+            "score": 0.8761017396389417
+          },
+          {
+            "chunk_id": 362,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 5,
+            "score": 0.8677347977319496
+          },
+          {
+            "chunk_id": 357,
+            "document_id": 11,
+            "filename": "samgtu-academic-leave.pdf",
+            "page": 4,
+            "score": 0.8662830074856889
+          },
+          {
+            "chunk_id": 124,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 2,
+            "score": 0.8632967214793978
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "type": "cross_university",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 170.07828399982827,
+        "hits": [
+          {
+            "chunk_id": 132,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 4,
+            "score": 0.8849059480540877
+          },
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.862938897259373
+          },
+          {
+            "chunk_id": 121,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.8627452499725983
+          },
+          {
+            "chunk_id": 166,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 1,
+            "score": 0.8614630946881021
+          },
+          {
+            "chunk_id": 150,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.8607670317708809
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "type": "cross_university",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 1141.6492799999105,
+        "hits": [
+          {
+            "chunk_id": 122,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.8754091262817383
+          },
+          {
+            "chunk_id": 120,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.8730994462966919
+          },
+          {
+            "chunk_id": 186,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 6,
+            "score": 0.8702424764633179
+          },
+          {
+            "chunk_id": 121,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 1,
+            "score": 0.8683710772770017
+          },
+          {
+            "chunk_id": 142,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 6,
+            "score": 0.8676270921452602
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "type": "paraphrase",
+        "rank": 3,
+        "doc_hit": true,
+        "latency_ms": 211.4001290001397,
+        "hits": [
+          {
+            "chunk_id": 149,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 8,
+            "score": 0.8908905451959063
+          },
+          {
+            "chunk_id": 103,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.8843646049499512
+          },
+          {
+            "chunk_id": 136,
+            "document_id": 8,
+            "filename": "nu-academic-leave-dismissal-2020-ru.pdf",
+            "page": 5,
+            "score": 0.8820115398161701
+          },
+          {
+            "chunk_id": 95,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 1,
+            "score": 0.8809687566179794
+          },
+          {
+            "chunk_id": 342,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 14,
+            "score": 0.8803345632353701
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "type": "cross_university",
+        "rank": 4,
+        "doc_hit": true,
+        "latency_ms": 43.3534740000141,
+        "hits": [
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.8998439967725295
+          },
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.888373851776123
+          },
+          {
+            "chunk_id": 328,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 10,
+            "score": 0.8758864998817444
+          },
+          {
+            "chunk_id": 308,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 5,
+            "score": 0.8749258071272665
+          },
+          {
+            "chunk_id": 107,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 5,
+            "score": 0.869795933986201
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "type": "simple",
+        "rank": 2,
+        "doc_hit": true,
+        "latency_ms": 220.49331700009134,
+        "hits": [
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.8730789422988892
+          },
+          {
+            "chunk_id": 328,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 10,
+            "score": 0.8695636987686157
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.8693700510638938
+          },
+          {
+            "chunk_id": 330,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 11,
+            "score": 0.8584564328193665
+          },
+          {
+            "chunk_id": 306,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 4,
+            "score": 0.8571583032608032
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 72.87519799956499,
+        "hits": [
+          {
+            "chunk_id": 299,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 1,
+            "score": 0.903907060623169
+          },
+          {
+            "chunk_id": 343,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 15,
+            "score": 0.8936853472181964
+          },
+          {
+            "chunk_id": 114,
+            "document_id": 7,
+            "filename": "msu-cmc-academic-leave-2022.pdf",
+            "page": 1,
+            "score": 0.8754507377475076
+          },
+          {
+            "chunk_id": 105,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 5,
+            "score": 0.8736448287963867
+          },
+          {
+            "chunk_id": 328,
+            "document_id": 10,
+            "filename": "rsuh-academic-leave-2025.pdf",
+            "page": 10,
+            "score": 0.8729164600372314
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 242.4016989998563,
+        "hits": [
+          {
+            "chunk_id": 6,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.8889581759646832
+          },
+          {
+            "chunk_id": 7,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.8699548995548668
+          },
+          {
+            "chunk_id": 10,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.8537730152877612
+          },
+          {
+            "chunk_id": 11,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 2,
+            "score": 0.8521386053314334
+          },
+          {
+            "chunk_id": 9,
+            "document_id": 4,
+            "filename": "hse-cs-grading.pdf",
+            "page": 1,
+            "score": 0.8514606026183497
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 74.10955500017735,
+        "hits": [
+          {
+            "chunk_id": 42,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.9129422358904953
+          },
+          {
+            "chunk_id": 453,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 18,
+            "score": 0.8807122253522605
+          },
+          {
+            "chunk_id": 47,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 8,
+            "score": 0.8759685902632963
+          },
+          {
+            "chunk_id": 45,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 8,
+            "score": 0.8751287013138889
+          },
+          {
+            "chunk_id": 54,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 10,
+            "score": 0.8717253467954895
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 52.45927399982975,
+        "hits": [
+          {
+            "chunk_id": 24,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.8892265028222516
+          },
+          {
+            "chunk_id": 12,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 1,
+            "score": 0.8703714609146118
+          },
+          {
+            "chunk_id": 34,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 5,
+            "score": 0.8683032471952903
+          },
+          {
+            "chunk_id": 54,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 10,
+            "score": 0.8681221784462527
+          },
+          {
+            "chunk_id": 47,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 8,
+            "score": 0.8661928852681602
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 97.17547800028115,
+        "hits": [
+          {
+            "chunk_id": 24,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 3,
+            "score": 0.8787166548540217
+          },
+          {
+            "chunk_id": 41,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 7,
+            "score": 0.8706076818342414
+          },
+          {
+            "chunk_id": 388,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 4,
+            "score": 0.8672872264810085
+          },
+          {
+            "chunk_id": 102,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 4,
+            "score": 0.8662756681442261
+          },
+          {
+            "chunk_id": 645,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 47,
+            "score": 0.8649449348449707
+          }
+        ]
+      },
+      {
+        "id": "q26",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 46.53050600018105,
+        "hits": [
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.8678134679794312
+          },
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.8622081279754639
+          },
+          {
+            "chunk_id": 454,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 18,
+            "score": 0.8606250286102295
+          },
+          {
+            "chunk_id": 47,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 8,
+            "score": 0.860563703741808
+          },
+          {
+            "chunk_id": 450,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.8540993506790042
+          }
+        ]
+      },
+      {
+        "id": "q27",
+        "type": "simple",
+        "rank": 5,
+        "doc_hit": true,
+        "latency_ms": 55.73367299984966,
+        "hits": [
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.8764005899429321
+          },
+          {
+            "chunk_id": 454,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 18,
+            "score": 0.8696777820587158
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.8650215864181519
+          },
+          {
+            "chunk_id": 476,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 22,
+            "score": 0.8624427318572998
+          },
+          {
+            "chunk_id": 405,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 8,
+            "score": 0.8504199981689453
+          }
+        ]
+      },
+      {
+        "id": "q28",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 153.86738899997,
+        "hits": [
+          {
+            "chunk_id": 410,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 9,
+            "score": 0.873915433883667
+          },
+          {
+            "chunk_id": 33,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 5,
+            "score": 0.8711013274728476
+          },
+          {
+            "chunk_id": 34,
+            "document_id": 5,
+            "filename": "hse-dormitory-2017.pdf",
+            "page": 5,
+            "score": 0.870726414279557
+          },
+          {
+            "chunk_id": 416,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 10,
+            "score": 0.8701696991920471
+          },
+          {
+            "chunk_id": 454,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 18,
+            "score": 0.8701006174087524
+          }
+        ]
+      },
+      {
+        "id": "q31",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 127.94982300010815,
+        "hits": [
+          {
+            "chunk_id": 196,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 8,
+            "score": 0.8549065080340813
+          },
+          {
+            "chunk_id": 213,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 12,
+            "score": 0.8531124083332787
+          },
+          {
+            "chunk_id": 288,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 28,
+            "score": 0.8428317495785058
+          },
+          {
+            "chunk_id": 214,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 12,
+            "score": 0.8408527563985877
+          },
+          {
+            "chunk_id": 281,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 27,
+            "score": 0.8383742071167122
+          }
+        ]
+      },
+      {
+        "id": "q32",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 87.02148499969553,
+        "hits": [
+          {
+            "chunk_id": 172,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.8433341383934021
+          },
+          {
+            "chunk_id": 255,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 21,
+            "score": 0.8433322906494141
+          },
+          {
+            "chunk_id": 229,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 15,
+            "score": 0.8416610956192017
+          },
+          {
+            "chunk_id": 171,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 3,
+            "score": 0.8387571977087555
+          },
+          {
+            "chunk_id": 203,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 10,
+            "score": 0.8382709122734733
+          }
+        ]
+      },
+      {
+        "id": "q33",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 68.46509400020295,
+        "hits": [
+          {
+            "chunk_id": 223,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.8831614921592792
+          },
+          {
+            "chunk_id": 224,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 14,
+            "score": 0.8822014998077468
+          },
+          {
+            "chunk_id": 267,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 24,
+            "score": 0.87236487865448
+          },
+          {
+            "chunk_id": 266,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 24,
+            "score": 0.8589080572128296
+          },
+          {
+            "chunk_id": 265,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 23,
+            "score": 0.8588603138923645
+          }
+        ]
+      },
+      {
+        "id": "q34",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 105.33784599965657,
+        "hits": [
+          {
+            "chunk_id": 258,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 22,
+            "score": 0.8669034401293468
+          },
+          {
+            "chunk_id": 260,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 22,
+            "score": 0.8625232659266447
+          },
+          {
+            "chunk_id": 259,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 22,
+            "score": 0.8624646313551743
+          },
+          {
+            "chunk_id": 262,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 23,
+            "score": 0.8591799903893482
+          },
+          {
+            "chunk_id": 219,
+            "document_id": 9,
+            "filename": "nu-student-conduct.pdf",
+            "page": 13,
+            "score": 0.8577517355828458
+          }
+        ]
+      },
+      {
+        "id": "q36",
+        "type": "simple",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 100.89388799997323,
+        "hits": [
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.8656683644254006
+          },
+          {
+            "chunk_id": 630,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 40,
+            "score": 0.8568762711434041
+          },
+          {
+            "chunk_id": 499,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 5,
+            "score": 0.8512654481809797
+          },
+          {
+            "chunk_id": 105,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 5,
+            "score": 0.8485472888620339
+          },
+          {
+            "chunk_id": 542,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 17,
+            "score": 0.8481747092992414
+          }
+        ]
+      },
+      {
+        "id": "q37",
+        "type": "simple",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 82.7779470000678,
+        "hits": [
+          {
+            "chunk_id": 600,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 32,
+            "score": 0.8809470605285743
+          },
+          {
+            "chunk_id": 579,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 27,
+            "score": 0.8687553562217526
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.8683678586263757
+          },
+          {
+            "chunk_id": 594,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 31,
+            "score": 0.866719611482645
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.8656236609444836
+          }
+        ]
+      },
+      {
+        "id": "q39",
+        "type": "paraphrase",
+        "rank": null,
+        "doc_hit": true,
+        "latency_ms": 87.00830499992662,
+        "hits": [
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.871649444103241
+          },
+          {
+            "chunk_id": 484,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 1,
+            "score": 0.8686650395393372
+          },
+          {
+            "chunk_id": 498,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 5,
+            "score": 0.8686017652929359
+          },
+          {
+            "chunk_id": 504,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 6,
+            "score": 0.8664559721946716
+          },
+          {
+            "chunk_id": 565,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 23,
+            "score": 0.8632345795631409
+          }
+        ]
+      },
+      {
+        "id": "q40",
+        "type": "paraphrase",
+        "rank": 1,
+        "doc_hit": true,
+        "latency_ms": 38.358694999715226,
+        "hits": [
+          {
+            "chunk_id": 630,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 40,
+            "score": 0.8752531036282012
+          },
+          {
+            "chunk_id": 493,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 4,
+            "score": 0.8750085979689901
+          },
+          {
+            "chunk_id": 105,
+            "document_id": 6,
+            "filename": "msu-academic-leave-2026.pdf",
+            "page": 5,
+            "score": 0.8716671619812119
+          },
+          {
+            "chunk_id": 499,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 5,
+            "score": 0.870834433287187
+          },
+          {
+            "chunk_id": 632,
+            "document_id": 13,
+            "filename": "tsutmb-scholarships-2023.pdf",
+            "page": 40,
+            "score": 0.8666972676876525
+          }
+        ]
+      }
+    ]
+  },
+  "query_log_before": 2,
+  "corpus": {
+    "documents": 10,
+    "chunks": 644,
+    "sha256": "237478d700f815e724f4e23aa46204f992a039a6f1c0bd6d6ee60dc48e02a26d",
+    "duplicate_filenames": {},
+    "document_ids": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "filenames": [
+      "hse-cs-grading.pdf",
+      "hse-dormitory-2017.pdf",
+      "msu-academic-leave-2026.pdf",
+      "msu-cmc-academic-leave-2022.pdf",
+      "nu-academic-leave-dismissal-2020-ru.pdf",
+      "nu-student-conduct.pdf",
+      "rsuh-academic-leave-2025.pdf",
+      "samgtu-academic-leave.pdf",
+      "tsutmb-dormitory-2019.pdf",
+      "tsutmb-scholarships-2023.pdf"
+    ]
+  },
+  "missing_gold": [],
+  "query_log_after": 2,
+  "query_log_unchanged": true
+}
