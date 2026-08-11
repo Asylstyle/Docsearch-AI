@@ -1,4 +1,6 @@
 """Retrievers share one ready-document chunk snapshot; no QueryLog writes."""
+from functools import lru_cache
+from sentence_transformers import CrossEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -38,3 +40,40 @@ class TfidfRetriever:
 
 def e5_search(db, query, k):
     return search_chunks(db, query, k)
+
+
+RERANKER_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
+
+
+@lru_cache(maxsize=1)
+def cross_encoder():
+    return CrossEncoder(RERANKER_MODEL, device="cpu", trust_remote_code=False)
+
+
+def hybrid_rrf(db, char_search, query, k=20):
+    scores, hits = {}, {}
+    for ranking in (e5_search(db, query, 20), char_search(query, 20)):
+        for rank, hit in enumerate(ranking, 1):
+            hits[hit.chunk_id] = hit
+            scores[hit.chunk_id] = scores.get(hit.chunk_id, 0.0) + 1 / (60 + rank)
+    ids = sorted(scores, key=lambda chunk_id: (-scores[chunk_id], chunk_id))[:k]
+    return [hits[chunk_id].model_copy(update={"score": scores[chunk_id]}) for chunk_id in ids]
+
+
+def rerank(query, candidates):
+    if not candidates:
+        return []
+    # Raw pairs: neither query: nor passage: prefixes belong to this model.
+    scores = cross_encoder().predict([(query, hit.text) for hit in candidates], batch_size=16, show_progress_bar=False)
+    order = sorted(range(len(candidates)), key=lambda i: (-float(scores[i]), candidates[i].chunk_id))
+    return [candidates[i].model_copy(update={"score": float(scores[i])}) for i in order]
+
+
+def e5_rerank(db, query, k=5):
+    candidates = e5_search(db, query, 20)
+    return rerank(query, candidates)[:k], candidates
+
+
+def hybrid_rerank(db, char_search, query, k=5):
+    candidates = hybrid_rrf(db, char_search, query, 20)
+    return rerank(query, candidates)[:k], candidates
