@@ -16,7 +16,8 @@ from sqlalchemy import func, select, text
 from app.config import settings
 from app.db import SessionLocal
 from app.models import QueryLog
-from eval.retrievers import TfidfRetriever, e5_search, load_corpus
+from eval.retrievers import (RERANKER_MODEL, TfidfRetriever, cross_encoder, e5_search,
+                             e5_rerank, hybrid_rrf, hybrid_rerank, load_corpus)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,6 +52,7 @@ def summarize(rows, k):
             f"Hit@{k}": sum(row["rank"] is not None for row in rows) / count,
             f"MRR@{k}": sum(1 / row["rank"] if row["rank"] else 0 for row in rows) / count,
             f"Doc-Hit@{k}": sum(row["doc_hit"] for row in rows) / count,
+            "Hit@20": sum(row["candidate_rank"] is not None for row in rows) / count,
             "mean_search_ms": statistics.mean(row["latency_ms"] for row in rows),
             "by_type": {kind: {"n": len(group), "hits": sum(r["rank"] is not None for r in group),
                                f"Hit@{k}": sum(r["rank"] is not None for r in group) / len(group)}
@@ -63,6 +65,11 @@ def history_count():
         return db.scalar(select(func.count()).select_from(QueryLog))
 
 
+def candidate_pipeline(search, query, k):
+    candidates = search(query, 20)
+    return candidates[:k], candidates
+
+
 def write_reports(report):
     k, split = report["k"], report["split"]
     output = ROOT / "eval/results"
@@ -73,10 +80,13 @@ def write_reports(report):
              f"Answerable questions: {report['answerable_count']}; ignored unanswerable: {report['ignored_unanswerable_count']}.",
              f"Corpus: {report['corpus']['documents']} documents, {report['corpus']['chunks']} chunks; ready only, same repeatable-read snapshot.",
              f"Frozen test hash matches README: {report['test_integrity']['matches']}. Test evaluated: {split == 'test'}.", "",
-             f"| Method | n | Hit@1 | Hit@{k} | MRR@{k} | Doc-Hit@{k} | Mean search ms |",
-             "| --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
+             "n=24, один вопрос ≈ 4 п.п.; различия в Hit@5 менее 10 п.п. следует интерпретировать осторожно: статистическая значимость не проверялась." if report["answerable_count"] == 24 else "Small sample; statistical significance was not evaluated.", "",
+             f"| Method | n | Hit@1 | Hit@{k} | MRR@{k} | Doc-Hit@{k} | Hit@20* | Mean search ms |",
+             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for name, result in report["methods"].items():
-        lines.append(f"| {name} | {result['n']} | {result['Hit@1']:.4f} | {result[f'Hit@{k}']:.4f} | {result[f'MRR@{k}']:.4f} | {result[f'Doc-Hit@{k}']:.4f} | {result['mean_search_ms']:.3f} |")
+        lines.append(f"| {name} | {result['n']} | {result['Hit@1']:.4f} | {result[f'Hit@{k}']:.4f} | {result[f'MRR@{k}']:.4f} | {result[f'Doc-Hit@{k}']:.4f} | {result['Hit@20']:.4f} | {result['mean_search_ms']:.3f} |")
+    lines += ["", "*Hit@20 for rerank methods is PRE-rerank candidate recall, not recall of five returned outputs. Other methods use their genuine first 20 hits. RRF sums 1/(60+rank), rank starts at 1, chunk_id is the fusion key; up to 40 union candidates are truncated to 20 before hybrid reranking.", "",
+              f"Reranker: `{report['settings']['reranker_model']}`, CPU, raw (query, chunk_text) pairs without E5 prefixes. Rerank latency includes fresh candidate retrieval plus CrossEncoder scoring/ranking; no cached-candidate shortcut."]
     lines += ["", f"## Hit@{k} by type", "", "| Method | Type | Hits / n | Hit rate |", "| --- | --- | ---: | ---: |"]
     for name, result in report["methods"].items():
         for kind, values in result["by_type"].items():
@@ -104,6 +114,8 @@ def main():
     args = parser.parse_args()
     if not 1 <= args.k <= 100:
         parser.error("k must be between 1 and 100; report metric names use the supplied k")
+    if args.k > 20:
+        parser.error("rerank methods have only 20 candidates; k must not exceed 20")
     questions = [json.loads(line) for line in (ROOT / "eval/questions.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     integrity = test_integrity(questions)
     selected = [row for row in questions if row["split"] == args.split and row["answerable"]]
@@ -115,11 +127,12 @@ def main():
               "type_denominators": dict(Counter(row["type"] for row in selected)),
               "test_integrity": integrity, "evaluated_questions_sha256": digest(selected),
               "settings": {"embedding_model": settings.EMBEDDING_MODEL, "embedding_dim": settings.EMBEDDING_DIM,
-                           "chunk_size": settings.CHUNK_SIZE, "chunk_overlap": settings.CHUNK_OVERLAP},
+                           "chunk_size": settings.CHUNK_SIZE, "chunk_overlap": settings.CHUNK_OVERLAP,
+                           "reranker_model": RERANKER_MODEL, "reranker_device": "cpu", "rrf_constant": 60},
               "environment": {"platform": platform.platform(), "python": platform.python_version(),
                               "packages": {name: version(name) for name in ("scikit-learn", "sentence-transformers", "torch", "SQLAlchemy", "pgvector")}},
               "setup_timings": {}, "methods": {}, "records": {}, "query_log_before": before}
-    # All three methods see the same transaction snapshot even if the user uploads later.
+        # All methods see the same transaction snapshot even if the user uploads later.
     with SessionLocal() as db:
         db.execute(text("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY"))
         corpus = load_corpus(db)
@@ -143,21 +156,37 @@ def main():
             retrievers[name] = TfidfRetriever(corpus, name).search
             build_ms = (time.perf_counter() - start) * 1000
             start = time.perf_counter()
-            retrievers[name]("прогрев поиска", args.k)
+            retrievers[name]("прогрев поиска", 20)
             report["setup_timings"][name] = {"index_build_ms": build_ms, "warmup_ms": (time.perf_counter() - start) * 1000}
         retrievers["e5"] = lambda query, k: e5_search(db, query, k)
         start = time.perf_counter()
-        retrievers["e5"]("прогрев поиска", args.k)
+        retrievers["e5"]("прогрев поиска", 20)
         report["setup_timings"]["e5"] = {"index_build_ms": 0, "warmup_ms": (time.perf_counter() - start) * 1000}
-        for name, retrieve in retrievers.items():
+        char_search = retrievers["tfidf_char"]
+        pipelines = {name: (lambda query, k, search=retrieve: candidate_pipeline(search, query, k))
+                     for name, retrieve in retrievers.items()}
+        pipelines["hybrid_rrf"] = lambda query, k: candidate_pipeline(lambda q, count: hybrid_rrf(db, char_search, q, count), query, k)
+        start = time.perf_counter()
+        cross_encoder().predict([("прогрев поиска", corpus[0]["text"])], show_progress_bar=False)
+        report["setup_timings"]["cross_encoder_model"] = {"index_build_ms": 0, "warmup_ms": (time.perf_counter() - start) * 1000}
+        pipelines["e5_rerank"] = lambda query, k: e5_rerank(db, query, k)
+        pipelines["hybrid_rerank"] = lambda query, k: hybrid_rerank(db, char_search, query, k)
+        for name in ("hybrid_rrf", "e5_rerank", "hybrid_rerank"):
+            start = time.perf_counter()
+            pipelines[name]("прогрев поиска", args.k)
+            report["setup_timings"][name] = {"index_build_ms": 0, "warmup_ms": (time.perf_counter() - start) * 1000}
+        for name, retrieve in pipelines.items():
             rows = []
             for question in selected:
                 start = time.perf_counter()
-                hits = retrieve(question["question"], args.k)
+                hits, candidates = retrieve(question["question"], args.k)
                 latency = (time.perf_counter() - start) * 1000
                 rank, doc_hit = relevance(question, hits)
+                candidate_rank, _ = relevance(question, candidates[:20])
                 rows.append({"id": question["id"], "type": question["type"], "rank": rank,
+                             "candidate_rank": candidate_rank,
                              "doc_hit": doc_hit, "latency_ms": latency,
+                             "candidate_ids": [hit.chunk_id for hit in candidates[:20]],
                              "hits": [{key: hit.model_dump()[key] for key in ("chunk_id", "document_id", "filename", "page", "score")} for hit in hits]})
             report["methods"][name] = summarize(rows, args.k)
             report["records"][name] = rows
