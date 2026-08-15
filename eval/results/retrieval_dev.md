@@ -6,11 +6,20 @@ Answerable questions: 24; ignored unanswerable: 6.
 Corpus: 10 documents, 644 chunks; ready only, same repeatable-read snapshot.
 Frozen test hash matches README: True. Test evaluated: False.
 
-| Method | n | Hit@1 | Hit@5 | MRR@5 | Doc-Hit@5 | Mean search ms |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| tfidf_word | 24 | 0.2917 | 0.6250 | 0.3896 | 0.9583 | 1.733 |
-| tfidf_char | 24 | 0.3333 | 0.7083 | 0.4701 | 1.0000 | 9.619 |
-| e5 | 24 | 0.5417 | 0.7083 | 0.5951 | 1.0000 | 230.155 |
+n=24, один вопрос ≈ 4 п.п.; различия в Hit@5 менее 10 п.п. следует интерпретировать осторожно: статистическая значимость не проверялась.
+
+| Method | n | Hit@1 | Hit@5 | MRR@5 | Doc-Hit@5 | Hit@20* | Mean search ms |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| tfidf_word | 24 | 0.2917 | 0.6250 | 0.3896 | 0.9583 | 0.8333 | 6.472 |
+| tfidf_char | 24 | 0.3333 | 0.7083 | 0.4701 | 1.0000 | 1.0000 | 12.147 |
+| e5 | 24 | 0.5417 | 0.7083 | 0.5951 | 1.0000 | 0.9167 | 263.154 |
+| hybrid_rrf | 24 | 0.4167 | 0.7917 | 0.5729 | 1.0000 | 1.0000 | 36.878 |
+| e5_rerank | 24 | 0.4167 | 0.7917 | 0.5604 | 1.0000 | 0.9167 | 1386.507 |
+| hybrid_rerank | 24 | 0.3750 | 0.7500 | 0.5243 | 1.0000 | 1.0000 | 1588.138 |
+
+*Hit@20 for rerank methods is PRE-rerank candidate recall, not recall of five returned outputs. Other methods use their genuine first 20 hits. RRF sums 1/(60+rank), rank starts at 1, chunk_id is the fusion key; up to 40 union candidates are truncated to 20 before hybrid reranking.
+
+Reranker: `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`, CPU, raw (query, chunk_text) pairs without E5 prefixes. Rerank latency includes fresh candidate retrieval plus CrossEncoder scoring/ranking; no cached-candidate shortcut.
 
 ## Hit@5 by type
 
@@ -25,14 +34,27 @@ Frozen test hash matches README: True. Test evaluated: False.
 | e5 | cross_university | 4 / 6 | 0.6667 |
 | e5 | paraphrase | 6 / 9 | 0.6667 |
 | e5 | simple | 7 / 9 | 0.7778 |
+| hybrid_rrf | cross_university | 4 / 6 | 0.6667 |
+| hybrid_rrf | paraphrase | 7 / 9 | 0.7778 |
+| hybrid_rrf | simple | 8 / 9 | 0.8889 |
+| e5_rerank | cross_university | 6 / 6 | 1.0000 |
+| e5_rerank | paraphrase | 5 / 9 | 0.5556 |
+| e5_rerank | simple | 8 / 9 | 0.8889 |
+| hybrid_rerank | cross_university | 5 / 6 | 0.8333 |
+| hybrid_rerank | paraphrase | 5 / 9 | 0.5556 |
+| hybrid_rerank | simple | 8 / 9 | 0.8889 |
 
 ## Excluded setup timings
 
 | Method | Index build ms | Warmup ms |
 | --- | ---: | ---: |
-| tfidf_word | 69.932 | 2.001 |
-| tfidf_char | 461.358 | 31.172 |
-| e5 | 0.000 | 15814.094 |
+| tfidf_word | 104.453 | 4.358 |
+| tfidf_char | 694.395 | 66.843 |
+| e5 | 0.000 | 16912.659 |
+| cross_encoder_model | 0.000 | 68211.555 |
+| hybrid_rrf | 0.000 | 1397.540 |
+| e5_rerank | 0.000 | 3543.321 |
+| hybrid_rerank | 0.000 | 1847.375 |
 
 Search timing is wall time around the retriever call. TF-IDF includes query vectorization, cosine similarity, sorting and hit construction. E5 includes query encoding, DB cosine search and hit construction. Imports, index building and one generic warmup per method are excluded. E5 warmup includes model initialization; no separate model-load-only claim is made.
 
