@@ -1,5 +1,6 @@
 """Retrievers share one ready-document chunk snapshot; no QueryLog writes."""
 from functools import lru_cache
+import time
 from sentence_transformers import CrossEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -50,14 +51,23 @@ def cross_encoder():
     return CrossEncoder(RERANKER_MODEL, device="cpu", trust_remote_code=False)
 
 
-def hybrid_rrf(db, char_search, query, k=20):
+def hybrid_rrf(db, char_search, query, k=20, timing=None):
+    start = time.perf_counter()
+    e5_hits = e5_search(db, query, 20)
+    after_e5 = time.perf_counter()
+    char_hits = char_search(query, 20)
+    after_char = time.perf_counter()
     scores, hits = {}, {}
-    for ranking in (e5_search(db, query, 20), char_search(query, 20)):
+    for ranking in (e5_hits, char_hits):
         for rank, hit in enumerate(ranking, 1):
             hits[hit.chunk_id] = hit
             scores[hit.chunk_id] = scores.get(hit.chunk_id, 0.0) + 1 / (60 + rank)
     ids = sorted(scores, key=lambda chunk_id: (-scores[chunk_id], chunk_id))[:k]
-    return [hits[chunk_id].model_copy(update={"score": scores[chunk_id]}) for chunk_id in ids]
+    result = [hits[chunk_id].model_copy(update={"score": scores[chunk_id]}) for chunk_id in ids]
+    if timing is not None:
+        timing.update(e5_ms=(after_e5-start)*1000, char_ms=(after_char-after_e5)*1000,
+                      fusion_ms=(time.perf_counter()-after_char)*1000)
+    return result
 
 
 def rerank(query, candidates):
@@ -69,11 +79,20 @@ def rerank(query, candidates):
     return [candidates[i].model_copy(update={"score": float(scores[i])}) for i in order]
 
 
-def e5_rerank(db, query, k=5):
+def e5_rerank(db, query, k=5, timing=None):
+    start = time.perf_counter()
     candidates = e5_search(db, query, 20)
-    return rerank(query, candidates)[:k], candidates
+    after_candidates = time.perf_counter()
+    result = rerank(query, candidates)[:k]
+    if timing is not None:
+        timing.update(e5_ms=(after_candidates-start)*1000, rerank_ms=(time.perf_counter()-after_candidates)*1000)
+    return result, candidates
 
 
-def hybrid_rerank(db, char_search, query, k=5):
-    candidates = hybrid_rrf(db, char_search, query, 20)
-    return rerank(query, candidates)[:k], candidates
+def hybrid_rerank(db, char_search, query, k=5, timing=None):
+    candidates = hybrid_rrf(db, char_search, query, 20, timing=timing)
+    start = time.perf_counter()
+    result = rerank(query, candidates)[:k]
+    if timing is not None:
+        timing["rerank_ms"] = (time.perf_counter()-start)*1000
+    return result, candidates

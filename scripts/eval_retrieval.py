@@ -8,8 +8,10 @@ import json
 from pathlib import Path
 import platform
 import re
+import random
 import statistics
 import time
+import torch
 
 from sqlalchemy import func, select, text
 
@@ -66,8 +68,21 @@ def history_count():
 
 
 def candidate_pipeline(search, query, k):
+    start = time.perf_counter()
     candidates = search(query, 20)
-    return candidates[:k], candidates
+    return candidates[:k], candidates, {"retrieval_ms": (time.perf_counter()-start)*1000}
+
+
+def hybrid_pipeline(db, char_search, query, k):
+    timing = {}
+    candidates = hybrid_rrf(db, char_search, query, 20, timing=timing)
+    return candidates[:k], candidates, timing
+
+
+def rerank_pipeline(retrieve, query, k):
+    timing = {}
+    hits, candidates = retrieve(query, k, timing)
+    return hits, candidates, timing
 
 
 def write_reports(report):
@@ -94,7 +109,14 @@ def write_reports(report):
     lines += ["", "## Excluded setup timings", "", "| Method | Index build ms | Warmup ms |", "| --- | ---: | ---: |"]
     for name, values in report["setup_timings"].items():
         lines.append(f"| {name} | {values['index_build_ms']:.3f} | {values['warmup_ms']:.3f} |")
-    lines += ["", "Search timing is wall time around the retriever call. TF-IDF includes query vectorization, cosine similarity, sorting and hit construction. E5 includes query encoding, DB cosine search and hit construction. Imports, index building and one generic warmup per method are excluded. E5 warmup includes model initialization; no separate model-load-only claim is made.", "",
+    lines += ["", "Search timing is wall time around the complete retriever call, including all fresh candidate retrieval. TF-IDF includes query vectorization, cosine similarity, sorting and hit construction. E5 includes query encoding, DB cosine search and hit construction. Three fixed non-evaluation strings of varied length warm every pipeline; models/index setup are excluded. Methods are shuffled deterministically per question (seed 42) to avoid fixed method-block order. No candidate or query-embedding cache is added.", "",
+              "## Mean measured components (ms)", "", "| Method | Components |", "| --- | --- |"]
+    for name, rows in report["records"].items():
+        keys = sorted({key for row in rows for key in row["components_ms"]})
+        means = {key: statistics.mean(row["components_ms"].get(key, 0) for row in rows) for key in keys}
+        lines.append(f"| {name} | {json.dumps(means)} |")
+    lines += ["", f"Torch thread state: {report['timing_protocol']['torch_threads']}.",
+              "The prior fixed-block run had E5 min/median/max 36.4/124.6/1215.4 ms, versus RRF 29.9/36.8/43.0 ms. This showed order/startup sensitivity, not evidence that fusion inherently speeds up E5. Installed CPU encode had no general embedding cache (only an unrelated HPU tensor-cache branch). No application memoization exists; each E5 path calls search_chunks -> embed_query -> encode + SQL. Exact low-level runtime cause was not isolated. The corrected protocol and component boundaries are reported rather than claiming statistical significance.", "",
               f"QueryLog before/after: {report['query_log_before']} / {report['query_log_after']}; unchanged: {report['query_log_unchanged']}.",
               f"Duplicate ready filenames: {report['corpus']['duplicate_filenames']}. Missing gold pages: {report['missing_gold']}.", "",
               f"Model setting: `{report['settings']['embedding_model']}`; chunk size/overlap: {report['settings']['chunk_size']} / {report['settings']['chunk_overlap']}.",
@@ -132,6 +154,12 @@ def main():
               "environment": {"platform": platform.platform(), "python": platform.python_version(),
                               "packages": {name: version(name) for name in ("scikit-learn", "sentence-transformers", "torch", "SQLAlchemy", "pgvector")}},
               "setup_timings": {}, "methods": {}, "records": {}, "query_log_before": before}
+    report["timing_protocol"] = {"order": "per-question shuffled methods, seed=42", "torch_threads": {
+        "before_warmup": [torch.get_num_threads(), torch.get_num_interop_threads()]},
+        "warmup_inputs": ["Нужно уточнить порядок подачи заявления.",
+                          "Подскажите, как студенту узнать условия проживания, порядок обращения и сроки оформления документов в университете.",
+                          "Я хочу заранее разобраться с правилами университета. Мне нужно понять порядок подачи заявления, необходимые документы, сроки рассмотрения и обязанности студента. Подскажите, где описаны условия и к кому обращаться за уточнением этой процедуры."],
+        "scope": "timing only; no retrieval settings or gold changes"}
         # All methods see the same transaction snapshot even if the user uploads later.
     with SessionLocal() as db:
         db.execute(text("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY"))
@@ -165,29 +193,39 @@ def main():
         char_search = retrievers["tfidf_char"]
         pipelines = {name: (lambda query, k, search=retrieve: candidate_pipeline(search, query, k))
                      for name, retrieve in retrievers.items()}
-        pipelines["hybrid_rrf"] = lambda query, k: candidate_pipeline(lambda q, count: hybrid_rrf(db, char_search, q, count), query, k)
+        pipelines["hybrid_rrf"] = lambda query, k: hybrid_pipeline(db, char_search, query, k)
         start = time.perf_counter()
         cross_encoder().predict([("прогрев поиска", corpus[0]["text"])], show_progress_bar=False)
         report["setup_timings"]["cross_encoder_model"] = {"index_build_ms": 0, "warmup_ms": (time.perf_counter() - start) * 1000}
-        pipelines["e5_rerank"] = lambda query, k: e5_rerank(db, query, k)
-        pipelines["hybrid_rerank"] = lambda query, k: hybrid_rerank(db, char_search, query, k)
-        for name in ("hybrid_rrf", "e5_rerank", "hybrid_rerank"):
+        pipelines["e5_rerank"] = lambda query, k: rerank_pipeline(lambda q, count, timing: e5_rerank(db, q, count, timing), query, k)
+        pipelines["hybrid_rerank"] = lambda query, k: rerank_pipeline(lambda q, count, timing: hybrid_rerank(db, char_search, q, count, timing), query, k)
+        for name in pipelines:
             start = time.perf_counter()
-            pipelines[name]("прогрев поиска", args.k)
-            report["setup_timings"][name] = {"index_build_ms": 0, "warmup_ms": (time.perf_counter() - start) * 1000}
-        for name, retrieve in pipelines.items():
-            rows = []
-            for question in selected:
+            for warmup_query in report["timing_protocol"]["warmup_inputs"]:
+                pipelines[name](warmup_query, args.k)
+            report["setup_timings"].setdefault(name, {"index_build_ms": 0, "warmup_ms": 0})
+            report["setup_timings"][name]["warmup_ms"] += (time.perf_counter() - start) * 1000
+        report["timing_protocol"]["torch_threads"]["after_warmup"] = [torch.get_num_threads(), torch.get_num_interop_threads()]
+        rows_by_method = {name: [] for name in pipelines}
+        order_rng = random.Random(42)
+        for question in selected:
+            method_order = list(pipelines)
+            order_rng.shuffle(method_order)
+            for name in method_order:
+                retrieve = pipelines[name]
                 start = time.perf_counter()
-                hits, candidates = retrieve(question["question"], args.k)
+                hits, candidates, components = retrieve(question["question"], args.k)
                 latency = (time.perf_counter() - start) * 1000
                 rank, doc_hit = relevance(question, hits)
                 candidate_rank, _ = relevance(question, candidates[:20])
-                rows.append({"id": question["id"], "type": question["type"], "rank": rank,
+                rows_by_method[name].append({"id": question["id"], "type": question["type"], "rank": rank,
+                             "components_ms": components,
                              "candidate_rank": candidate_rank,
                              "doc_hit": doc_hit, "latency_ms": latency,
                              "candidate_ids": [hit.chunk_id for hit in candidates[:20]],
                              "hits": [{key: hit.model_dump()[key] for key in ("chunk_id", "document_id", "filename", "page", "score")} for hit in hits]})
+        report["timing_protocol"]["torch_threads"]["after_measurement"] = [torch.get_num_threads(), torch.get_num_interop_threads()]
+        for name, rows in rows_by_method.items():
             report["methods"][name] = summarize(rows, args.k)
             report["records"][name] = rows
             print(f"DONE {name}: {report['methods'][name]}", flush=True)
