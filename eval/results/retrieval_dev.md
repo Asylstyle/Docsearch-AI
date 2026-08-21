@@ -10,12 +10,12 @@ n=24, один вопрос ≈ 4 п.п.; различия в Hit@5 менее 1
 
 | Method | n | Hit@1 | Hit@5 | MRR@5 | Doc-Hit@5 | Hit@20* | Mean search ms |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| tfidf_word | 24 | 0.2917 | 0.6250 | 0.3896 | 0.9583 | 0.8333 | 6.472 |
-| tfidf_char | 24 | 0.3333 | 0.7083 | 0.4701 | 1.0000 | 1.0000 | 12.147 |
-| e5 | 24 | 0.5417 | 0.7083 | 0.5951 | 1.0000 | 0.9167 | 263.154 |
-| hybrid_rrf | 24 | 0.4167 | 0.7917 | 0.5729 | 1.0000 | 1.0000 | 36.878 |
-| e5_rerank | 24 | 0.4167 | 0.7917 | 0.5604 | 1.0000 | 0.9167 | 1386.507 |
-| hybrid_rerank | 24 | 0.3750 | 0.7500 | 0.5243 | 1.0000 | 1.0000 | 1588.138 |
+| tfidf_word | 24 | 0.2917 | 0.6250 | 0.3896 | 0.9583 | 0.8333 | 26.654 |
+| tfidf_char | 24 | 0.3333 | 0.7083 | 0.4701 | 1.0000 | 1.0000 | 12.692 |
+| e5 | 24 | 0.5417 | 0.7083 | 0.5951 | 1.0000 | 0.9167 | 44.216 |
+| hybrid_rrf | 24 | 0.4167 | 0.7917 | 0.5729 | 1.0000 | 1.0000 | 59.069 |
+| e5_rerank | 24 | 0.4167 | 0.7917 | 0.5604 | 1.0000 | 0.9167 | 1533.007 |
+| hybrid_rerank | 24 | 0.3750 | 0.7500 | 0.5243 | 1.0000 | 1.0000 | 1590.383 |
 
 *Hit@20 for rerank methods is PRE-rerank candidate recall, not recall of five returned outputs. Other methods use their genuine first 20 hits. RRF sums 1/(60+rank), rank starts at 1, chunk_id is the fusion key; up to 40 union candidates are truncated to 20 before hybrid reranking.
 
@@ -48,15 +48,29 @@ Reranker: `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`, CPU, raw (query, chunk_t
 
 | Method | Index build ms | Warmup ms |
 | --- | ---: | ---: |
-| tfidf_word | 104.453 | 4.358 |
-| tfidf_char | 694.395 | 66.843 |
-| e5 | 0.000 | 16912.659 |
-| cross_encoder_model | 0.000 | 68211.555 |
-| hybrid_rrf | 0.000 | 1397.540 |
-| e5_rerank | 0.000 | 3543.321 |
-| hybrid_rerank | 0.000 | 1847.375 |
+| tfidf_word | 91.118 | 56.777 |
+| tfidf_char | 571.661 | 260.373 |
+| e5 | 0.000 | 13815.261 |
+| cross_encoder_model | 0.000 | 12535.996 |
+| hybrid_rrf | 0.000 | 153.080 |
+| e5_rerank | 0.000 | 8293.527 |
+| hybrid_rerank | 0.000 | 3487.309 |
 
-Search timing is wall time around the retriever call. TF-IDF includes query vectorization, cosine similarity, sorting and hit construction. E5 includes query encoding, DB cosine search and hit construction. Imports, index building and one generic warmup per method are excluded. E5 warmup includes model initialization; no separate model-load-only claim is made.
+Search timing is wall time around the complete retriever call, including all fresh candidate retrieval. TF-IDF includes query vectorization, cosine similarity, sorting and hit construction. E5 includes query encoding, DB cosine search and hit construction. Three fixed non-evaluation strings of varied length warm every pipeline; models/index setup are excluded. Methods are shuffled deterministically per question (seed 42) to avoid fixed method-block order. No candidate or query-embedding cache is added.
+
+## Mean measured components (ms)
+
+| Method | Components |
+| --- | --- |
+| tfidf_word | {"retrieval_ms": 26.632610416641} |
+| tfidf_char | {"retrieval_ms": 12.627365249916997} |
+| e5 | {"retrieval_ms": 44.1992877500752} |
+| hybrid_rrf | {"char_ms": 12.387421958313402, "e5_ms": 46.541215708316486, "fusion_ms": 0.10356729167900387} |
+| e5_rerank | {"e5_ms": 47.27472587489956, "rerank_ms": 1485.7001493332973} |
+| hybrid_rerank | {"char_ms": 11.467070375033472, "e5_ms": 44.02172791662906, "fusion_ms": 0.09442174992576231, "rerank_ms": 1534.7500399584153} |
+
+Torch thread state: {'before_warmup': [6, 6], 'after_warmup': [6, 6], 'after_measurement': [6, 6]}.
+The prior fixed-block run had E5 min/median/max 36.4/124.6/1215.4 ms, versus RRF 29.9/36.8/43.0 ms. This showed order/startup sensitivity, not evidence that fusion inherently speeds up E5. Installed CPU encode had no general embedding cache (only an unrelated HPU tensor-cache branch). No application memoization exists; each E5 path calls search_chunks -> embed_query -> encode + SQL. Exact low-level runtime cause was not isolated. The corrected protocol and component boundaries are reported rather than claiming statistical significance.
 
 QueryLog before/after: 2 / 2; unchanged: True.
 Duplicate ready filenames: {}. Missing gold pages: [].

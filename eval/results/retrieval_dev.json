@@ -1,7 +1,7 @@
 {
   "split": "dev",
   "k": 5,
-  "created_at": "2026-10-23T22:43:32.251693+00:00",
+  "created_at": "2026-10-23T22:52:02.449560+00:00",
   "answerable_count": 24,
   "ignored_unanswerable_count": 6,
   "type_denominators": {
@@ -37,32 +37,32 @@
   },
   "setup_timings": {
     "tfidf_word": {
-      "index_build_ms": 104.45295900080964,
-      "warmup_ms": 4.357962000540283
+      "index_build_ms": 91.11753500019404,
+      "warmup_ms": 56.77652699978353
     },
     "tfidf_char": {
-      "index_build_ms": 694.3945650000387,
-      "warmup_ms": 66.84341300024244
+      "index_build_ms": 571.6609029996107,
+      "warmup_ms": 260.3733670002839
     },
     "e5": {
       "index_build_ms": 0,
-      "warmup_ms": 16912.65935499996
+      "warmup_ms": 13815.261143999123
     },
     "cross_encoder_model": {
       "index_build_ms": 0,
-      "warmup_ms": 68211.5551119996
+      "warmup_ms": 12535.996446999889
     },
     "hybrid_rrf": {
       "index_build_ms": 0,
-      "warmup_ms": 1397.540081000443
+      "warmup_ms": 153.08001499943202
     },
     "e5_rerank": {
       "index_build_ms": 0,
-      "warmup_ms": 3543.3209140001054
+      "warmup_ms": 8293.526517999453
     },
     "hybrid_rerank": {
       "index_build_ms": 0,
-      "warmup_ms": 1847.375235999607
+      "warmup_ms": 3487.3087269997995
     }
   },
   "methods": {
@@ -73,7 +73,7 @@
       "MRR@5": 0.38958333333333334,
       "Doc-Hit@5": 0.9583333333333334,
       "Hit@20": 0.8333333333333334,
-      "mean_search_ms": 6.472468750113573,
+      "mean_search_ms": 26.65435145831907,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -99,7 +99,7 @@
       "MRR@5": 0.47013888888888894,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 12.14741125003608,
+      "mean_search_ms": 12.691751999985476,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -125,7 +125,7 @@
       "MRR@5": 0.5951388888888889,
       "Doc-Hit@5": 1.0,
       "Hit@20": 0.9166666666666666,
-      "mean_search_ms": 263.15395341672837,
+      "mean_search_ms": 44.216309666732435,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -151,7 +151,7 @@
       "MRR@5": 0.5729166666666667,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 36.87765620835156,
+      "mean_search_ms": 59.06917608331241,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -177,7 +177,7 @@
       "MRR@5": 0.5604166666666667,
       "Doc-Hit@5": 1.0,
       "Hit@20": 0.9166666666666666,
-      "mean_search_ms": 1386.5072674165806,
+      "mean_search_ms": 1533.0066200416088,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -203,7 +203,7 @@
       "MRR@5": 0.5243055555555556,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 1588.138050916579,
+      "mean_search_ms": 1590.382557708305,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -229,9 +229,12 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 12.22037299976364
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 51.36365700036549,
+        "latency_ms": 12.24811099928047,
         "candidate_ids": [
           110,
           371,
@@ -296,9 +299,12 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 5.794933999823115
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 9.982833000321989,
+        "latency_ms": 5.8093480001844,
         "candidate_ids": [
           110,
           117,
@@ -363,9 +369,12 @@
         "id": "q07",
         "type": "cross_university",
         "rank": 5,
+        "components_ms": {
+          "retrieval_ms": 5.769974000031652
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 10.146640000129992,
+        "latency_ms": 5.781787000159966,
         "candidate_ids": [
           371,
           163,
@@ -430,9 +439,12 @@
         "id": "q09",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 16.76457899975503
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 14.783704000365105,
+        "latency_ms": 16.786660999969172,
         "candidate_ids": [
           120,
           177,
@@ -497,9 +509,12 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 5.264978999548475
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 4.466143000172451,
+        "latency_ms": 5.277551000290259,
         "candidate_ids": [
           120,
           289,
@@ -564,9 +579,12 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 7.319008000195026
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 5.470721000165213,
+        "latency_ms": 7.329023999773199,
         "candidate_ids": [
           135,
           148,
@@ -631,9 +649,12 @@
         "id": "q13",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 8.772747999501007
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 5.599189000349725,
+        "latency_ms": 8.788051000010455,
         "candidate_ids": [
           299,
           343,
@@ -698,9 +719,12 @@
         "id": "q15",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 12.454588000764488
+        },
         "candidate_rank": 18,
         "doc_hit": true,
-        "latency_ms": 3.5280540005260264,
+        "latency_ms": 12.471331000597274,
         "candidate_ids": [
           343,
           299,
@@ -765,9 +789,12 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 18.042075999801455
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 4.71068099977856,
+        "latency_ms": 18.064588000015647,
         "candidate_ids": [
           299,
           343,
@@ -832,9 +859,12 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 8.83162700029061
+        },
         "candidate_rank": 7,
         "doc_hit": false,
-        "latency_ms": 3.848838000521937,
+        "latency_ms": 8.84557599965774,
         "candidate_ids": [
           114,
           81,
@@ -899,9 +929,12 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 21.94631699967431
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3.732422999746632,
+        "latency_ms": 21.964102999845636,
         "candidate_ids": [
           42,
           12,
@@ -966,9 +999,12 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 6.015261000356986
+        },
         "candidate_rank": 15,
         "doc_hit": true,
-        "latency_ms": 3.0675309999423916,
+        "latency_ms": 6.023667000590649,
         "candidate_ids": [
           12,
           503,
@@ -1033,9 +1069,12 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 435.40555100025813
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3.684044999317848,
+        "latency_ms": 435.4964209996979,
         "candidate_ids": [
           21,
           66,
@@ -1100,9 +1139,12 @@
         "id": "q26",
         "type": "simple",
         "rank": 5,
+        "components_ms": {
+          "retrieval_ms": 10.948579999421781
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 4.176655000264873,
+        "latency_ms": 10.975643000165292,
         "candidate_ids": [
           372,
           484,
@@ -1167,9 +1209,12 @@
         "id": "q27",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 5.7267190004495205
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 3.1196310001178063,
+        "latency_ms": 5.741655999372597,
         "candidate_ids": [
           449,
           372,
@@ -1234,9 +1279,12 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 7.719793999967806
+        },
         "candidate_rank": 11,
         "doc_hit": true,
-        "latency_ms": 2.4088979998850846,
+        "latency_ms": 7.744176999949559,
         "candidate_ids": [
           449,
           372,
@@ -1301,9 +1349,12 @@
         "id": "q31",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "retrieval_ms": 5.395050000515766
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 2.7775980006481404,
+        "latency_ms": 5.406137000136368,
         "candidate_ids": [
           231,
           193,
@@ -1368,9 +1419,12 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 8.489642999848002
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 2.5688879995868774,
+        "latency_ms": 8.542565999960061,
         "candidate_ids": [
           172,
           211,
@@ -1435,9 +1489,12 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 4,
+        "components_ms": {
+          "retrieval_ms": 6.201433000569523
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 2.719823999541404,
+        "latency_ms": 6.214330000148038,
         "candidate_ids": [
           267,
           265,
@@ -1502,9 +1559,12 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 6.206544999258767
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 2.5124170006165514,
+        "latency_ms": 6.220643999768072,
         "candidate_ids": [
           228,
           278,
@@ -1569,9 +1629,12 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 5.478123999637319
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 2.520242999707989,
+        "latency_ms": 5.4894599998078775,
         "candidate_ids": [
           484,
           521,
@@ -1636,9 +1699,12 @@
         "id": "q37",
         "type": "simple",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 5.0788190001185285
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1.9060120002905023,
+        "latency_ms": 5.0926090007124,
         "candidate_ids": [
           548,
           484,
@@ -1703,9 +1769,12 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": 5,
+        "components_ms": {
+          "retrieval_ms": 6.016845999511133
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 3.815936999671976,
+        "latency_ms": 6.033628999830398,
         "candidate_ids": [
           484,
           372,
@@ -1770,9 +1839,12 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 7.3190820003219415
+        },
         "candidate_rank": 18,
         "doc_hit": true,
-        "latency_ms": 2.4286880006911815,
+        "latency_ms": 7.357364999734273,
         "candidate_ids": [
           484,
           372,
@@ -1839,9 +1911,12 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 7.8088119998938055
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 42.273639000086405,
+        "latency_ms": 7.822388000022329,
         "candidate_ids": [
           110,
           221,
@@ -1906,9 +1981,12 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 11.286438000752241
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 14.689646999613615,
+        "latency_ms": 11.30326300062734,
         "candidate_ids": [
           110,
           103,
@@ -1973,9 +2051,12 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 10.706670999752532
+        },
         "candidate_rank": 16,
         "doc_hit": true,
-        "latency_ms": 14.028790000338631,
+        "latency_ms": 10.720816000684863,
         "candidate_ids": [
           371,
           370,
@@ -2040,9 +2121,12 @@
         "id": "q09",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 19.14844200018706
+        },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 12.646479999602889,
+        "latency_ms": 19.692189999659604,
         "candidate_ids": [
           120,
           121,
@@ -2107,9 +2191,12 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 5,
+        "components_ms": {
+          "retrieval_ms": 14.784723999582638
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 11.380136999832757,
+        "latency_ms": 14.815399000326579,
         "candidate_ids": [
           121,
           120,
@@ -2174,9 +2261,12 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 13.288946000102442
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 14.452510999944934,
+        "latency_ms": 13.308921000316332,
         "candidate_ids": [
           135,
           338,
@@ -2241,9 +2331,12 @@
         "id": "q13",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 11.62894499975664
+        },
         "candidate_rank": 7,
         "doc_hit": true,
-        "latency_ms": 10.214551999524701,
+        "latency_ms": 11.644864999652782,
         "candidate_ids": [
           343,
           299,
@@ -2308,9 +2401,12 @@
         "id": "q15",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 9.619788999771117
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 10.145006000129797,
+        "latency_ms": 9.630253000068478,
         "candidate_ids": [
           328,
           299,
@@ -2375,9 +2471,12 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 14.338750000206346
+        },
         "candidate_rank": 12,
         "doc_hit": true,
-        "latency_ms": 11.531538000781438,
+        "latency_ms": 14.35936599955312,
         "candidate_ids": [
           299,
           110,
@@ -2442,9 +2541,12 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 9.430748000340827
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 11.379368999769213,
+        "latency_ms": 9.445398000025307,
         "candidate_ids": [
           7,
           6,
@@ -2509,9 +2611,12 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 14.681406999443425
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 9.204560000398487,
+        "latency_ms": 14.70327900005941,
         "candidate_ids": [
           42,
           449,
@@ -2576,9 +2681,12 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 12.848977999965427
+        },
         "candidate_rank": 8,
         "doc_hit": true,
-        "latency_ms": 11.533175999829837,
+        "latency_ms": 12.87400000001071,
         "candidate_ids": [
           12,
           50,
@@ -2643,9 +2751,12 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 18.723334999776853
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 11.133670999697642,
+        "latency_ms": 19.26718999948207,
         "candidate_ids": [
           21,
           24,
@@ -2710,9 +2821,12 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "retrieval_ms": 14.453232000050775
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 10.683605000849639,
+        "latency_ms": 14.481502999842633,
         "candidate_ids": [
           373,
           449,
@@ -2777,9 +2891,12 @@
         "id": "q27",
         "type": "simple",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 16.496070999892254
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 9.91568199970061,
+        "latency_ms": 16.543671999897924,
         "candidate_ids": [
           21,
           449,
@@ -2844,9 +2961,12 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 10.768211000140582
+        },
         "candidate_rank": 11,
         "doc_hit": true,
-        "latency_ms": 9.798709000278905,
+        "latency_ms": 10.79047300027014,
         "candidate_ids": [
           41,
           449,
@@ -2911,9 +3031,12 @@
         "id": "q31",
         "type": "simple",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 13.021239999943646
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 8.976133999567537,
+        "latency_ms": 13.041825999607681,
         "candidate_ids": [
           231,
           204,
@@ -2978,9 +3101,12 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 10.770672999569797
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 8.513456000400765,
+        "latency_ms": 10.79943400054617,
         "candidate_ids": [
           172,
           211,
@@ -3045,9 +3171,12 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "retrieval_ms": 13.994035999530752
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 9.566251000251214,
+        "latency_ms": 14.009720999638375,
         "candidate_ids": [
           267,
           224,
@@ -3112,9 +3241,12 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": 4,
+        "components_ms": {
+          "retrieval_ms": 10.399384000265854
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 9.919102000822022,
+        "latency_ms": 10.415423999802442,
         "candidate_ids": [
           259,
           265,
@@ -3179,9 +3311,12 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 9.169418999590562
+        },
         "candidate_rank": 7,
         "doc_hit": true,
-        "latency_ms": 11.559198999748332,
+        "latency_ms": 9.183145999486442,
         "candidate_ids": [
           521,
           484,
@@ -3246,9 +3381,12 @@
         "id": "q37",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "retrieval_ms": 9.947102999831259
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 9.57235199985007,
+        "latency_ms": 9.96687600036239,
         "candidate_ids": [
           548,
           601,
@@ -3313,9 +3451,12 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 12.640266999369487
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 9.24226600000111,
+        "latency_ms": 12.652424000407336,
         "candidate_ids": [
           484,
           493,
@@ -3380,9 +3521,12 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 13.10114500029158
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 9.178037999845401,
+        "latency_ms": 13.130220999300946,
         "candidate_ids": [
           491,
           493,
@@ -3449,9 +3593,12 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 61.25420100033807
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1145.9282940004414,
+        "latency_ms": 61.28073499985476,
         "candidate_ids": [
           110,
           98,
@@ -3516,9 +3663,12 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 30.056853000132833
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 311.51488900013646,
+        "latency_ms": 30.08141899954353,
         "candidate_ids": [
           110,
           105,
@@ -3583,9 +3733,12 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 28.85909700034972
+        },
         "candidate_rank": 13,
         "doc_hit": true,
-        "latency_ms": 342.1761649997279,
+        "latency_ms": 28.871477999928175,
         "candidate_ids": [
           369,
           371,
@@ -3650,9 +3803,12 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 59.63187999986985
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 493.6050559999785,
+        "latency_ms": 59.6464330001254,
         "candidate_ids": [
           132,
           120,
@@ -3717,9 +3873,12 @@
         "id": "q10",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 28.532691000691557
+        },
         "candidate_rank": 17,
         "doc_hit": true,
-        "latency_ms": 1215.4187689993705,
+        "latency_ms": 28.547580000122252,
         "candidate_ids": [
           122,
           120,
@@ -3784,9 +3943,12 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 3,
+        "components_ms": {
+          "retrieval_ms": 60.30521000047884
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 316.7445669996596,
+        "latency_ms": 60.32595500073512,
         "candidate_ids": [
           149,
           103,
@@ -3851,9 +4013,12 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "components_ms": {
+          "retrieval_ms": 33.61363900057768
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 183.45092500021565,
+        "latency_ms": 33.630537999670196,
         "candidate_ids": [
           343,
           299,
@@ -3918,9 +4083,12 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "retrieval_ms": 32.9808589995082
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 130.0723479998851,
+        "latency_ms": 32.99726400018699,
         "candidate_ids": [
           299,
           328,
@@ -3985,9 +4153,12 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 63.672018999568536
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 89.70201400006772,
+        "latency_ms": 63.68473099973926,
         "candidate_ids": [
           299,
           343,
@@ -4052,9 +4223,12 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 36.16915800012066
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 580.6271199999173,
+        "latency_ms": 36.190439999700175,
         "candidate_ids": [
           6,
           7,
@@ -4119,9 +4293,12 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 59.43034299980354
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 281.0326009994242,
+        "latency_ms": 59.44631300008041,
         "candidate_ids": [
           42,
           453,
@@ -4186,9 +4363,12 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 28.864140000223415
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 43.75214500032598,
+        "latency_ms": 28.890311999930418,
         "candidate_ids": [
           24,
           12,
@@ -4253,9 +4433,12 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 92.0769719996315
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 36.41547300048842,
+        "latency_ms": 92.10278599948651,
         "candidate_ids": [
           24,
           41,
@@ -4320,9 +4503,12 @@
         "id": "q26",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 30.170371000167506
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 41.33938199993281,
+        "latency_ms": 30.189685000550526,
         "candidate_ids": [
           449,
           416,
@@ -4387,9 +4573,12 @@
         "id": "q27",
         "type": "simple",
         "rank": 5,
+        "components_ms": {
+          "retrieval_ms": 26.448667999829922
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 264.9891850005588,
+        "latency_ms": 26.458602000275278,
         "candidate_ids": [
           416,
           454,
@@ -4454,9 +4643,12 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 29.631948999849556
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 189.39956600024743,
+        "latency_ms": 29.64410900040093,
         "candidate_ids": [
           410,
           33,
@@ -4521,9 +4713,12 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 60.41967400051362
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 55.619380000280216,
+        "latency_ms": 60.43101100021886,
         "candidate_ids": [
           196,
           213,
@@ -4588,9 +4783,12 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 24.3355699994936
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 119.22027400032675,
+        "latency_ms": 24.345190000531147,
         "candidate_ids": [
           172,
           255,
@@ -4655,9 +4853,12 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 49.01912600053038
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 95.45954799978063,
+        "latency_ms": 49.03053899943188,
         "candidate_ids": [
           223,
           224,
@@ -4722,9 +4923,12 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 30.49543600081961
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 89.68695400017168,
+        "latency_ms": 30.510003000017605,
         "candidate_ids": [
           258,
           260,
@@ -4789,9 +4993,12 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 40.22671399980027
+        },
         "candidate_rank": 10,
         "doc_hit": true,
-        "latency_ms": 89.22972600066714,
+        "latency_ms": 40.24212200056354,
         "candidate_ids": [
           493,
           630,
@@ -4856,9 +5063,12 @@
         "id": "q37",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 34.72736899948359
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 101.16538199963543,
+        "latency_ms": 34.745950000797166,
         "candidate_ids": [
           600,
           579,
@@ -4923,9 +5133,12 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "retrieval_ms": 63.08984200040868
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 45.749075000458106,
+        "latency_ms": 63.102506999712205,
         "candidate_ids": [
           493,
           484,
@@ -4990,9 +5203,12 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "retrieval_ms": 56.771124999613676
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 53.396043999782705,
+        "latency_ms": 56.795729999976174,
         "candidate_ids": [
           630,
           493,
@@ -5059,9 +5275,14 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 71.58009900012985,
+          "char_ms": 21.94579099978,
+          "fusion_ms": 0.09241799943993101
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 37.686484000005294,
+        "latency_ms": 93.70249400035391,
         "candidate_ids": [
           110,
           97,
@@ -5126,9 +5347,14 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 54.263693999928364,
+          "char_ms": 13.316431000021112,
+          "fusion_ms": 0.09526299982098863
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 29.86404799958109,
+        "latency_ms": 67.70710599994345,
         "candidate_ids": [
           110,
           103,
@@ -5193,9 +5419,14 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 47.42652300046757,
+          "char_ms": 18.209224000202084,
+          "fusion_ms": 0.08461000015813624
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 32.04742200068722,
+        "latency_ms": 65.7516660003239,
         "candidate_ids": [
           371,
           362,
@@ -5260,9 +5491,14 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 3,
+        "components_ms": {
+          "e5_ms": 29.09797600023012,
+          "char_ms": 9.611992999452923,
+          "fusion_ms": 0.08208700000977842
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 31.17222499986383,
+        "latency_ms": 38.82436599997163,
         "candidate_ids": [
           120,
           121,
@@ -5327,9 +5563,14 @@
         "id": "q10",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 58.254573000340315,
+          "char_ms": 9.474217999922985,
+          "fusion_ms": 0.07922900022094836
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 33.17594700001791,
+        "latency_ms": 67.83457699930295,
         "candidate_ids": [
           120,
           121,
@@ -5394,9 +5635,14 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 28.41041600004246,
+          "char_ms": 9.4207029997051,
+          "fusion_ms": 0.08293500013678567
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 32.389547000093444,
+        "latency_ms": 37.939058000119985,
         "candidate_ids": [
           103,
           136,
@@ -5461,9 +5707,14 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 3,
+        "components_ms": {
+          "e5_ms": 32.425063000118826,
+          "char_ms": 9.67533499988349,
+          "fusion_ms": 0.07650999941688497
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 35.27135400054249,
+        "latency_ms": 42.200790999231685,
         "candidate_ids": [
           343,
           299,
@@ -5528,9 +5779,14 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 30.51097400020808,
+          "char_ms": 21.894139000323776,
+          "fusion_ms": 0.1853140001912834
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 33.48373100016033,
+        "latency_ms": 52.65205900013825,
         "candidate_ids": [
           299,
           328,
@@ -5595,9 +5851,14 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 33.96933400017588,
+          "char_ms": 9.390106999489944,
+          "fusion_ms": 0.0728230006643571
+        },
         "candidate_rank": 20,
         "doc_hit": true,
-        "latency_ms": 36.48748900013743,
+        "latency_ms": 43.466574999911245,
         "candidate_ids": [
           299,
           343,
@@ -5662,9 +5923,14 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 143.88737499939452,
+          "char_ms": 17.3971160002111,
+          "fusion_ms": 0.12201099980302388
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 34.322539999266155,
+        "latency_ms": 161.43840899985662,
         "candidate_ids": [
           6,
           7,
@@ -5729,9 +5995,14 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 32.98970099967846,
+          "char_ms": 10.055794999971113,
+          "fusion_ms": 0.09394999960932182
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 42.952296000294155,
+        "latency_ms": 43.166344000383106,
         "candidate_ids": [
           42,
           381,
@@ -5796,9 +6067,14 @@
         "id": "q22",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 34.19459900032962,
+          "char_ms": 8.607945000221662,
+          "fusion_ms": 0.08267399971373379
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 38.213890000406536,
+        "latency_ms": 42.91002100035257,
         "candidate_ids": [
           12,
           91,
@@ -5863,9 +6139,14 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 116.0215949994381,
+          "char_ms": 12.104440000257455,
+          "fusion_ms": 0.18840800021280302
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 36.67555800075206,
+        "latency_ms": 128.35492900012468,
         "candidate_ids": [
           24,
           41,
@@ -5930,9 +6211,14 @@
         "id": "q26",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 26.500425000449468,
+          "char_ms": 9.591215000000375,
+          "fusion_ms": 0.09417099954589503
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 38.8012350003919,
+        "latency_ms": 36.216428999978234,
         "candidate_ids": [
           449,
           416,
@@ -5997,9 +6283,14 @@
         "id": "q27",
         "type": "simple",
         "rank": 3,
+        "components_ms": {
+          "e5_ms": 26.31243900032132,
+          "char_ms": 7.891047999692091,
+          "fusion_ms": 0.07264400028361706
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 36.9688139999198,
+        "latency_ms": 34.300008000172966,
         "candidate_ids": [
           449,
           416,
@@ -6064,9 +6355,14 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 29.630374999214837,
+          "char_ms": 11.332098000821134,
+          "fusion_ms": 0.10547999954724219
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 40.45778599993355,
+        "latency_ms": 41.09640399929049,
         "candidate_ids": [
           34,
           410,
@@ -6131,9 +6427,14 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 29.018817999713065,
+          "char_ms": 12.813227000151528,
+          "fusion_ms": 0.09092199979932047
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 37.073720999615034,
+        "latency_ms": 41.949757000111276,
         "candidate_ids": [
           196,
           213,
@@ -6198,9 +6499,14 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 20.972606000214,
+          "char_ms": 7.722564999312453,
+          "fusion_ms": 0.0852230004966259
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 35.3520259996003,
+        "latency_ms": 28.805320999708783,
         "candidate_ids": [
           172,
           171,
@@ -6265,9 +6571,14 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 50.75552099970082,
+          "char_ms": 12.58934900033637,
+          "fusion_ms": 0.09189600041281665
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 41.18759199991473,
+        "latency_ms": 63.46024600043165,
         "candidate_ids": [
           267,
           224,
@@ -6332,9 +6643,14 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 26.497073999962595,
+          "char_ms": 14.38534599947161,
+          "fusion_ms": 0.10033099988504546
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 35.07205400001112,
+        "latency_ms": 41.0397980003836,
         "candidate_ids": [
           259,
           258,
@@ -6399,9 +6715,14 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 37.43999200014514,
+          "char_ms": 10.195634000410791,
+          "fusion_ms": 0.0866129994392395
+        },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 42.5834739999118,
+        "latency_ms": 47.75883799993608,
         "candidate_ids": [
           493,
           484,
@@ -6466,9 +6787,14 @@
         "id": "q37",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 37.9404240002259,
+          "char_ms": 15.650065000045288,
+          "fusion_ms": 0.1426660001015989
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 40.76034499939851,
+        "latency_ms": 53.77212799976405,
         "candidate_ids": [
           600,
           484,
@@ -6533,9 +6859,14 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 46.50026599938428,
+          "char_ms": 9.423819999938132,
+          "fusion_ms": 0.07198600087576779
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 41.55117899972538,
+        "latency_ms": 56.02321900005336,
         "candidate_ids": [
           484,
           493,
@@ -6600,9 +6931,14 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 72.38931499978207,
+          "char_ms": 14.600522999899113,
+          "fusion_ms": 0.20545100051094778
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 41.512992000207305,
+        "latency_ms": 87.28968299965345,
         "candidate_ids": [
           630,
           493,
@@ -6669,9 +7005,13 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 53.93425399961416,
+          "rerank_ms": 3199.699957000121
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 2232.473143999414,
+        "latency_ms": 3253.6680429993794,
         "candidate_ids": [
           110,
           98,
@@ -6736,9 +7076,13 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 30.062806000387354,
+          "rerank_ms": 1058.4161019996827
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 2079.3792060003398,
+        "latency_ms": 1088.5076310005388,
         "candidate_ids": [
           110,
           105,
@@ -6803,9 +7147,13 @@
         "id": "q07",
         "type": "cross_university",
         "rank": 5,
+        "components_ms": {
+          "e5_ms": 50.130036999689764,
+          "rerank_ms": 1420.074841999849
+        },
         "candidate_rank": 13,
         "doc_hit": true,
-        "latency_ms": 1140.3770120004992,
+        "latency_ms": 1470.2211020003233,
         "candidate_ids": [
           369,
           371,
@@ -6870,9 +7218,13 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 28.89905699976225,
+          "rerank_ms": 1213.0105180003738
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1226.005654999426,
+        "latency_ms": 1241.934035999293,
         "candidate_ids": [
           132,
           120,
@@ -6937,9 +7289,13 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 33.20215299936535,
+          "rerank_ms": 1044.5986600007018
+        },
         "candidate_rank": 17,
         "doc_hit": true,
-        "latency_ms": 994.7689549999268,
+        "latency_ms": 1077.834595999775,
         "candidate_ids": [
           122,
           120,
@@ -7004,9 +7360,13 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 31.49573800055805,
+          "rerank_ms": 1090.9817129995645
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1093.9246449997881,
+        "latency_ms": 1122.495708000315,
         "candidate_ids": [
           149,
           103,
@@ -7071,9 +7431,13 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 32.55387100034568,
+          "rerank_ms": 3231.5773689997513
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 1072.3818719998235,
+        "latency_ms": 3264.167475999784,
         "candidate_ids": [
           343,
           299,
@@ -7138,9 +7502,13 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 87.73174900034064,
+          "rerank_ms": 1551.4997000000221
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 2049.845896000079,
+        "latency_ms": 1639.3092879998221,
         "candidate_ids": [
           299,
           328,
@@ -7205,9 +7573,13 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 31.867043999227462,
+          "rerank_ms": 1236.3241410002956
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 1108.5086369994315,
+        "latency_ms": 1268.2251389996964,
         "candidate_ids": [
           299,
           343,
@@ -7272,9 +7644,13 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 33.038013999430405,
+          "rerank_ms": 1326.028110000152
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3935.705685999892,
+        "latency_ms": 1359.1065470000103,
         "candidate_ids": [
           6,
           7,
@@ -7339,9 +7715,13 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 29.04851899984351,
+          "rerank_ms": 1206.5119419994517
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1293.047934000242,
+        "latency_ms": 1235.5817799998476,
         "candidate_ids": [
           42,
           453,
@@ -7406,9 +7786,13 @@
         "id": "q22",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 87.16770399951201,
+          "rerank_ms": 1183.400625000104
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1091.1248980000892,
+        "latency_ms": 1270.6006880007408,
         "candidate_ids": [
           24,
           12,
@@ -7473,9 +7857,13 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 39.61216300012893,
+          "rerank_ms": 1135.9882039996592
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1067.9971189993012,
+        "latency_ms": 1175.6210339999598,
         "candidate_ids": [
           24,
           41,
@@ -7540,9 +7928,13 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 24.186756999370118,
+          "rerank_ms": 1428.790939999999
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1181.610047000504,
+        "latency_ms": 1453.0087550001554,
         "candidate_ids": [
           449,
           416,
@@ -7607,9 +7999,13 @@
         "id": "q27",
         "type": "simple",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 46.06039600002987,
+          "rerank_ms": 1855.2745349998077
+        },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 1220.6982950001475,
+        "latency_ms": 1901.3742479992288,
         "candidate_ids": [
           416,
           454,
@@ -7674,9 +8070,13 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 85.12154300024122,
+          "rerank_ms": 1185.1885730002323
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1113.6463459997685,
+        "latency_ms": 1270.3424800001812,
         "candidate_ids": [
           410,
           33,
@@ -7741,9 +8141,13 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 34.09842199926061,
+          "rerank_ms": 3279.627478000293
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1079.4148109998787,
+        "latency_ms": 3313.7749959996654,
         "candidate_ids": [
           196,
           213,
@@ -7808,9 +8212,13 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 35.18773400082864,
+          "rerank_ms": 1014.5645809998314
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1061.619401999451,
+        "latency_ms": 1049.7810169999866,
         "candidate_ids": [
           172,
           255,
@@ -7875,9 +8283,13 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 74.59661599932588,
+          "rerank_ms": 1165.9309169999688
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1230.122295000001,
+        "latency_ms": 1240.562788000716,
         "candidate_ids": [
           223,
           224,
@@ -7942,9 +8354,13 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 63.515961000121024,
+          "rerank_ms": 1048.9958959997239
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1089.3769949998386,
+        "latency_ms": 1112.5273749994449,
         "candidate_ids": [
           258,
           260,
@@ -8009,9 +8425,13 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 28.048625999872456,
+          "rerank_ms": 1220.5620880004062
+        },
         "candidate_rank": 10,
         "doc_hit": true,
-        "latency_ms": 1326.2964920004379,
+        "latency_ms": 1248.6410120000073,
         "candidate_ids": [
           493,
           630,
@@ -8076,9 +8496,13 @@
         "id": "q37",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 54.47422700035531,
+          "rerank_ms": 1265.122472999792
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1277.4930549994679,
+        "latency_ms": 1319.6181060002345,
         "candidate_ids": [
           600,
           579,
@@ -8143,9 +8567,13 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 79.78118800019729,
+          "rerank_ms": 1125.7541469994976
+        },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 1194.4212669995977,
+        "latency_ms": 1205.5609499993807,
         "candidate_ids": [
           493,
           484,
@@ -8210,9 +8638,13 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 40.778841999781434,
+          "rerank_ms": 1168.8800729998547
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1115.934754000591,
+        "latency_ms": 1209.6940860001268,
         "candidate_ids": [
           630,
           493,
@@ -8279,9 +8711,15 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 32.35446100006811,
+          "char_ms": 9.611741999833612,
+          "fusion_ms": 0.12160900041635614,
+          "rerank_ms": 1153.8752329997806
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1242.0790709993526,
+        "latency_ms": 1196.0085880000406,
         "candidate_ids": [
           110,
           97,
@@ -8346,9 +8784,15 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 25.02446200014674,
+          "char_ms": 8.994128999802342,
+          "fusion_ms": 0.08270400030596647,
+          "rerank_ms": 1087.1807909998097
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1259.2497039995578,
+        "latency_ms": 1121.3406810002198,
         "candidate_ids": [
           110,
           103,
@@ -8413,9 +8857,15 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 33.479450000413635,
+          "char_ms": 9.086527000363276,
+          "fusion_ms": 0.08145499941747403,
+          "rerank_ms": 1188.376325999343
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1140.5350040004123,
+        "latency_ms": 1231.0783080001784,
         "candidate_ids": [
           371,
           362,
@@ -8480,9 +8930,15 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 38.573770999391854,
+          "char_ms": 10.708456999964255,
+          "fusion_ms": 0.08081600026343949,
+          "rerank_ms": 1079.4633920004344
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1060.0789630007057,
+        "latency_ms": 1128.8885109997864,
         "candidate_ids": [
           120,
           121,
@@ -8547,9 +9003,15 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 64.88573699971312,
+          "char_ms": 23.011392000626074,
+          "fusion_ms": 0.13865499931853265,
+          "rerank_ms": 1162.9882100005489
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 3118.4032930004832,
+        "latency_ms": 1251.0708680001699,
         "candidate_ids": [
           120,
           121,
@@ -8614,9 +9076,15 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 32.74019499986025,
+          "char_ms": 9.437521000108973,
+          "fusion_ms": 0.17146599930129014,
+          "rerank_ms": 3222.1692359998997
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1023.3601849995466,
+        "latency_ms": 3264.5755319999807,
         "candidate_ids": [
           103,
           136,
@@ -8681,9 +9149,15 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 57.489726999847335,
+          "char_ms": 14.570692000233976,
+          "fusion_ms": 0.08632299977762159,
+          "rerank_ms": 1110.6074050003372
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 970.3058559998681,
+        "latency_ms": 1182.7913380002428,
         "candidate_ids": [
           343,
           299,
@@ -8748,9 +9222,15 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 36.995002000367094,
+          "char_ms": 9.651907999796094,
+          "fusion_ms": 0.08845499996823492,
+          "rerank_ms": 3769.8418879999736
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 4167.364287000055,
+        "latency_ms": 3816.6207759995814,
         "candidate_ids": [
           299,
           328,
@@ -8815,9 +9295,15 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 25.182959000630945,
+          "char_ms": 9.660676999374118,
+          "fusion_ms": 0.09129600039159413,
+          "rerank_ms": 1133.0472850004298
+        },
         "candidate_rank": 20,
         "doc_hit": true,
-        "latency_ms": 3263.0587319999904,
+        "latency_ms": 1168.0280909995417,
         "candidate_ids": [
           299,
           343,
@@ -8882,9 +9368,15 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 73.62695200026792,
+          "char_ms": 15.031256999463949,
+          "fusion_ms": 0.0794770003267331,
+          "rerank_ms": 1474.8182140001518
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1537.4866049996854,
+        "latency_ms": 1563.5930870002994,
         "candidate_ids": [
           6,
           7,
@@ -8949,9 +9441,15 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 23.564041000099678,
+          "char_ms": 11.520501000632066,
+          "fusion_ms": 0.08380299914279021,
+          "rerank_ms": 1362.978223999562
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1268.0645479995292,
+        "latency_ms": 1398.177845999271,
         "candidate_ids": [
           42,
           381,
@@ -9016,9 +9514,15 @@
         "id": "q22",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 25.65519099971425,
+          "char_ms": 9.171931999844674,
+          "fusion_ms": 0.08851999973558122,
+          "rerank_ms": 1483.523497000533
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1144.874302000062,
+        "latency_ms": 1518.5024989996236,
         "candidate_ids": [
           12,
           91,
@@ -9083,9 +9587,15 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 91.28931699979148,
+          "char_ms": 11.666633999993792,
+          "fusion_ms": 0.07872500009398209,
+          "rerank_ms": 1266.3238450004428
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1108.6743960004242,
+        "latency_ms": 1369.4013300000734,
         "candidate_ids": [
           24,
           41,
@@ -9150,9 +9660,15 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 94.68206099973031,
+          "char_ms": 17.71550900048169,
+          "fusion_ms": 0.1201979994220892,
+          "rerank_ms": 1741.9456019997597
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1218.2882010001777,
+        "latency_ms": 1854.5144250001613,
         "candidate_ids": [
           449,
           416,
@@ -9217,9 +9733,15 @@
         "id": "q27",
         "type": "simple",
         "rank": 4,
+        "components_ms": {
+          "e5_ms": 45.38449600022432,
+          "char_ms": 9.534986999824469,
+          "fusion_ms": 0.08872800026438199,
+          "rerank_ms": 1774.060250999355
+        },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1159.3930379995072,
+        "latency_ms": 1829.1080670005613,
         "candidate_ids": [
           449,
           416,
@@ -9284,9 +9806,15 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 29.843798000001698,
+          "char_ms": 9.10344800013263,
+          "fusion_ms": 0.07696000011492288,
+          "rerank_ms": 1695.8580250002342
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 2207.3502889998053,
+        "latency_ms": 1734.9151600001278,
         "candidate_ids": [
           34,
           410,
@@ -9351,9 +9879,15 @@
         "id": "q31",
         "type": "simple",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 23.881277999862505,
+          "char_ms": 12.741349999487284,
+          "fusion_ms": 0.07736099996691337,
+          "rerank_ms": 1580.7824439998512
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 980.31388399977,
+        "latency_ms": 1617.5160020002295,
         "candidate_ids": [
           196,
           213,
@@ -9418,9 +9952,15 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 46.22725199988054,
+          "char_ms": 10.39418799973646,
+          "fusion_ms": 0.09803900047700154,
+          "rerank_ms": 1661.554540999532
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1067.5619289995666,
+        "latency_ms": 1718.3909929999572,
         "candidate_ids": [
           172,
           171,
@@ -9485,9 +10025,15 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "components_ms": {
+          "e5_ms": 37.70276599971112,
+          "char_ms": 9.795998000299733,
+          "fusion_ms": 0.08274399988295045,
+          "rerank_ms": 1190.0443969998378
+        },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1271.6524769994066,
+        "latency_ms": 1237.689718999718,
         "candidate_ids": [
           267,
           224,
@@ -9552,9 +10098,15 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 29.48826299962093,
+          "char_ms": 9.12449400038895,
+          "fusion_ms": 0.08944899946072837,
+          "rerank_ms": 1061.2029870007973
+        },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 1080.341273999693,
+        "latency_ms": 1099.9456669997016,
         "candidate_ids": [
           259,
           258,
@@ -9619,9 +10171,15 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 53.74066100011987,
+          "char_ms": 11.827459999949497,
+          "fusion_ms": 0.09018600030685775,
+          "rerank_ms": 1403.1778230000782
+        },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 1227.5940170002286,
+        "latency_ms": 1468.8788479998038,
         "candidate_ids": [
           493,
           484,
@@ -9686,9 +10244,15 @@
         "id": "q37",
         "type": "simple",
         "rank": 3,
+        "components_ms": {
+          "e5_ms": 36.20172599949001,
+          "char_ms": 10.451719999764464,
+          "fusion_ms": 0.0880050001796917,
+          "rerank_ms": 1441.6308760000902
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1272.8369250007745,
+        "latency_ms": 1488.409909999973,
         "candidate_ids": [
           600,
           484,
@@ -9753,9 +10317,15 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "components_ms": {
+          "e5_ms": 41.32590000062919,
+          "char_ms": 11.451213999862375,
+          "fusion_ms": 0.08634599998913473,
+          "rerank_ms": 1202.958958000636
+        },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1143.6649979996218,
+        "latency_ms": 1255.8731059998536,
         "candidate_ids": [
           484,
           493,
@@ -9820,9 +10390,15 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 2,
+        "components_ms": {
+          "e5_ms": 57.18200399951456,
+          "char_ms": 10.945952000838588,
+          "fusion_ms": 0.09480199969402747,
+          "rerank_ms": 1585.591509000551
+        },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3182.7812439996706,
+        "latency_ms": 1653.8620330002232,
         "candidate_ids": [
           630,
           493,
@@ -9886,6 +10462,29 @@
     ]
   },
   "query_log_before": 2,
+  "timing_protocol": {
+    "order": "per-question shuffled methods, seed=42",
+    "torch_threads": {
+      "before_warmup": [
+        6,
+        6
+      ],
+      "after_warmup": [
+        6,
+        6
+      ],
+      "after_measurement": [
+        6,
+        6
+      ]
+    },
+    "warmup_inputs": [
+      "Нужно уточнить порядок подачи заявления.",
+      "Подскажите, как студенту узнать условия проживания, порядок обращения и сроки оформления документов в университете.",
+      "Я хочу заранее разобраться с правилами университета. Мне нужно понять порядок подачи заявления, необходимые документы, сроки рассмотрения и обязанности студента. Подскажите, где описаны условия и к кому обращаться за уточнением этой процедуры."
+    ],
+    "scope": "timing only; no retrieval settings or gold changes"
+  },
   "corpus": {
     "documents": 10,
     "chunks": 644,
