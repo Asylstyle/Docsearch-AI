@@ -56,10 +56,10 @@ def answer_question(db, question, k=5) -> AnswerResult:
 
     # Preserve answer numbering; map references only to actual retrieved fragments.
     numbers = [int(number) for number in re.findall(r"\[(\d+)\]", answer)]
-    if not numbers or any(number < 1 or number > len(hits) for number in numbers):
-        raise RuntimeError("LLM returned missing or invalid source references")
     sources, seen = [], set()
     for number in numbers:
+        if not 1 <= number <= len(hits):
+            continue
         hit = hits[number - 1]
         identity = (hit.document_id, hit.page)
         if identity not in seen:
