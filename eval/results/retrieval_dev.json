@@ -1,7 +1,7 @@
 {
   "split": "dev",
   "k": 5,
-  "created_at": "2026-10-23T22:52:02.449560+00:00",
+  "created_at": "2026-10-23T23:01:45.115023+00:00",
   "answerable_count": 24,
   "ignored_unanswerable_count": 6,
   "type_denominators": {
@@ -10,11 +10,11 @@
     "simple": 9
   },
   "test_integrity": {
-    "expected": "369910a237ad347605eafe18b76192db51681e357fd37e17d5a8caf60c76836f",
-    "actual": "369910a237ad347605eafe18b76192db51681e357fd37e17d5a8caf60c76836f",
+    "expected": "a89172651d233cb9ddde66c68939cc51377ab20a40066b337644917c3773b0f2",
+    "actual": "a89172651d233cb9ddde66c68939cc51377ab20a40066b337644917c3773b0f2",
     "matches": true
   },
-  "evaluated_questions_sha256": "97fbf7f2da1ddc9ff8325c6e83fc7674521bb15ca0396d5944f2f4f75c98c012",
+  "evaluated_questions_sha256": "5e175890b865be39a8074381ae32050534da92db0596995271ba9f887c58af20",
   "settings": {
     "embedding_model": "intfloat/multilingual-e5-small",
     "embedding_dim": 384,
@@ -37,32 +37,32 @@
   },
   "setup_timings": {
     "tfidf_word": {
-      "index_build_ms": 91.11753500019404,
-      "warmup_ms": 56.77652699978353
+      "index_build_ms": 75.71666599960736,
+      "warmup_ms": 38.77785499935271
     },
     "tfidf_char": {
-      "index_build_ms": 571.6609029996107,
-      "warmup_ms": 260.3733670002839
+      "index_build_ms": 540.42243800086,
+      "warmup_ms": 116.59063200113451
     },
     "e5": {
       "index_build_ms": 0,
-      "warmup_ms": 13815.261143999123
+      "warmup_ms": 13260.445898000398
     },
     "cross_encoder_model": {
       "index_build_ms": 0,
-      "warmup_ms": 12535.996446999889
+      "warmup_ms": 6640.465086000404
     },
     "hybrid_rrf": {
       "index_build_ms": 0,
-      "warmup_ms": 153.08001499943202
+      "warmup_ms": 110.97900900040258
     },
     "e5_rerank": {
       "index_build_ms": 0,
-      "warmup_ms": 8293.526517999453
+      "warmup_ms": 6214.832437000041
     },
     "hybrid_rerank": {
       "index_build_ms": 0,
-      "warmup_ms": 3487.3087269997995
+      "warmup_ms": 3728.8082839995695
     }
   },
   "methods": {
@@ -72,8 +72,10 @@
       "Hit@5": 0.625,
       "MRR@5": 0.38958333333333334,
       "Doc-Hit@5": 0.9583333333333334,
-      "Hit@20": 0.8333333333333334,
-      "mean_search_ms": 26.65435145831907,
+      "Hit@20": 0.875,
+      "mean_search_ms": 2.0655212917214762,
+      "p50_ms": 1.963937500022439,
+      "p95_ms": 2.657998149788909,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -96,10 +98,12 @@
       "n": 24,
       "Hit@1": 0.3333333333333333,
       "Hit@5": 0.7083333333333334,
-      "MRR@5": 0.47013888888888894,
+      "MRR@5": 0.48750000000000004,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 12.691751999985476,
+      "mean_search_ms": 9.001243916713975,
+      "p50_ms": 8.723020000161341,
+      "p95_ms": 10.835095000038562,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -121,11 +125,13 @@
     "e5": {
       "n": 24,
       "Hit@1": 0.5416666666666666,
-      "Hit@5": 0.7083333333333334,
-      "MRR@5": 0.5951388888888889,
+      "Hit@5": 0.75,
+      "MRR@5": 0.6111111111111112,
       "Doc-Hit@5": 1.0,
       "Hit@20": 0.9166666666666666,
-      "mean_search_ms": 44.216309666732435,
+      "mean_search_ms": 31.88543033343194,
+      "p50_ms": 29.895218500314513,
+      "p95_ms": 39.00791114983803,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -134,8 +140,8 @@
         },
         "paraphrase": {
           "n": 9,
-          "hits": 6,
-          "Hit@5": 0.6666666666666666
+          "hits": 7,
+          "Hit@5": 0.7777777777777778
         },
         "simple": {
           "n": 9,
@@ -146,12 +152,14 @@
     },
     "hybrid_rrf": {
       "n": 24,
-      "Hit@1": 0.4166666666666667,
+      "Hit@1": 0.4583333333333333,
       "Hit@5": 0.7916666666666666,
-      "MRR@5": 0.5729166666666667,
+      "MRR@5": 0.6041666666666667,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 59.06917608331241,
+      "mean_search_ms": 43.30781412500073,
+      "p50_ms": 41.31963000008909,
+      "p95_ms": 53.82189465008195,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -172,12 +180,14 @@
     },
     "e5_rerank": {
       "n": 24,
-      "Hit@1": 0.4166666666666667,
-      "Hit@5": 0.7916666666666666,
-      "MRR@5": 0.5604166666666667,
+      "Hit@1": 0.4583333333333333,
+      "Hit@5": 0.8333333333333334,
+      "MRR@5": 0.6124999999999999,
       "Doc-Hit@5": 1.0,
       "Hit@20": 0.9166666666666666,
-      "mean_search_ms": 1533.0066200416088,
+      "mean_search_ms": 1188.4112812499552,
+      "p50_ms": 1153.9782634999938,
+      "p95_ms": 1419.956257399599,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -186,8 +196,8 @@
         },
         "paraphrase": {
           "n": 9,
-          "hits": 5,
-          "Hit@5": 0.5555555555555556
+          "hits": 6,
+          "Hit@5": 0.6666666666666666
         },
         "simple": {
           "n": 9,
@@ -198,12 +208,14 @@
     },
     "hybrid_rerank": {
       "n": 24,
-      "Hit@1": 0.375,
-      "Hit@5": 0.75,
-      "MRR@5": 0.5243055555555556,
+      "Hit@1": 0.4166666666666667,
+      "Hit@5": 0.7916666666666666,
+      "MRR@5": 0.576388888888889,
       "Doc-Hit@5": 1.0,
       "Hit@20": 1.0,
-      "mean_search_ms": 1590.382557708305,
+      "mean_search_ms": 1268.3080472084687,
+      "p50_ms": 1235.245507500622,
+      "p95_ms": 1554.0446504005104,
       "by_type": {
         "cross_university": {
           "n": 6,
@@ -212,8 +224,8 @@
         },
         "paraphrase": {
           "n": 9,
-          "hits": 5,
-          "Hit@5": 0.5555555555555556
+          "hits": 6,
+          "Hit@5": 0.6666666666666666
         },
         "simple": {
           "n": 9,
@@ -229,12 +241,17 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          12.34854699941934,
+          1.7445740004404797,
+          1.5159410004343954
+        ],
         "components_ms": {
-          "retrieval_ms": 12.22037299976364
+          "retrieval_ms": 1.7384949996994692
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 12.24811099928047,
+        "latency_ms": 1.7445740004404797,
         "candidate_ids": [
           110,
           371,
@@ -299,12 +316,17 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          5.244097999820951,
+          1.825749999625259,
+          1.4887799998177798
+        ],
         "components_ms": {
-          "retrieval_ms": 5.794933999823115
+          "retrieval_ms": 1.8179310000050464
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 5.8093480001844,
+        "latency_ms": 1.825749999625259,
         "candidate_ids": [
           110,
           117,
@@ -369,12 +391,17 @@
         "id": "q07",
         "type": "cross_university",
         "rank": 5,
+        "repeat_latencies_ms": [
+          9.230650999597856,
+          1.7983880006795516,
+          1.5841069998714374
+        ],
         "components_ms": {
-          "retrieval_ms": 5.769974000031652
+          "retrieval_ms": 1.7931400007000775
         },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 5.781787000159966,
+        "latency_ms": 1.7983880006795516,
         "candidate_ids": [
           371,
           163,
@@ -439,12 +466,17 @@
         "id": "q09",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          12.550933999591507,
+          2.0851170002060826,
+          1.787821999641892
+        ],
         "components_ms": {
-          "retrieval_ms": 16.76457899975503
+          "retrieval_ms": 2.0790110002053552
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 16.786660999969172,
+        "latency_ms": 2.0851170002060826,
         "candidate_ids": [
           120,
           177,
@@ -509,12 +541,17 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 3,
+        "repeat_latencies_ms": [
+          9.344541999780631,
+          2.855964000445965,
+          2.125154999703227
+        ],
         "components_ms": {
-          "retrieval_ms": 5.264978999548475
+          "retrieval_ms": 2.847167000254558
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 5.277551000290259,
+        "latency_ms": 2.855964000445965,
         "candidate_ids": [
           120,
           289,
@@ -579,12 +616,17 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          7.142385999941325,
+          1.5822639998077648,
+          1.3779730006717728
+        ],
         "components_ms": {
-          "retrieval_ms": 7.319008000195026
+          "retrieval_ms": 1.5764400004627532
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 7.329023999773199,
+        "latency_ms": 1.5822639998077648,
         "candidate_ids": [
           135,
           148,
@@ -649,12 +691,17 @@
         "id": "q13",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          7.180593000157387,
+          2.684283999769832,
+          1.6865500001586042
+        ],
         "components_ms": {
-          "retrieval_ms": 8.772747999501007
+          "retrieval_ms": 2.6748259997475543
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 8.788051000010455,
+        "latency_ms": 2.684283999769832,
         "candidate_ids": [
           299,
           343,
@@ -719,12 +766,17 @@
         "id": "q15",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          10.634402999130543,
+          2.280091000102402,
+          2.092339999762771
+        ],
         "components_ms": {
-          "retrieval_ms": 12.454588000764488
+          "retrieval_ms": 2.2714560000167694
         },
         "candidate_rank": 18,
         "doc_hit": true,
-        "latency_ms": 12.471331000597274,
+        "latency_ms": 2.280091000102402,
         "candidate_ids": [
           343,
           299,
@@ -789,12 +841,17 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": 3,
+        "repeat_latencies_ms": [
+          17.705455999930564,
+          2.3993100003281143,
+          1.8707019999055774
+        ],
         "components_ms": {
-          "retrieval_ms": 18.042075999801455
+          "retrieval_ms": 2.3917569997138344
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 18.064588000015647,
+        "latency_ms": 2.3993100003281143,
         "candidate_ids": [
           299,
           343,
@@ -859,12 +916,17 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          7.311095999284589,
+          1.8400139997538645,
+          1.6163620002771495
+        ],
         "components_ms": {
-          "retrieval_ms": 8.83162700029061
+          "retrieval_ms": 1.8339140005991794
         },
         "candidate_rank": 7,
         "doc_hit": false,
-        "latency_ms": 8.84557599965774,
+        "latency_ms": 1.8400139997538645,
         "candidate_ids": [
           114,
           81,
@@ -929,12 +991,17 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          6.507001000500168,
+          1.8524379993323237,
+          1.6026889998101979
+        ],
         "components_ms": {
-          "retrieval_ms": 21.94631699967431
+          "retrieval_ms": 1.8452719996275846
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 21.964102999845636,
+        "latency_ms": 1.8524379993323237,
         "candidate_ids": [
           42,
           12,
@@ -999,12 +1066,17 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          5.949645000328019,
+          2.0450379997782875,
+          2.1498409996638657
+        ],
         "components_ms": {
-          "retrieval_ms": 6.015261000356986
+          "retrieval_ms": 2.1424670003398205
         },
         "candidate_rank": 15,
         "doc_hit": true,
-        "latency_ms": 6.023667000590649,
+        "latency_ms": 2.1498409996638657,
         "candidate_ids": [
           12,
           503,
@@ -1069,12 +1141,17 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          6.299324999417877,
+          2.4617299995952635,
+          1.8706520004343474
+        ],
         "components_ms": {
-          "retrieval_ms": 435.40555100025813
+          "retrieval_ms": 2.4532209999961196
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 435.4964209996979,
+        "latency_ms": 2.4617299995952635,
         "candidate_ids": [
           21,
           66,
@@ -1139,12 +1216,17 @@
         "id": "q26",
         "type": "simple",
         "rank": 5,
+        "repeat_latencies_ms": [
+          14.418793999539048,
+          1.75548599963804,
+          1.573974000166345
+        ],
         "components_ms": {
-          "retrieval_ms": 10.948579999421781
+          "retrieval_ms": 1.7484529998910148
         },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 10.975643000165292,
+        "latency_ms": 1.75548599963804,
         "candidate_ids": [
           372,
           484,
@@ -1209,33 +1291,38 @@
         "id": "q27",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          8.110904000204755,
+          1.930708000145387,
+          1.8033480000667623
+        ],
         "components_ms": {
-          "retrieval_ms": 5.7267190004495205
+          "retrieval_ms": 1.92214500020782
         },
-        "candidate_rank": null,
+        "candidate_rank": 11,
         "doc_hit": true,
-        "latency_ms": 5.741655999372597,
+        "latency_ms": 1.930708000145387,
         "candidate_ids": [
           449,
           372,
           416,
           484,
-          461,
-          481,
-          493,
           373,
+          493,
+          461,
+          410,
+          481,
           480,
+          406,
+          437,
+          379,
+          455,
+          454,
+          411,
           627,
           476,
-          464,
-          485,
-          454,
-          483,
-          446,
-          602,
-          379,
-          426,
-          490
+          409,
+          475
         ],
         "hits": [
           {
@@ -1243,35 +1330,35 @@
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 17,
-            "score": 0.18382769078180328
+            "score": 0.1466650104627332
           },
           {
             "chunk_id": 372,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 1,
-            "score": 0.1582921083693556
+            "score": 0.1335860980547161
           },
           {
             "chunk_id": 416,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 10,
-            "score": 0.13854239212558275
+            "score": 0.12729912927935755
           },
           {
             "chunk_id": 484,
             "document_id": 13,
             "filename": "tsutmb-scholarships-2023.pdf",
             "page": 1,
-            "score": 0.12206777463108576
+            "score": 0.10301560753199282
           },
           {
-            "chunk_id": 461,
+            "chunk_id": 373,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 20,
-            "score": 0.11376148844611106
+            "page": 2,
+            "score": 0.08625854902625449
           }
         ]
       },
@@ -1279,12 +1366,17 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          9.650615000282414,
+          1.9971669998994912,
+          1.6281039997920743
+        ],
         "components_ms": {
-          "retrieval_ms": 7.719793999967806
+          "retrieval_ms": 1.9900779998351936
         },
         "candidate_rank": 11,
         "doc_hit": true,
-        "latency_ms": 7.744176999949559,
+        "latency_ms": 1.9971669998994912,
         "candidate_ids": [
           449,
           372,
@@ -1349,12 +1441,17 @@
         "id": "q31",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          7.3457640000924584,
+          1.926494000144885,
+          1.6747909994592192
+        ],
         "components_ms": {
-          "retrieval_ms": 5.395050000515766
+          "retrieval_ms": 1.9201690001864335
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 5.406137000136368,
+        "latency_ms": 1.926494000144885,
         "candidate_ids": [
           231,
           193,
@@ -1419,12 +1516,17 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          9.012489000269852,
+          2.0772280004166532,
+          1.551819000269461
+        ],
         "components_ms": {
-          "retrieval_ms": 8.489642999848002
+          "retrieval_ms": 2.0699100005003856
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 8.542565999960061,
+        "latency_ms": 2.0772280004166532,
         "candidate_ids": [
           172,
           211,
@@ -1489,12 +1591,17 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 4,
+        "repeat_latencies_ms": [
+          7.102882999788562,
+          1.8134179999833577,
+          1.7681640001683263
+        ],
         "components_ms": {
-          "retrieval_ms": 6.201433000569523
+          "retrieval_ms": 1.8067580003844341
         },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 6.214330000148038,
+        "latency_ms": 1.8134179999833577,
         "candidate_ids": [
           267,
           265,
@@ -1559,12 +1666,17 @@
         "id": "q34",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          7.538910000221222,
+          1.8705420006881468,
+          1.4818699992247275
+        ],
         "components_ms": {
-          "retrieval_ms": 6.206544999258767
+          "retrieval_ms": 1.8627929994181613
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 6.220643999768072,
+        "latency_ms": 1.8705420006881468,
         "candidate_ids": [
           228,
           278,
@@ -1629,12 +1741,17 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          6.96386999970855,
+          2.283960000568186,
+          1.9388090004213154
+        ],
         "components_ms": {
-          "retrieval_ms": 5.478123999637319
+          "retrieval_ms": 2.2757890001230408
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 5.4894599998078775,
+        "latency_ms": 2.283960000568186,
         "candidate_ids": [
           484,
           521,
@@ -1699,12 +1816,17 @@
         "id": "q37",
         "type": "simple",
         "rank": 3,
+        "repeat_latencies_ms": [
+          6.036183000105666,
+          2.024473999881593,
+          1.6127819999383064
+        ],
         "components_ms": {
-          "retrieval_ms": 5.0788190001185285
+          "retrieval_ms": 2.017982999859669
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 5.0926090007124,
+        "latency_ms": 2.024473999881593,
         "candidate_ids": [
           548,
           484,
@@ -1769,12 +1891,17 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": 5,
+        "repeat_latencies_ms": [
+          5.785014000139199,
+          1.8242240003019106,
+          1.494187000389502
+        ],
         "components_ms": {
-          "retrieval_ms": 6.016845999511133
+          "retrieval_ms": 1.8183060001319973
         },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 6.033628999830398,
+        "latency_ms": 1.8242240003019106,
         "candidate_ids": [
           484,
           372,
@@ -1839,12 +1966,17 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          5.717241999263933,
+          2.5090449998970143,
+          1.859032999163901
+        ],
         "components_ms": {
-          "retrieval_ms": 7.3190820003219415
+          "retrieval_ms": 2.4991569998746854
         },
         "candidate_rank": 18,
         "doc_hit": true,
-        "latency_ms": 7.357364999734273,
+        "latency_ms": 2.5090449998970143,
         "candidate_ids": [
           484,
           372,
@@ -1911,12 +2043,17 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          8.814826999696379,
+          8.809294999991835,
+          8.703741999852355
+        ],
         "components_ms": {
-          "retrieval_ms": 7.8088119998938055
+          "retrieval_ms": 8.799586000350246
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 7.822388000022329,
+        "latency_ms": 8.809294999991835,
         "candidate_ids": [
           110,
           221,
@@ -1981,12 +2118,17 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          11.367505999260175,
+          7.944760000100359,
+          7.956726999509556
+        ],
         "components_ms": {
-          "retrieval_ms": 11.286438000752241
+          "retrieval_ms": 7.944394000332977
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 11.30326300062734,
+        "latency_ms": 7.956726999509556,
         "candidate_ids": [
           110,
           103,
@@ -2051,12 +2193,17 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          7.784147000165831,
+          7.9316930005006725,
+          7.648390000213112
+        ],
         "components_ms": {
-          "retrieval_ms": 10.706670999752532
+          "retrieval_ms": 7.771023999339377
         },
         "candidate_rank": 16,
         "doc_hit": true,
-        "latency_ms": 10.720816000684863,
+        "latency_ms": 7.784147000165831,
         "candidate_ids": [
           371,
           370,
@@ -2121,12 +2268,17 @@
         "id": "q09",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          17.050123999979405,
+          8.5413390006579,
+          8.26745700032916
+        ],
         "components_ms": {
-          "retrieval_ms": 19.14844200018706
+          "retrieval_ms": 8.530916999916371
         },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 19.692189999659604,
+        "latency_ms": 8.5413390006579,
         "candidate_ids": [
           120,
           121,
@@ -2191,12 +2343,17 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 5,
+        "repeat_latencies_ms": [
+          11.882527999659942,
+          8.399207999900682,
+          8.175807999577955
+        ],
         "components_ms": {
-          "retrieval_ms": 14.784723999582638
+          "retrieval_ms": 8.39016299960349
         },
         "candidate_rank": 5,
         "doc_hit": true,
-        "latency_ms": 14.815399000326579,
+        "latency_ms": 8.399207999900682,
         "candidate_ids": [
           121,
           120,
@@ -2261,12 +2418,17 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          12.692848999904527,
+          7.9427689997828566,
+          8.412809000219568
+        ],
         "components_ms": {
-          "retrieval_ms": 13.288946000102442
+          "retrieval_ms": 8.403918000112753
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 13.308921000316332,
+        "latency_ms": 8.412809000219568,
         "candidate_ids": [
           135,
           338,
@@ -2331,12 +2493,17 @@
         "id": "q13",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          9.27920800040738,
+          8.455901000161248,
+          8.635690000119212
+        ],
         "components_ms": {
-          "retrieval_ms": 11.62894499975664
+          "retrieval_ms": 8.624281999800587
         },
         "candidate_rank": 7,
         "doc_hit": true,
-        "latency_ms": 11.644864999652782,
+        "latency_ms": 8.635690000119212,
         "candidate_ids": [
           343,
           299,
@@ -2401,12 +2568,17 @@
         "id": "q15",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          12.97133899970504,
+          10.648197000591608,
+          10.923283000010997
+        ],
         "components_ms": {
-          "retrieval_ms": 9.619788999771117
+          "retrieval_ms": 10.911207999924954
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 9.630253000068478,
+        "latency_ms": 10.923283000010997,
         "candidate_ids": [
           328,
           299,
@@ -2471,12 +2643,17 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          29.136901000129,
+          9.46031000057701,
+          9.407540000211156
+        ],
         "components_ms": {
-          "retrieval_ms": 14.338750000206346
+          "retrieval_ms": 9.447984000871656
         },
         "candidate_rank": 12,
         "doc_hit": true,
-        "latency_ms": 14.35936599955312,
+        "latency_ms": 9.46031000057701,
         "candidate_ids": [
           299,
           110,
@@ -2541,12 +2718,17 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          8.074779000708077,
+          8.549029999812774,
+          7.992888999979186
+        ],
         "components_ms": {
-          "retrieval_ms": 9.430748000340827
+          "retrieval_ms": 8.059440999204526
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 9.445398000025307,
+        "latency_ms": 8.074779000708077,
         "candidate_ids": [
           7,
           6,
@@ -2611,12 +2793,17 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          11.551066000720311,
+          8.031878999645414,
+          7.7608909996342845
+        ],
         "components_ms": {
-          "retrieval_ms": 14.681406999443425
+          "retrieval_ms": 8.022245999200095
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 14.70327900005941,
+        "latency_ms": 8.031878999645414,
         "candidate_ids": [
           42,
           449,
@@ -2681,12 +2868,17 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          12.75834400075837,
+          8.667170999615337,
+          10.335363000194775
+        ],
         "components_ms": {
-          "retrieval_ms": 12.848977999965427
+          "retrieval_ms": 10.322803999770258
         },
         "candidate_rank": 8,
         "doc_hit": true,
-        "latency_ms": 12.87400000001071,
+        "latency_ms": 10.335363000194775,
         "candidate_ids": [
           12,
           50,
@@ -2751,12 +2943,17 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          15.33017000019754,
+          11.809519999587792,
+          10.100581999722635
+        ],
         "components_ms": {
-          "retrieval_ms": 18.723334999776853
+          "retrieval_ms": 11.797848000242084
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 19.26718999948207,
+        "latency_ms": 11.809519999587792,
         "candidate_ids": [
           21,
           24,
@@ -2821,12 +3018,17 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          12.843553000493557,
+          8.327462999659474,
+          8.283457000288763
+        ],
         "components_ms": {
-          "retrieval_ms": 14.453232000050775
+          "retrieval_ms": 8.316077999552363
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 14.481502999842633,
+        "latency_ms": 8.327462999659474,
         "candidate_ids": [
           373,
           449,
@@ -2890,34 +3092,39 @@
       {
         "id": "q27",
         "type": "simple",
-        "rank": 3,
+        "rank": 2,
+        "repeat_latencies_ms": [
+          14.35633900018729,
+          8.971281999947678,
+          9.241723000741331
+        ],
         "components_ms": {
-          "retrieval_ms": 16.496070999892254
+          "retrieval_ms": 9.23148600031709
         },
-        "candidate_rank": 3,
+        "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 16.543671999897924,
+        "latency_ms": 9.241723000741331,
         "candidate_ids": [
           21,
-          449,
           405,
+          449,
+          379,
           373,
           372,
-          379,
-          416,
-          380,
           454,
-          484,
-          384,
-          436,
-          456,
-          443,
-          426,
+          416,
+          411,
+          380,
           32,
-          404,
           437,
-          442,
-          411
+          406,
+          399,
+          426,
+          396,
+          474,
+          436,
+          438,
+          33
         ],
         "hits": [
           {
@@ -2925,35 +3132,35 @@
             "document_id": 5,
             "filename": "hse-dormitory-2017.pdf",
             "page": 3,
-            "score": 0.2865940546685189
-          },
-          {
-            "chunk_id": 449,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 17,
-            "score": 0.21376671628250096
+            "score": 0.27124865482410343
           },
           {
             "chunk_id": 405,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 8,
-            "score": 0.20822889526116667
+            "score": 0.2227356526051155
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.217173454918402
+          },
+          {
+            "chunk_id": 379,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 3,
+            "score": 0.21090235714147942
           },
           {
             "chunk_id": 373,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 2,
-            "score": 0.1929619046071625
-          },
-          {
-            "chunk_id": 372,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 1,
-            "score": 0.1886897994332738
+            "score": 0.18794902281704934
           }
         ]
       },
@@ -2961,12 +3168,17 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          9.586858000147913,
+          9.619005999411456,
+          8.369124000637385
+        ],
         "components_ms": {
-          "retrieval_ms": 10.768211000140582
+          "retrieval_ms": 9.564333000525949
         },
         "candidate_rank": 11,
         "doc_hit": true,
-        "latency_ms": 10.79047300027014,
+        "latency_ms": 9.586858000147913,
         "candidate_ids": [
           41,
           449,
@@ -3031,12 +3243,17 @@
         "id": "q31",
         "type": "simple",
         "rank": 3,
+        "repeat_latencies_ms": [
+          9.598306999578199,
+          9.056691999830946,
+          9.08160000017233
+        ],
         "components_ms": {
-          "retrieval_ms": 13.021239999943646
+          "retrieval_ms": 9.071480999409687
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 13.041825999607681,
+        "latency_ms": 9.08160000017233,
         "candidate_ids": [
           231,
           204,
@@ -3101,12 +3318,17 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          9.29527100015548,
+          9.402974999829894,
+          9.183002999634482
+        ],
         "components_ms": {
-          "retrieval_ms": 10.770672999569797
+          "retrieval_ms": 9.268583999983093
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 10.79943400054617,
+        "latency_ms": 9.29527100015548,
         "candidate_ids": [
           172,
           211,
@@ -3171,12 +3393,17 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          10.86277499962307,
+          9.263544999157602,
+          9.102789999815286
+        ],
         "components_ms": {
-          "retrieval_ms": 13.994035999530752
+          "retrieval_ms": 9.251409000171407
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 14.009720999638375,
+        "latency_ms": 9.263544999157602,
         "candidate_ids": [
           267,
           224,
@@ -3240,13 +3467,18 @@
       {
         "id": "q34",
         "type": "paraphrase",
-        "rank": 4,
+        "rank": 2,
+        "repeat_latencies_ms": [
+          9.79752799958078,
+          8.405749999838008,
+          8.25619699935487
+        ],
         "components_ms": {
-          "retrieval_ms": 10.399384000265854
+          "retrieval_ms": 8.3959789999426
         },
-        "candidate_rank": 4,
+        "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 10.415423999802442,
+        "latency_ms": 8.405749999838008,
         "candidate_ids": [
           259,
           265,
@@ -3311,12 +3543,17 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          16.5588169993498,
+          8.867534999808413,
+          8.13875400035613
+        ],
         "components_ms": {
-          "retrieval_ms": 9.169418999590562
+          "retrieval_ms": 8.857060999616806
         },
         "candidate_rank": 7,
         "doc_hit": true,
-        "latency_ms": 9.183145999486442,
+        "latency_ms": 8.867534999808413,
         "candidate_ids": [
           521,
           484,
@@ -3381,12 +3618,17 @@
         "id": "q37",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          8.636745000330848,
+          9.02210899948841,
+          8.186658000340685
+        ],
         "components_ms": {
-          "retrieval_ms": 9.947102999831259
+          "retrieval_ms": 8.62007699925016
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 9.96687600036239,
+        "latency_ms": 8.636745000330848,
         "candidate_ids": [
           548,
           601,
@@ -3451,12 +3693,17 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": 3,
+        "repeat_latencies_ms": [
+          12.964380999619607,
+          8.516842000062752,
+          9.522356999696058
+        ],
         "components_ms": {
-          "retrieval_ms": 12.640266999369487
+          "retrieval_ms": 9.514530000160448
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 12.652424000407336,
+        "latency_ms": 9.522356999696058,
         "candidate_ids": [
           484,
           493,
@@ -3521,12 +3768,17 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 3,
+        "repeat_latencies_ms": [
+          9.938617000443628,
+          8.473036999930628,
+          8.626658000139287
+        ],
         "components_ms": {
-          "retrieval_ms": 13.10114500029158
+          "retrieval_ms": 8.614595000835834
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 13.130220999300946,
+        "latency_ms": 8.626658000139287,
         "candidate_ids": [
           491,
           493,
@@ -3593,12 +3845,17 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          32.39197899983992,
+          39.393617999849084,
+          39.58264399989275
+        ],
         "components_ms": {
-          "retrieval_ms": 61.25420100033807
+          "retrieval_ms": 39.32665399952384
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 61.28073499985476,
+        "latency_ms": 39.393617999849084,
         "candidate_ids": [
           110,
           98,
@@ -3663,12 +3920,17 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          23.237798000081966,
+          21.832205999999132,
+          21.22151300045516
+        ],
         "components_ms": {
-          "retrieval_ms": 30.056853000132833
+          "retrieval_ms": 21.82095600073808
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 30.08141899954353,
+        "latency_ms": 21.832205999999132,
         "candidate_ids": [
           110,
           105,
@@ -3733,12 +3995,17 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          22.109244999228395,
+          29.520855000555457,
+          30.77860400026111
+        ],
         "components_ms": {
-          "retrieval_ms": 28.85909700034972
+          "retrieval_ms": 29.508772000554018
         },
         "candidate_rank": 13,
         "doc_hit": true,
-        "latency_ms": 28.871477999928175,
+        "latency_ms": 29.520855000555457,
         "candidate_ids": [
           369,
           371,
@@ -3803,12 +4070,17 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          43.07096699994872,
+          25.29421100007312,
+          31.34980600043491
+        ],
         "components_ms": {
-          "retrieval_ms": 59.63187999986985
+          "retrieval_ms": 31.339377999756834
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 59.6464330001254,
+        "latency_ms": 31.34980600043491,
         "candidate_ids": [
           132,
           120,
@@ -3873,12 +4145,17 @@
         "id": "q10",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          31.880593999630946,
+          32.932346999587025,
+          32.55225700013398
+        ],
         "components_ms": {
-          "retrieval_ms": 28.532691000691557
+          "retrieval_ms": 32.540103000428644
         },
         "candidate_rank": 17,
         "doc_hit": true,
-        "latency_ms": 28.547580000122252,
+        "latency_ms": 32.55225700013398,
         "candidate_ids": [
           122,
           120,
@@ -3943,12 +4220,17 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 3,
+        "repeat_latencies_ms": [
+          40.57388999990508,
+          28.165514000647818,
+          27.04061299937166
+        ],
         "components_ms": {
-          "retrieval_ms": 60.30521000047884
+          "retrieval_ms": 28.15621399986412
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 60.32595500073512,
+        "latency_ms": 28.165514000647818,
         "candidate_ids": [
           149,
           103,
@@ -4013,12 +4295,17 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "repeat_latencies_ms": [
+          33.46434000013687,
+          27.953084000728268,
+          25.164630000290344
+        ],
         "components_ms": {
-          "retrieval_ms": 33.61363900057768
+          "retrieval_ms": 27.936198000134027
         },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 33.630537999670196,
+        "latency_ms": 27.953084000728268,
         "candidate_ids": [
           343,
           299,
@@ -4083,12 +4370,17 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          33.939389999432024,
+          31.871719999799097,
+          31.892136999886134
+        ],
         "components_ms": {
-          "retrieval_ms": 32.9808589995082
+          "retrieval_ms": 31.8797159998212
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 32.99726400018699,
+        "latency_ms": 31.892136999886134,
         "candidate_ids": [
           299,
           328,
@@ -4153,12 +4445,17 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          54.58003599960648,
+          35.68769399953453,
+          32.22598199954518
+        ],
         "components_ms": {
-          "retrieval_ms": 63.672018999568536
+          "retrieval_ms": 35.66097000020818
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 63.68473099973926,
+        "latency_ms": 35.68769399953453,
         "candidate_ids": [
           299,
           343,
@@ -4223,12 +4520,17 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          28.503886999715178,
+          29.95258400005696,
+          24.6957890003614
+        ],
         "components_ms": {
-          "retrieval_ms": 36.16915800012066
+          "retrieval_ms": 28.48400299990317
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 36.190439999700175,
+        "latency_ms": 28.503886999715178,
         "candidate_ids": [
           6,
           7,
@@ -4293,12 +4595,17 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          38.56913799972972,
+          22.893823999766028,
+          25.865539000733406
+        ],
         "components_ms": {
-          "retrieval_ms": 59.43034299980354
+          "retrieval_ms": 25.853552000626223
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 59.44631300008041,
+        "latency_ms": 25.865539000733406,
         "candidate_ids": [
           42,
           453,
@@ -4363,12 +4670,17 @@
         "id": "q22",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          24.817720000100962,
+          24.42269800030772,
+          28.187480000269716
+        ],
         "components_ms": {
-          "retrieval_ms": 28.864140000223415
+          "retrieval_ms": 24.79455600041547
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 28.890311999930418,
+        "latency_ms": 24.817720000100962,
         "candidate_ids": [
           24,
           12,
@@ -4433,12 +4745,17 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          29.408700999738357,
+          31.861839000157488,
+          29.277876999913133
+        ],
         "components_ms": {
-          "retrieval_ms": 92.0769719996315
+          "retrieval_ms": 29.395036999630975
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 92.10278599948651,
+        "latency_ms": 29.408700999738357,
         "candidate_ids": [
           24,
           41,
@@ -4503,12 +4820,17 @@
         "id": "q26",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          34.502436999900965,
+          28.92989099927945,
+          34.74467799969716
+        ],
         "components_ms": {
-          "retrieval_ms": 30.170371000167506
+          "retrieval_ms": 34.48070700051176
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 30.189685000550526,
+        "latency_ms": 34.502436999900965,
         "candidate_ids": [
           449,
           416,
@@ -4572,34 +4894,39 @@
       {
         "id": "q27",
         "type": "simple",
-        "rank": 5,
+        "rank": 3,
+        "repeat_latencies_ms": [
+          33.21796700038249,
+          38.144006000038644,
+          35.3644639999402
+        ],
         "components_ms": {
-          "retrieval_ms": 26.448667999829922
+          "retrieval_ms": 35.34940700046718
         },
-        "candidate_rank": 5,
+        "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 26.458602000275278,
+        "latency_ms": 35.3644639999402,
         "candidate_ids": [
           416,
           454,
-          449,
-          476,
           405,
-          461,
-          373,
-          482,
-          35,
-          436,
-          481,
-          406,
-          440,
-          46,
-          431,
-          400,
-          450,
-          32,
+          449,
           404,
-          21
+          400,
+          457,
+          406,
+          476,
+          373,
+          410,
+          437,
+          436,
+          439,
+          32,
+          19,
+          396,
+          414,
+          411,
+          35
         ],
         "hits": [
           {
@@ -4607,35 +4934,35 @@
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 10,
-            "score": 0.8764005899429321
+            "score": 0.8809812331492081
           },
           {
             "chunk_id": 454,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 18,
-            "score": 0.8696777820587158
-          },
-          {
-            "chunk_id": 449,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 17,
-            "score": 0.8650215864181519
-          },
-          {
-            "chunk_id": 476,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 22,
-            "score": 0.8624427318572998
+            "score": 0.8718880674805665
           },
           {
             "chunk_id": 405,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 8,
-            "score": 0.8504199981689453
+            "score": 0.8694576284127724
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": 0.8686183353846773
+          },
+          {
+            "chunk_id": 404,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 8,
+            "score": 0.8653795381003484
           }
         ]
       },
@@ -4643,12 +4970,17 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          30.26958200007357,
+          28.65990400005103,
+          39.84853200017824
+        ],
         "components_ms": {
-          "retrieval_ms": 29.631948999849556
+          "retrieval_ms": 30.25506799986033
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 29.64410900040093,
+        "latency_ms": 30.26958200007357,
         "candidate_ids": [
           410,
           33,
@@ -4713,12 +5045,17 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          52.061042999412166,
+          24.34754400019301,
+          22.629668000263337
+        ],
         "components_ms": {
-          "retrieval_ms": 60.41967400051362
+          "retrieval_ms": 24.33364300031826
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 60.43101100021886,
+        "latency_ms": 24.34754400019301,
         "candidate_ids": [
           196,
           213,
@@ -4783,12 +5120,17 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          28.784686000108195,
+          24.552918000154023,
+          31.90321700003551
+        ],
         "components_ms": {
-          "retrieval_ms": 24.3355699994936
+          "retrieval_ms": 28.771367000445025
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 24.345190000531147,
+        "latency_ms": 28.784686000108195,
         "candidate_ids": [
           172,
           255,
@@ -4853,12 +5195,17 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          32.82325899999705,
+          36.70381600022665,
+          39.88364199994976
+        ],
         "components_ms": {
-          "retrieval_ms": 49.01912600053038
+          "retrieval_ms": 36.69159800028865
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 49.03053899943188,
+        "latency_ms": 36.70381600022665,
         "candidate_ids": [
           223,
           224,
@@ -4922,13 +5269,18 @@
       {
         "id": "q34",
         "type": "paraphrase",
-        "rank": null,
+        "rank": 4,
+        "repeat_latencies_ms": [
+          29.15277200008859,
+          29.512873999919975,
+          30.453586000476207
+        ],
         "components_ms": {
-          "retrieval_ms": 30.49543600081961
+          "retrieval_ms": 29.50159000010899
         },
-        "candidate_rank": 9,
+        "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 30.510003000017605,
+        "latency_ms": 29.512873999919975,
         "candidate_ids": [
           258,
           260,
@@ -4993,12 +5345,17 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          37.133803999495285,
+          36.822238999775436,
+          29.870919000131835
+        ],
         "components_ms": {
-          "retrieval_ms": 40.22671399980027
+          "retrieval_ms": 36.80795400032366
         },
         "candidate_rank": 10,
         "doc_hit": true,
-        "latency_ms": 40.24212200056354,
+        "latency_ms": 36.822238999775436,
         "candidate_ids": [
           493,
           630,
@@ -5063,12 +5420,17 @@
         "id": "q37",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          34.39859799982514,
+          34.436823999385524,
+          31.00303500013979
+        ],
         "components_ms": {
-          "retrieval_ms": 34.72736899948359
+          "retrieval_ms": 34.379986000203644
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 34.745950000797166,
+        "latency_ms": 34.39859799982514,
         "candidate_ids": [
           600,
           579,
@@ -5133,12 +5495,17 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          60.053971000343154,
+          47.36506100016413,
+          69.2914950004706
+        ],
         "components_ms": {
-          "retrieval_ms": 63.08984200040868
+          "retrieval_ms": 60.0393280001299
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 63.102506999712205,
+        "latency_ms": 60.053971000343154,
         "candidate_ids": [
           493,
           484,
@@ -5203,12 +5570,17 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          27.547099000003072,
+          24.939708000601968,
+          29.765246000351908
+        ],
         "components_ms": {
-          "retrieval_ms": 56.771124999613676
+          "retrieval_ms": 27.534276000551472
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 56.795729999976174,
+        "latency_ms": 27.547099000003072,
         "candidate_ids": [
           630,
           493,
@@ -5275,14 +5647,19 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          72.40062700020644,
+          42.28109999985463,
+          42.13431599964679
+        ],
         "components_ms": {
-          "e5_ms": 71.58009900012985,
-          "char_ms": 21.94579099978,
-          "fusion_ms": 0.09241799943993101
+          "e5_ms": 32.921585000622144,
+          "char_ms": 9.608833999664057,
+          "fusion_ms": 0.08763799996813759
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 93.70249400035391,
+        "latency_ms": 42.28109999985463,
         "candidate_ids": [
           110,
           97,
@@ -5347,14 +5724,19 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          61.101987000256486,
+          35.9429629997976,
+          38.27268999975786
+        ],
         "components_ms": {
-          "e5_ms": 54.263693999928364,
-          "char_ms": 13.316431000021112,
-          "fusion_ms": 0.09526299982098863
+          "e5_ms": 27.54879100029939,
+          "char_ms": 10.59008099946368,
+          "fusion_ms": 0.09889800003293203
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 67.70710599994345,
+        "latency_ms": 38.27268999975786,
         "candidate_ids": [
           110,
           103,
@@ -5419,14 +5801,19 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          53.24397499953193,
+          46.834701000079804,
+          52.34555599963642
+        ],
         "components_ms": {
-          "e5_ms": 47.42652300046757,
-          "char_ms": 18.209224000202084,
-          "fusion_ms": 0.08461000015813624
+          "e5_ms": 39.63899299924378,
+          "char_ms": 11.219000999517448,
+          "fusion_ms": 0.09067999963008333
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 65.7516660003239,
+        "latency_ms": 52.34555599963642,
         "candidate_ids": [
           371,
           362,
@@ -5491,14 +5878,19 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 3,
+        "repeat_latencies_ms": [
+          33.677688000352646,
+          39.391299999806506,
+          35.14482099944871
+        ],
         "components_ms": {
-          "e5_ms": 29.09797600023012,
-          "char_ms": 9.611992999452923,
-          "fusion_ms": 0.08208700000977842
+          "e5_ms": 25.977964000048814,
+          "char_ms": 9.055831000296166,
+          "fusion_ms": 0.08993899973575026
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 38.82436599997163,
+        "latency_ms": 35.14482099944871,
         "candidate_ids": [
           120,
           121,
@@ -5563,14 +5955,19 @@
         "id": "q10",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          41.51572200044029,
+          40.47528199953376,
+          52.458518000094045
+        ],
         "components_ms": {
-          "e5_ms": 58.254573000340315,
-          "char_ms": 9.474217999922985,
-          "fusion_ms": 0.07922900022094836
+          "e5_ms": 32.705971000723366,
+          "char_ms": 9.18024400016293,
+          "fusion_ms": 0.08680500013724668
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 67.83457699930295,
+        "latency_ms": 41.51572200044029,
         "candidate_ids": [
           120,
           121,
@@ -5635,14 +6032,19 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          30.593124000006355,
+          35.39611700034584,
+          32.66379699925892
+        ],
         "components_ms": {
-          "e5_ms": 28.41041600004246,
-          "char_ms": 9.4207029997051,
-          "fusion_ms": 0.08293500013678567
+          "e5_ms": 23.902821999399748,
+          "char_ms": 8.464407000246865,
+          "fusion_ms": 0.0728049999452196
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 37.939058000119985,
+        "latency_ms": 32.66379699925892,
         "candidate_ids": [
           103,
           136,
@@ -5707,14 +6109,19 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 3,
+        "repeat_latencies_ms": [
+          43.22876500009443,
+          39.42133100008505,
+          38.7441150005543
+        ],
         "components_ms": {
-          "e5_ms": 32.425063000118826,
-          "char_ms": 9.67533499988349,
-          "fusion_ms": 0.07650999941688497
+          "e5_ms": 29.574064000371436,
+          "char_ms": 10.378743999353901,
+          "fusion_ms": 0.08466399958706461
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 42.200790999231685,
+        "latency_ms": 39.42133100008505,
         "candidate_ids": [
           343,
           299,
@@ -5779,14 +6186,19 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          69.74144900050305,
+          42.08294099953491,
+          47.00052199950733
+        ],
         "components_ms": {
-          "e5_ms": 30.51097400020808,
-          "char_ms": 21.894139000323776,
-          "fusion_ms": 0.1853140001912834
+          "e5_ms": 32.96945100009907,
+          "char_ms": 11.507131999678677,
+          "fusion_ms": 0.12032300037390087
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 52.65205900013825,
+        "latency_ms": 47.00052199950733,
         "candidate_ids": [
           299,
           328,
@@ -5851,14 +6263,19 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          46.91292400002567,
+          38.73075899991818,
+          45.036844000605925
+        ],
         "components_ms": {
-          "e5_ms": 33.96933400017588,
-          "char_ms": 9.390106999489944,
-          "fusion_ms": 0.0728230006643571
+          "e5_ms": 29.159806999814464,
+          "char_ms": 13.127305999660166,
+          "fusion_ms": 0.1723019995552022
         },
         "candidate_rank": 20,
         "doc_hit": true,
-        "latency_ms": 43.466574999911245,
+        "latency_ms": 45.036844000605925,
         "candidate_ids": [
           299,
           343,
@@ -5923,14 +6340,19 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          84.63175199995021,
+          54.08242500016058,
+          47.63695400015422
+        ],
         "components_ms": {
-          "e5_ms": 143.88737499939452,
-          "char_ms": 17.3971160002111,
-          "fusion_ms": 0.12201099980302388
+          "e5_ms": 40.901563000261376,
+          "char_ms": 13.073428999632597,
+          "fusion_ms": 0.08791000072960742
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 161.43840899985662,
+        "latency_ms": 54.08242500016058,
         "candidate_ids": [
           6,
           7,
@@ -5995,14 +6417,19 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          52.05713600025774,
+          44.61224700025923,
+          35.052495999480016
+        ],
         "components_ms": {
-          "e5_ms": 32.98970099967846,
-          "char_ms": 10.055794999971113,
-          "fusion_ms": 0.09394999960932182
+          "e5_ms": 34.89412599992647,
+          "char_ms": 9.93088599989278,
+          "fusion_ms": 0.08159800017892849
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 43.166344000383106,
+        "latency_ms": 44.61224700025923,
         "candidate_ids": [
           42,
           381,
@@ -6067,14 +6494,19 @@
         "id": "q22",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          49.64436600039335,
+          79.63205200030643,
+          35.310262000166404
+        ],
         "components_ms": {
-          "e5_ms": 34.19459900032962,
-          "char_ms": 8.607945000221662,
-          "fusion_ms": 0.08267399971373379
+          "e5_ms": 40.04281600009563,
+          "char_ms": 9.493143000327109,
+          "fusion_ms": 0.0838209998619277
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 42.91002100035257,
+        "latency_ms": 49.64436600039335,
         "candidate_ids": [
           12,
           91,
@@ -6139,14 +6571,19 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          57.41951400068501,
+          41.47303400077362,
+          39.800501999707194
+        ],
         "components_ms": {
-          "e5_ms": 116.0215949994381,
-          "char_ms": 12.104440000257455,
-          "fusion_ms": 0.18840800021280302
+          "e5_ms": 30.18339800019021,
+          "char_ms": 9.788100000150735,
+          "fusion_ms": 0.08955300017987611
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 128.35492900012468,
+        "latency_ms": 41.47303400077362,
         "candidate_ids": [
           24,
           41,
@@ -6211,14 +6648,19 @@
         "id": "q26",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          42.23424399970099,
+          34.85933299998578,
+          36.31112699986261
+        ],
         "components_ms": {
-          "e5_ms": 26.500425000449468,
-          "char_ms": 9.591215000000375,
-          "fusion_ms": 0.09417099954589503
+          "e5_ms": 26.649782999811578,
+          "char_ms": 9.494374000496464,
+          "fusion_ms": 0.08478400013700593
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 36.216428999978234,
+        "latency_ms": 36.31112699986261,
         "candidate_ids": [
           449,
           416,
@@ -6282,72 +6724,77 @@
       {
         "id": "q27",
         "type": "simple",
-        "rank": 3,
+        "rank": 1,
+        "repeat_latencies_ms": [
+          40.885888000048,
+          47.933015000126034,
+          41.47606099922996
+        ],
         "components_ms": {
-          "e5_ms": 26.31243900032132,
-          "char_ms": 7.891047999692091,
-          "fusion_ms": 0.07264400028361706
+          "e5_ms": 31.720480999865686,
+          "char_ms": 9.395255000526959,
+          "fusion_ms": 0.0828259999252623
         },
-        "candidate_rank": 3,
+        "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 34.300008000172966,
+        "latency_ms": 41.47606099922996,
         "candidate_ids": [
+          405,
           449,
           416,
-          405,
           454,
           373,
-          21,
-          436,
+          406,
+          437,
           32,
-          404,
-          476,
-          372,
+          411,
+          436,
+          396,
+          21,
           379,
-          461,
+          404,
+          372,
+          400,
+          457,
+          476,
           380,
-          482,
-          35,
-          484,
-          384,
-          481,
-          406
+          410
         ],
         "hits": [
+          {
+            "chunk_id": 405,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 8,
+            "score": 0.03200204813108039
+          },
           {
             "chunk_id": 449,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 17,
-            "score": 0.03200204813108039
+            "score": 0.03149801587301587
           },
           {
             "chunk_id": 416,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 10,
-            "score": 0.03131881575727918
-          },
-          {
-            "chunk_id": 405,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 8,
-            "score": 0.03125763125763126
+            "score": 0.031099324975891997
           },
           {
             "chunk_id": 454,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 18,
-            "score": 0.030621785881252923
+            "score": 0.031054405392392875
           },
           {
             "chunk_id": 373,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 2,
-            "score": 0.03055037313432836
+            "score": 0.02967032967032967
           }
         ]
       },
@@ -6355,14 +6802,19 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          40.96696900069219,
+          39.78709399962099,
+          42.261642000084976
+        ],
         "components_ms": {
-          "e5_ms": 29.630374999214837,
-          "char_ms": 11.332098000821134,
-          "fusion_ms": 0.10547999954724219
+          "e5_ms": 30.695066000589577,
+          "char_ms": 9.184329000163416,
+          "fusion_ms": 0.08883999998943182
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 41.09640399929049,
+        "latency_ms": 40.96696900069219,
         "candidate_ids": [
           34,
           410,
@@ -6427,14 +6879,19 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          40.97894099959376,
+          45.209464999970805,
+          42.70111799996812
+        ],
         "components_ms": {
-          "e5_ms": 29.018817999713065,
-          "char_ms": 12.813227000151528,
-          "fusion_ms": 0.09092199979932047
+          "e5_ms": 32.921609000368335,
+          "char_ms": 10.056876999442466,
+          "fusion_ms": 0.1070850003088708
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 41.949757000111276,
+        "latency_ms": 42.70111799996812,
         "candidate_ids": [
           196,
           213,
@@ -6499,14 +6956,19 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          40.11086099944805,
+          33.83122200011712,
+          39.18016599982366
+        ],
         "components_ms": {
-          "e5_ms": 20.972606000214,
-          "char_ms": 7.722564999312453,
-          "fusion_ms": 0.0852230004966259
+          "e5_ms": 29.710959999647457,
+          "char_ms": 9.351933000289137,
+          "fusion_ms": 0.08518899994669482
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 28.805320999708783,
+        "latency_ms": 39.18016599982366,
         "candidate_ids": [
           172,
           171,
@@ -6571,14 +7033,19 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          100.64174899980571,
+          80.59094599957461,
+          57.86022400025104
+        ],
         "components_ms": {
-          "e5_ms": 50.75552099970082,
-          "char_ms": 12.58934900033637,
-          "fusion_ms": 0.09189600041281665
+          "e5_ms": 63.2250569997268,
+          "char_ms": 16.348035000191885,
+          "fusion_ms": 0.1099680002880632
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 63.46024600043165,
+        "latency_ms": 80.59094599957461,
         "candidate_ids": [
           267,
           224,
@@ -6642,15 +7109,20 @@
       {
         "id": "q34",
         "type": "paraphrase",
-        "rank": 4,
+        "rank": 3,
+        "repeat_latencies_ms": [
+          41.42886699992232,
+          38.87954499987245,
+          37.1558439992441
+        ],
         "components_ms": {
-          "e5_ms": 26.497073999962595,
-          "char_ms": 14.38534599947161,
-          "fusion_ms": 0.10033099988504546
+          "e5_ms": 27.57077499973093,
+          "char_ms": 9.565113000462588,
+          "fusion_ms": 0.088099999629776
         },
-        "candidate_rank": 4,
+        "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 41.0397980003836,
+        "latency_ms": 38.87954499987245,
         "candidate_ids": [
           259,
           258,
@@ -6715,14 +7187,19 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          38.2828680003513,
+          36.309362000793044,
+          34.80186799970397
+        ],
         "components_ms": {
-          "e5_ms": 37.43999200014514,
-          "char_ms": 10.195634000410791,
-          "fusion_ms": 0.0866129994392395
+          "e5_ms": 27.054299999690556,
+          "char_ms": 8.81673599997157,
+          "fusion_ms": 0.08336999962921254
         },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 47.75883799993608,
+        "latency_ms": 36.309362000793044,
         "candidate_ids": [
           493,
           484,
@@ -6787,14 +7264,19 @@
         "id": "q37",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          48.26421899997513,
+          40.79804899993178,
+          41.16622599940456
+        ],
         "components_ms": {
-          "e5_ms": 37.9404240002259,
-          "char_ms": 15.650065000045288,
-          "fusion_ms": 0.1426660001015989
+          "e5_ms": 29.56782799992652,
+          "char_ms": 11.870768999870052,
+          "fusion_ms": 0.09239600058208453
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 53.77212799976405,
+        "latency_ms": 41.16622599940456,
         "candidate_ids": [
           600,
           484,
@@ -6859,14 +7341,19 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          35.560108999561635,
+          43.925599999965925,
+          38.17253899978823
+        ],
         "components_ms": {
-          "e5_ms": 46.50026599938428,
-          "char_ms": 9.423819999938132,
-          "fusion_ms": 0.07198600087576779
+          "e5_ms": 29.13762400021369,
+          "char_ms": 8.561233000364155,
+          "fusion_ms": 0.08456500017928192
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 56.02321900005336,
+        "latency_ms": 38.17253899978823,
         "candidate_ids": [
           484,
           493,
@@ -6931,14 +7418,19 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          51.741889000368246,
+          40.13902500082622,
+          38.95878000002995
+        ],
         "components_ms": {
-          "e5_ms": 72.38931499978207,
-          "char_ms": 14.600522999899113,
-          "fusion_ms": 0.20545100051094778
+          "e5_ms": 31.21443000054569,
+          "char_ms": 8.819404999485414,
+          "fusion_ms": 0.08461400011583464
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 87.28968299965345,
+        "latency_ms": 40.13902500082622,
         "candidate_ids": [
           630,
           493,
@@ -7005,13 +7497,18 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1400.440654000704,
+          1154.068064999592,
+          1122.8665050002746
+        ],
         "components_ms": {
-          "e5_ms": 53.93425399961416,
-          "rerank_ms": 3199.699957000121
+          "e5_ms": 30.62530900024285,
+          "rerank_ms": 1118.4825310001543
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3253.6680429993794,
+        "latency_ms": 1154.068064999592,
         "candidate_ids": [
           110,
           98,
@@ -7076,13 +7573,18 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1099.3206279999868,
+          1127.2919670000192,
+          1100.565736000135
+        ],
         "components_ms": {
-          "e5_ms": 30.062806000387354,
-          "rerank_ms": 1058.4161019996827
+          "e5_ms": 24.49237900054868,
+          "rerank_ms": 1075.5829319996337
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1088.5076310005388,
+        "latency_ms": 1100.565736000135,
         "candidate_ids": [
           110,
           105,
@@ -7147,13 +7649,18 @@
         "id": "q07",
         "type": "cross_university",
         "rank": 5,
+        "repeat_latencies_ms": [
+          1127.160628000638,
+          1097.4007530003291,
+          3445.1935489996686
+        ],
         "components_ms": {
-          "e5_ms": 50.130036999689764,
-          "rerank_ms": 1420.074841999849
+          "e5_ms": 23.439372000211733,
+          "rerank_ms": 1104.9533880004674
         },
         "candidate_rank": 13,
         "doc_hit": true,
-        "latency_ms": 1470.2211020003233,
+        "latency_ms": 1127.160628000638,
         "candidate_ids": [
           369,
           371,
@@ -7218,13 +7725,18 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1180.967349000639,
+          1171.8388660001438,
+          3299.3492009991314
+        ],
         "components_ms": {
-          "e5_ms": 28.89905699976225,
-          "rerank_ms": 1213.0105180003738
+          "e5_ms": 30.13070500037429,
+          "rerank_ms": 1153.7313789995096
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1241.934035999293,
+        "latency_ms": 1180.967349000639,
         "candidate_ids": [
           132,
           120,
@@ -7289,13 +7801,18 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 4,
+        "repeat_latencies_ms": [
+          1102.140853000492,
+          1043.307060999723,
+          2950.5003069998565
+        ],
         "components_ms": {
-          "e5_ms": 33.20215299936535,
-          "rerank_ms": 1044.5986600007018
+          "e5_ms": 30.921910999495594,
+          "rerank_ms": 1068.6783540004399
         },
         "candidate_rank": 17,
         "doc_hit": true,
-        "latency_ms": 1077.834595999775,
+        "latency_ms": 1102.140853000492,
         "candidate_ids": [
           122,
           120,
@@ -7360,13 +7877,18 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          1091.8720119998397,
+          1107.5398470002256,
+          1078.6750460001713
+        ],
         "components_ms": {
-          "e5_ms": 31.49573800055805,
-          "rerank_ms": 1090.9817129995645
+          "e5_ms": 32.240052999441104,
+          "rerank_ms": 1066.7452699999558
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1122.495708000315,
+        "latency_ms": 1091.8720119998397,
         "candidate_ids": [
           149,
           103,
@@ -7431,13 +7953,18 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "repeat_latencies_ms": [
+          1136.0170139996626,
+          1169.7574400004669,
+          1153.8884620003955
+        ],
         "components_ms": {
-          "e5_ms": 32.55387100034568,
-          "rerank_ms": 3231.5773689997513
+          "e5_ms": 30.187805999958073,
+          "rerank_ms": 1117.3922019997917
         },
         "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 3264.167475999784,
+        "latency_ms": 1153.8884620003955,
         "candidate_ids": [
           343,
           299,
@@ -7502,13 +8029,18 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1660.5529730004491,
+          1430.8623880006053,
+          1432.4106750000283
+        ],
         "components_ms": {
-          "e5_ms": 87.73174900034064,
-          "rerank_ms": 1551.4997000000221
+          "e5_ms": 40.76681700007612,
+          "rerank_ms": 1403.887694000332
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1639.3092879998221,
+        "latency_ms": 1432.4106750000283,
         "candidate_ids": [
           299,
           328,
@@ -7573,13 +8105,18 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          1421.519826999429,
+          1422.0562849995986,
+          1477.091962000486
+        ],
         "components_ms": {
-          "e5_ms": 31.867043999227462,
-          "rerank_ms": 1236.3241410002956
+          "e5_ms": 42.357342000286735,
+          "rerank_ms": 1379.6562589996029
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 1268.2251389996964,
+        "latency_ms": 1422.0562849995986,
         "candidate_ids": [
           299,
           343,
@@ -7644,13 +8181,18 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1696.972456000367,
+          1408.0561009996018,
+          1361.658626999997
+        ],
         "components_ms": {
-          "e5_ms": 33.038013999430405,
-          "rerank_ms": 1326.028110000152
+          "e5_ms": 28.041416000633035,
+          "rerank_ms": 1380.0262929999008
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1359.1065470000103,
+        "latency_ms": 1408.0561009996018,
         "candidate_ids": [
           6,
           7,
@@ -7715,13 +8257,18 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1339.4592129998273,
+          1483.7709080002242,
+          1333.0304359997172
+        ],
         "components_ms": {
-          "e5_ms": 29.04851899984351,
-          "rerank_ms": 1206.5119419994517
+          "e5_ms": 30.18593900014821,
+          "rerank_ms": 1314.9852719998307
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1235.5817799998476,
+        "latency_ms": 1339.4592129998273,
         "candidate_ids": [
           42,
           453,
@@ -7786,13 +8333,18 @@
         "id": "q22",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1098.7314989997685,
+          1095.9911359996113,
+          1104.3235489996732
+        ],
         "components_ms": {
-          "e5_ms": 87.16770399951201,
-          "rerank_ms": 1183.400625000104
+          "e5_ms": 29.90868100005173,
+          "rerank_ms": 1066.056179000043
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1270.6006880007408,
+        "latency_ms": 1098.7314989997685,
         "candidate_ids": [
           24,
           12,
@@ -7857,13 +8409,18 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1157.30643400002,
+          1088.5764350005047,
+          1092.8939279992846
+        ],
         "components_ms": {
-          "e5_ms": 39.61216300012893,
-          "rerank_ms": 1135.9882039996592
+          "e5_ms": 30.10090699990542,
+          "rerank_ms": 1062.8376929998922
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1175.6210339999598,
+        "latency_ms": 1092.8939279992846,
         "candidate_ids": [
           24,
           41,
@@ -7928,13 +8485,18 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1315.4243570006656,
+          1331.9563730001391,
+          3413.4706189997814
+        ],
         "components_ms": {
-          "e5_ms": 24.186756999370118,
-          "rerank_ms": 1428.790939999999
+          "e5_ms": 27.462646999993012,
+          "rerank_ms": 1305.1387030000114
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1453.0087550001554,
+        "latency_ms": 1331.9563730001391,
         "candidate_ids": [
           449,
           416,
@@ -7998,71 +8560,76 @@
       {
         "id": "q27",
         "type": "simple",
-        "rank": 4,
+        "rank": 1,
+        "repeat_latencies_ms": [
+          1391.0431820004305,
+          1202.6555360007478,
+          1223.6153970006853
+        ],
         "components_ms": {
-          "e5_ms": 46.06039600002987,
-          "rerank_ms": 1855.2745349998077
+          "e5_ms": 35.44630299984419,
+          "rerank_ms": 1188.1422890000977
         },
-        "candidate_rank": 5,
+        "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1901.3742479992288,
+        "latency_ms": 1223.6153970006853,
         "candidate_ids": [
           416,
           454,
-          449,
-          476,
           405,
-          461,
-          373,
-          482,
-          35,
-          436,
-          481,
-          406,
-          440,
-          46,
-          431,
-          400,
-          450,
-          32,
+          449,
           404,
-          21
+          400,
+          457,
+          406,
+          476,
+          373,
+          410,
+          437,
+          436,
+          439,
+          32,
+          19,
+          396,
+          414,
+          411,
+          35
         ],
         "hits": [
-          {
-            "chunk_id": 482,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 24,
-            "score": 0.7999683618545532
-          },
-          {
-            "chunk_id": 461,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 20,
-            "score": -0.6010614633560181
-          },
-          {
-            "chunk_id": 21,
-            "document_id": 5,
-            "filename": "hse-dormitory-2017.pdf",
-            "page": 3,
-            "score": -0.8021628856658936
-          },
           {
             "chunk_id": 405,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 8,
-            "score": -0.9714353680610657
+            "score": -1.2785487174987793
           },
           {
             "chunk_id": 416,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 10,
-            "score": -1.3161125183105469
+            "score": -1.7572519779205322
+          },
+          {
+            "chunk_id": 476,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 22,
+            "score": -2.3121140003204346
+          },
+          {
+            "chunk_id": 373,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 2,
+            "score": -2.4679105281829834
+          },
+          {
+            "chunk_id": 449,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 17,
+            "score": -2.930845260620117
           }
         ]
       },
@@ -8070,13 +8637,18 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1168.028090000007,
+          1176.4605890002713,
+          1178.9434510001229
+        ],
         "components_ms": {
-          "e5_ms": 85.12154300024122,
-          "rerank_ms": 1185.1885730002323
+          "e5_ms": 40.00633099985862,
+          "rerank_ms": 1136.4154809998581
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1270.3424800001812,
+        "latency_ms": 1176.4605890002713,
         "candidate_ids": [
           410,
           33,
@@ -8141,13 +8713,18 @@
         "id": "q31",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1036.7183979997208,
+          1045.6769090005764,
+          1127.0428800007721
+        ],
         "components_ms": {
-          "e5_ms": 34.09842199926061,
-          "rerank_ms": 3279.627478000293
+          "e5_ms": 32.68968900010805,
+          "rerank_ms": 1011.0965769999893
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 3313.7749959996654,
+        "latency_ms": 1045.6769090005764,
         "candidate_ids": [
           196,
           213,
@@ -8212,13 +8789,18 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1041.9446550004068,
+          1030.9918760003711,
+          1022.0723579996047
+        ],
         "components_ms": {
-          "e5_ms": 35.18773400082864,
-          "rerank_ms": 1014.5645809998314
+          "e5_ms": 31.720326999675308,
+          "rerank_ms": 998.7803570002143
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1049.7810169999866,
+        "latency_ms": 1030.9918760003711,
         "candidate_ids": [
           172,
           255,
@@ -8283,13 +8865,18 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1173.4724930001903,
+          1188.8444019996314,
+          1224.683964000178
+        ],
         "components_ms": {
-          "e5_ms": 74.59661599932588,
-          "rerank_ms": 1165.9309169999688
+          "e5_ms": 29.73283299979812,
+          "rerank_ms": 1161.6489489997548
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1240.562788000716,
+        "latency_ms": 1188.8444019996314,
         "candidate_ids": [
           223,
           224,
@@ -8353,14 +8940,19 @@
       {
         "id": "q34",
         "type": "paraphrase",
-        "rank": null,
+        "rank": 2,
+        "repeat_latencies_ms": [
+          1243.139940999754,
+          1046.1698660001275,
+          1063.8592119994428
+        ],
         "components_ms": {
-          "e5_ms": 63.515961000121024,
-          "rerank_ms": 1048.9958959997239
+          "e5_ms": 35.4348110004139,
+          "rerank_ms": 1028.3934549997866
         },
-        "candidate_rank": 9,
+        "candidate_rank": 4,
         "doc_hit": true,
-        "latency_ms": 1112.5273749994449,
+        "latency_ms": 1063.8592119994428,
         "candidate_ids": [
           258,
           260,
@@ -8425,13 +9017,18 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          1239.8357239999314,
+          1171.8357919999107,
+          1193.907422999473
+        ],
         "components_ms": {
-          "e5_ms": 28.048625999872456,
-          "rerank_ms": 1220.5620880004062
+          "e5_ms": 32.29254400048376,
+          "rerank_ms": 1159.382634999929
         },
         "candidate_rank": 10,
         "doc_hit": true,
-        "latency_ms": 1248.6410120000073,
+        "latency_ms": 1193.907422999473,
         "candidate_ids": [
           493,
           630,
@@ -8496,13 +9093,18 @@
         "id": "q37",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1449.5702679996612,
+          1213.8213940006608,
+          1309.7834279997187
+        ],
         "components_ms": {
-          "e5_ms": 54.47422700035531,
-          "rerank_ms": 1265.122472999792
+          "e5_ms": 39.006723999591486,
+          "rerank_ms": 1280.7813010003883
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1319.6181060002345,
+        "latency_ms": 1309.7834279997187,
         "candidate_ids": [
           600,
           579,
@@ -8567,13 +9169,18 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          1123.0532019999373,
+          1139.504264999232,
+          1322.0555260004403
+        ],
         "components_ms": {
-          "e5_ms": 79.78118800019729,
-          "rerank_ms": 1125.7541469994976
+          "e5_ms": 33.32689600028971,
+          "rerank_ms": 1106.129578999571
         },
         "candidate_rank": null,
         "doc_hit": true,
-        "latency_ms": 1205.5609499993807,
+        "latency_ms": 1139.504264999232,
         "candidate_ids": [
           493,
           484,
@@ -8638,13 +9245,18 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1113.0000699995435,
+          1213.1090829998357,
+          1075.7924939998702
+        ],
         "components_ms": {
-          "e5_ms": 40.778841999781434,
-          "rerank_ms": 1168.8800729998547
+          "e5_ms": 29.518640000787855,
+          "rerank_ms": 1081.1312289997659
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1209.6940860001268,
+        "latency_ms": 1113.0000699995435,
         "candidate_ids": [
           630,
           493,
@@ -8711,15 +9323,20 @@
         "id": "q04",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1181.6385289994287,
+          3281.104538999898,
+          1388.4712600001876
+        ],
         "components_ms": {
-          "e5_ms": 32.35446100006811,
-          "char_ms": 9.611741999833612,
-          "fusion_ms": 0.12160900041635614,
-          "rerank_ms": 1153.8752329997806
+          "e5_ms": 28.574943000421626,
+          "char_ms": 10.153797000384657,
+          "fusion_ms": 0.08512699969287496,
+          "rerank_ms": 1344.0118700000312
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1196.0085880000406,
+        "latency_ms": 1388.4712600001876,
         "candidate_ids": [
           110,
           97,
@@ -8784,15 +9401,20 @@
         "id": "q05",
         "type": "cross_university",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1159.0489970003546,
+          1151.4410059999136,
+          3082.6631689997157
+        ],
         "components_ms": {
-          "e5_ms": 25.02446200014674,
-          "char_ms": 8.994128999802342,
-          "fusion_ms": 0.08270400030596647,
-          "rerank_ms": 1087.1807909998097
+          "e5_ms": 27.721287000531447,
+          "char_ms": 8.865056000104232,
+          "fusion_ms": 0.08396300017921021,
+          "rerank_ms": 1126.652646000366
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1121.3406810002198,
+        "latency_ms": 1159.0489970003546,
         "candidate_ids": [
           110,
           103,
@@ -8857,15 +9479,20 @@
         "id": "q07",
         "type": "cross_university",
         "rank": null,
+        "repeat_latencies_ms": [
+          1156.1048890007442,
+          1156.4367540004241,
+          1167.623043000276
+        ],
         "components_ms": {
-          "e5_ms": 33.479450000413635,
-          "char_ms": 9.086527000363276,
-          "fusion_ms": 0.08145499941747403,
-          "rerank_ms": 1188.376325999343
+          "e5_ms": 28.06078199955664,
+          "char_ms": 9.068612000191933,
+          "fusion_ms": 0.08198799969250103,
+          "rerank_ms": 1120.4402570001548
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1231.0783080001784,
+        "latency_ms": 1156.4367540004241,
         "candidate_ids": [
           371,
           362,
@@ -8930,15 +9557,20 @@
         "id": "q09",
         "type": "cross_university",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1039.2542740000863,
+          1102.5823579993812,
+          3442.36200099931
+        ],
         "components_ms": {
-          "e5_ms": 38.573770999391854,
-          "char_ms": 10.708456999964255,
-          "fusion_ms": 0.08081600026343949,
-          "rerank_ms": 1079.4633920004344
+          "e5_ms": 33.03390500059322,
+          "char_ms": 9.016955999868514,
+          "fusion_ms": 0.08880400037014624,
+          "rerank_ms": 1043.0575170003067
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1128.8885109997864,
+        "latency_ms": 1102.5823579993812,
         "candidate_ids": [
           120,
           121,
@@ -9003,15 +9635,20 @@
         "id": "q10",
         "type": "cross_university",
         "rank": 4,
+        "repeat_latencies_ms": [
+          1214.504439000848,
+          1367.30737400012,
+          1070.0715519997175
+        ],
         "components_ms": {
-          "e5_ms": 64.88573699971312,
-          "char_ms": 23.011392000626074,
-          "fusion_ms": 0.13865499931853265,
-          "rerank_ms": 1162.9882100005489
+          "e5_ms": 33.21006599981047,
+          "char_ms": 9.780804000001808,
+          "fusion_ms": 0.08159499975590734,
+          "rerank_ms": 1093.829227000242
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1251.0708680001699,
+        "latency_ms": 1214.504439000848,
         "candidate_ids": [
           120,
           121,
@@ -9076,15 +9713,20 @@
         "id": "q12",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          3020.0683880002543,
+          1447.5349900003494,
+          1141.0848109999279
+        ],
         "components_ms": {
-          "e5_ms": 32.74019499986025,
-          "char_ms": 9.437521000108973,
-          "fusion_ms": 0.17146599930129014,
-          "rerank_ms": 3222.1692359998997
+          "e5_ms": 27.574114999879384,
+          "char_ms": 9.313116999692284,
+          "fusion_ms": 0.08287299988296581,
+          "rerank_ms": 1410.3262519993223
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 3264.5755319999807,
+        "latency_ms": 1447.5349900003494,
         "candidate_ids": [
           103,
           136,
@@ -9149,15 +9791,20 @@
         "id": "q13",
         "type": "cross_university",
         "rank": 4,
+        "repeat_latencies_ms": [
+          1066.0740889998124,
+          1048.879183000281,
+          1126.5953319998516
+        ],
         "components_ms": {
-          "e5_ms": 57.489726999847335,
-          "char_ms": 14.570692000233976,
-          "fusion_ms": 0.08632299977762159,
-          "rerank_ms": 1110.6074050003372
+          "e5_ms": 31.395720000546135,
+          "char_ms": 9.638330000598216,
+          "fusion_ms": 0.08799099941825261,
+          "rerank_ms": 1009.821997000472
         },
         "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1182.7913380002428,
+        "latency_ms": 1066.0740889998124,
         "candidate_ids": [
           343,
           299,
@@ -9222,15 +9869,20 @@
         "id": "q15",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1572.7849150007387,
+          3429.673286999787,
+          1513.4787269998924
+        ],
         "components_ms": {
-          "e5_ms": 36.995002000367094,
-          "char_ms": 9.651907999796094,
-          "fusion_ms": 0.08845499996823492,
-          "rerank_ms": 3769.8418879999736
+          "e5_ms": 32.69481400002405,
+          "char_ms": 15.764605000185838,
+          "fusion_ms": 0.08727299973543268,
+          "rerank_ms": 1537.6279939991946
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 3816.6207759995814,
+        "latency_ms": 1572.7849150007387,
         "candidate_ids": [
           299,
           328,
@@ -9295,15 +9947,20 @@
         "id": "q17",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          1681.704620000346,
+          1289.6316260003005,
+          1250.0068910003392
+        ],
         "components_ms": {
-          "e5_ms": 25.182959000630945,
-          "char_ms": 9.660676999374118,
-          "fusion_ms": 0.09129600039159413,
-          "rerank_ms": 1133.0472850004298
+          "e5_ms": 34.71648200047639,
+          "char_ms": 11.178517000189458,
+          "fusion_ms": 0.09082800079340814,
+          "rerank_ms": 1232.690908999757
         },
         "candidate_rank": 20,
         "doc_hit": true,
-        "latency_ms": 1168.0280909995417,
+        "latency_ms": 1289.6316260003005,
         "candidate_ids": [
           299,
           343,
@@ -9368,15 +10025,20 @@
         "id": "q19",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          2977.86130699933,
+          1340.452959000686,
+          1560.048347000702
+        ],
         "components_ms": {
-          "e5_ms": 73.62695200026792,
-          "char_ms": 15.031256999463949,
-          "fusion_ms": 0.0794770003267331,
-          "rerank_ms": 1474.8182140001518
+          "e5_ms": 42.009058999610716,
+          "char_ms": 9.938945000612875,
+          "fusion_ms": 0.08779800009506289,
+          "rerank_ms": 1514.1350659996533
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1563.5930870002994,
+        "latency_ms": 1560.048347000702,
         "candidate_ids": [
           6,
           7,
@@ -9441,15 +10103,20 @@
         "id": "q20",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1483.259943000121,
+          1503.4952400001202,
+          1519.3087130001004
+        ],
         "components_ms": {
-          "e5_ms": 23.564041000099678,
-          "char_ms": 11.520501000632066,
-          "fusion_ms": 0.08380299914279021,
-          "rerank_ms": 1362.978223999562
+          "e5_ms": 26.957677999234875,
+          "char_ms": 9.380606999911834,
+          "fusion_ms": 0.08665099994686898,
+          "rerank_ms": 1467.6023729998633
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1398.177845999271,
+        "latency_ms": 1503.4952400001202,
         "candidate_ids": [
           42,
           381,
@@ -9514,15 +10181,20 @@
         "id": "q22",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1178.593462000208,
+          1128.0547019996447,
+          1180.4393960001107
+        ],
         "components_ms": {
-          "e5_ms": 25.65519099971425,
-          "char_ms": 9.171931999844674,
-          "fusion_ms": 0.08851999973558122,
-          "rerank_ms": 1483.523497000533
+          "e5_ms": 37.59268700014218,
+          "char_ms": 9.481275999860372,
+          "fusion_ms": 0.0881689993548207,
+          "rerank_ms": 1132.5270649995218
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1518.5024989996236,
+        "latency_ms": 1178.593462000208,
         "candidate_ids": [
           12,
           91,
@@ -9587,15 +10259,20 @@
         "id": "q24",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1111.9683520000763,
+          1111.4390760003516,
+          1186.5383340000335
+        ],
         "components_ms": {
-          "e5_ms": 91.28931699979148,
-          "char_ms": 11.666633999993792,
-          "fusion_ms": 0.07872500009398209,
-          "rerank_ms": 1266.3238450004428
+          "e5_ms": 24.85493999938626,
+          "char_ms": 9.108404000471637,
+          "fusion_ms": 0.13309200039657298,
+          "rerank_ms": 1077.202276999742
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1369.4013300000734,
+        "latency_ms": 1111.9683520000763,
         "candidate_ids": [
           24,
           41,
@@ -9660,15 +10337,20 @@
         "id": "q26",
         "type": "simple",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1628.0344209999384,
+          1333.9301659998455,
+          1336.4454970005681
+        ],
         "components_ms": {
-          "e5_ms": 94.68206099973031,
-          "char_ms": 17.71550900048169,
-          "fusion_ms": 0.1201979994220892,
-          "rerank_ms": 1741.9456019997597
+          "e5_ms": 29.88448099949892,
+          "char_ms": 9.033103000547271,
+          "fusion_ms": 0.08664999950269703,
+          "rerank_ms": 1297.7759320001496
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1854.5144250001613,
+        "latency_ms": 1336.4454970005681,
         "candidate_ids": [
           449,
           416,
@@ -9732,73 +10414,78 @@
       {
         "id": "q27",
         "type": "simple",
-        "rank": 4,
+        "rank": 2,
+        "repeat_latencies_ms": [
+          1194.7260139995706,
+          1266.9669790002445,
+          1273.6382849998336
+        ],
         "components_ms": {
-          "e5_ms": 45.38449600022432,
-          "char_ms": 9.534986999824469,
-          "fusion_ms": 0.08872800026438199,
-          "rerank_ms": 1774.060250999355
+          "e5_ms": 35.52634900006524,
+          "char_ms": 9.219251000104123,
+          "fusion_ms": 0.08201599939638982,
+          "rerank_ms": 1222.829493000063
         },
-        "candidate_rank": 3,
+        "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1829.1080670005613,
+        "latency_ms": 1266.9669790002445,
         "candidate_ids": [
+          405,
           449,
           416,
-          405,
           454,
           373,
-          21,
-          436,
+          406,
+          437,
           32,
-          404,
-          476,
-          372,
+          411,
+          436,
+          396,
+          21,
           379,
-          461,
+          404,
+          372,
+          400,
+          457,
+          476,
           380,
-          482,
-          35,
-          484,
-          384,
-          481,
-          406
+          410
         ],
         "hits": [
-          {
-            "chunk_id": 482,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 24,
-            "score": 0.7999683618545532
-          },
-          {
-            "chunk_id": 461,
-            "document_id": 12,
-            "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 20,
-            "score": -0.6010614633560181
-          },
           {
             "chunk_id": 21,
             "document_id": 5,
             "filename": "hse-dormitory-2017.pdf",
             "page": 3,
-            "score": -0.8021628856658936
+            "score": -0.9710301756858826
           },
           {
             "chunk_id": 405,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
             "page": 8,
-            "score": -0.9714353680610657
+            "score": -1.2785487174987793
           },
           {
-            "chunk_id": 372,
+            "chunk_id": 416,
             "document_id": 12,
             "filename": "tsutmb-dormitory-2019.pdf",
-            "page": 1,
-            "score": -1.027050495147705
+            "page": 10,
+            "score": -1.7572519779205322
+          },
+          {
+            "chunk_id": 476,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 22,
+            "score": -2.3121140003204346
+          },
+          {
+            "chunk_id": 373,
+            "document_id": 12,
+            "filename": "tsutmb-dormitory-2019.pdf",
+            "page": 2,
+            "score": -2.4679105281829834
           }
         ]
       },
@@ -9806,15 +10493,20 @@
         "id": "q28",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1277.4890350001442,
+          1255.9865760003959,
+          1237.866283000585
+        ],
         "components_ms": {
-          "e5_ms": 29.843798000001698,
-          "char_ms": 9.10344800013263,
-          "fusion_ms": 0.07696000011492288,
-          "rerank_ms": 1695.8580250002342
+          "e5_ms": 31.51988599984179,
+          "char_ms": 9.121735000007902,
+          "fusion_ms": 0.08660000003146706,
+          "rerank_ms": 1215.2211599996008
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1734.9151600001278,
+        "latency_ms": 1255.9865760003959,
         "candidate_ids": [
           34,
           410,
@@ -9878,16 +10570,21 @@
       {
         "id": "q31",
         "type": "simple",
-        "rank": 2,
+        "rank": 1,
+        "repeat_latencies_ms": [
+          1065.5785339995418,
+          1129.195946999971,
+          1047.3753319993193
+        ],
         "components_ms": {
-          "e5_ms": 23.881277999862505,
-          "char_ms": 12.741349999487284,
-          "fusion_ms": 0.07736099996691337,
-          "rerank_ms": 1580.7824439998512
+          "e5_ms": 28.478074000304332,
+          "char_ms": 9.20613299967954,
+          "fusion_ms": 0.08707199958735146,
+          "rerank_ms": 1031.1192559993287
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1617.5160020002295,
+        "latency_ms": 1065.5785339995418,
         "candidate_ids": [
           196,
           213,
@@ -9952,15 +10649,20 @@
         "id": "q32",
         "type": "simple",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1201.6153729991856,
+          1107.9093669995927,
+          1125.2454129999023
+        ],
         "components_ms": {
-          "e5_ms": 46.22725199988054,
-          "char_ms": 10.39418799973646,
-          "fusion_ms": 0.09803900047700154,
-          "rerank_ms": 1661.554540999532
+          "e5_ms": 37.308902999939164,
+          "char_ms": 9.623408999686944,
+          "fusion_ms": 0.0906530003703665,
+          "rerank_ms": 1079.4635429992923
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1718.3909929999572,
+        "latency_ms": 1125.2454129999023,
         "candidate_ids": [
           172,
           171,
@@ -10025,15 +10727,20 @@
         "id": "q33",
         "type": "paraphrase",
         "rank": 1,
+        "repeat_latencies_ms": [
+          1520.0237029994241,
+          1650.6502430002001,
+          1422.4104960003388
+        ],
         "components_ms": {
-          "e5_ms": 37.70276599971112,
-          "char_ms": 9.795998000299733,
-          "fusion_ms": 0.08274399988295045,
-          "rerank_ms": 1190.0443969998378
+          "e5_ms": 34.78403699955379,
+          "char_ms": 10.135012999853643,
+          "fusion_ms": 0.0909649997993256,
+          "rerank_ms": 1474.940814000547
         },
         "candidate_rank": 2,
         "doc_hit": true,
-        "latency_ms": 1237.689718999718,
+        "latency_ms": 1520.0237029994241,
         "candidate_ids": [
           267,
           224,
@@ -10097,16 +10804,21 @@
       {
         "id": "q34",
         "type": "paraphrase",
-        "rank": null,
+        "rank": 2,
+        "repeat_latencies_ms": [
+          1070.754061000116,
+          1058.9769300004264,
+          1918.2535529998859
+        ],
         "components_ms": {
-          "e5_ms": 29.48826299962093,
-          "char_ms": 9.12449400038895,
-          "fusion_ms": 0.08944899946072837,
-          "rerank_ms": 1061.2029870007973
+          "e5_ms": 33.14394800054288,
+          "char_ms": 10.37789700058056,
+          "fusion_ms": 0.08433299990429077,
+          "rerank_ms": 1015.6908720000501
         },
-        "candidate_rank": 4,
+        "candidate_rank": 3,
         "doc_hit": true,
-        "latency_ms": 1099.9456669997016,
+        "latency_ms": 1070.754061000116,
         "candidate_ids": [
           259,
           258,
@@ -10171,15 +10883,20 @@
         "id": "q36",
         "type": "simple",
         "rank": null,
+        "repeat_latencies_ms": [
+          1200.3268049993494,
+          1187.015655000323,
+          1422.4184819995571
+        ],
         "components_ms": {
-          "e5_ms": 53.74066100011987,
-          "char_ms": 11.827459999949497,
-          "fusion_ms": 0.09018600030685775,
-          "rerank_ms": 1403.1778230000782
+          "e5_ms": 32.480779999787046,
+          "char_ms": 9.837696999966283,
+          "fusion_ms": 0.09119900005316595,
+          "rerank_ms": 1146.397777999482
         },
         "candidate_rank": 6,
         "doc_hit": true,
-        "latency_ms": 1468.8788479998038,
+        "latency_ms": 1200.3268049993494,
         "candidate_ids": [
           493,
           484,
@@ -10244,15 +10961,20 @@
         "id": "q37",
         "type": "simple",
         "rank": 3,
+        "repeat_latencies_ms": [
+          1408.00690100059,
+          1222.7228039992042,
+          1279.4469680002294
+        ],
         "components_ms": {
-          "e5_ms": 36.20172599949001,
-          "char_ms": 10.451719999764464,
-          "fusion_ms": 0.0880050001796917,
-          "rerank_ms": 1441.6308760000902
+          "e5_ms": 38.4242459995221,
+          "char_ms": 11.749707000490162,
+          "fusion_ms": 0.08253200030594599,
+          "rerank_ms": 1217.8605809995133
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1488.409909999973,
+        "latency_ms": 1279.4469680002294,
         "candidate_ids": [
           600,
           484,
@@ -10317,15 +11039,20 @@
         "id": "q39",
         "type": "paraphrase",
         "rank": null,
+        "repeat_latencies_ms": [
+          1375.8218299999498,
+          1165.6260509998901,
+          2710.4994530000113
+        ],
         "components_ms": {
-          "e5_ms": 41.32590000062919,
-          "char_ms": 11.451213999862375,
-          "fusion_ms": 0.08634599998913473,
-          "rerank_ms": 1202.958958000636
+          "e5_ms": 34.112923000066075,
+          "char_ms": 9.423444999811181,
+          "fusion_ms": 0.10611000016069738,
+          "rerank_ms": 1332.1563649997188
         },
         "candidate_rank": 9,
         "doc_hit": true,
-        "latency_ms": 1255.8731059998536,
+        "latency_ms": 1375.8218299999498,
         "candidate_ids": [
           484,
           493,
@@ -10390,15 +11117,20 @@
         "id": "q40",
         "type": "paraphrase",
         "rank": 2,
+        "repeat_latencies_ms": [
+          1129.5763050002279,
+          1191.6219380000257,
+          1250.200577999749
+        ],
         "components_ms": {
-          "e5_ms": 57.18200399951456,
-          "char_ms": 10.945952000838588,
-          "fusion_ms": 0.09480199969402747,
-          "rerank_ms": 1585.591509000551
+          "e5_ms": 33.92763099964213,
+          "char_ms": 9.614691000024322,
+          "fusion_ms": 0.07747200015728595,
+          "rerank_ms": 1152.38219100047
         },
         "candidate_rank": 1,
         "doc_hit": true,
-        "latency_ms": 1653.8620330002232,
+        "latency_ms": 1191.6219380000257,
         "candidate_ids": [
           630,
           493,
@@ -10463,6 +11195,8 @@
   },
   "query_log_before": 2,
   "timing_protocol": {
+    "repeats": 3,
+    "aggregation": "median per question/method; p50/p95 across those medians, linear percentile",
     "order": "per-question shuffled methods, seed=42",
     "torch_threads": {
       "before_warmup": [

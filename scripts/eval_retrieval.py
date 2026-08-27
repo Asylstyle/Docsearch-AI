@@ -3,6 +3,7 @@ import argparse
 from collections import Counter
 from datetime import datetime, timezone
 import hashlib
+import uuid
 from importlib.metadata import version
 import json
 from pathlib import Path
@@ -56,10 +57,20 @@ def summarize(rows, k):
             f"Doc-Hit@{k}": sum(row["doc_hit"] for row in rows) / count,
             "Hit@20": sum(row["candidate_rank"] is not None for row in rows) / count,
             "mean_search_ms": statistics.mean(row["latency_ms"] for row in rows),
+            "p50_ms": statistics.median(row["latency_ms"] for row in rows),
+            "p95_ms": percentile([row["latency_ms"] for row in rows], .95),
             "by_type": {kind: {"n": len(group), "hits": sum(r["rank"] is not None for r in group),
                                f"Hit@{k}": sum(r["rank"] is not None for r in group) / len(group)}
                         for kind in sorted({r["type"] for r in rows})
                         if (group := [r for r in rows if r["type"] == kind])}}
+
+
+def percentile(values, probability):
+    ordered = sorted(values)
+    position = (len(ordered)-1) * probability
+    lo = int(position)
+    hi = min(lo+1, len(ordered)-1)
+    return ordered[lo] + (ordered[hi]-ordered[lo])*(position-lo)
 
 
 def history_count():
@@ -96,10 +107,10 @@ def write_reports(report):
              f"Corpus: {report['corpus']['documents']} documents, {report['corpus']['chunks']} chunks; ready only, same repeatable-read snapshot.",
              f"Frozen test hash matches README: {report['test_integrity']['matches']}. Test evaluated: {split == 'test'}.", "",
              "n=24, один вопрос ≈ 4 п.п.; различия в Hit@5 менее 10 п.п. следует интерпретировать осторожно: статистическая значимость не проверялась." if report["answerable_count"] == 24 else "Small sample; statistical significance was not evaluated.", "",
-             f"| Method | n | Hit@1 | Hit@{k} | MRR@{k} | Doc-Hit@{k} | Hit@20* | Mean search ms |",
-             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
+             f"| Method | n | Hit@1 | Hit@{k} | MRR@{k} | Doc-Hit@{k} | Hit@20* | Mean ms | p50 ms | p95 ms |",
+             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for name, result in report["methods"].items():
-        lines.append(f"| {name} | {result['n']} | {result['Hit@1']:.4f} | {result[f'Hit@{k}']:.4f} | {result[f'MRR@{k}']:.4f} | {result[f'Doc-Hit@{k}']:.4f} | {result['Hit@20']:.4f} | {result['mean_search_ms']:.3f} |")
+        lines.append(f"| {name} | {result['n']} | {result['Hit@1']:.4f} | {result[f'Hit@{k}']:.4f} | {result[f'MRR@{k}']:.4f} | {result[f'Doc-Hit@{k}']:.4f} | {result['Hit@20']:.4f} | {result['mean_search_ms']:.3f} | {result['p50_ms']:.3f} | {result['p95_ms']:.3f} |")
     lines += ["", "*Hit@20 for rerank methods is PRE-rerank candidate recall, not recall of five returned outputs. Other methods use their genuine first 20 hits. RRF sums 1/(60+rank), rank starts at 1, chunk_id is the fusion key; up to 40 union candidates are truncated to 20 before hybrid reranking.", "",
               f"Reranker: `{report['settings']['reranker_model']}`, CPU, raw (query, chunk_text) pairs without E5 prefixes. Rerank latency includes fresh candidate retrieval plus CrossEncoder scoring/ranking; no cached-candidate shortcut."]
     lines += ["", f"## Hit@{k} by type", "", "| Method | Type | Hits / n | Hit rate |", "| --- | --- | ---: | ---: |"]
@@ -116,6 +127,7 @@ def write_reports(report):
         means = {key: statistics.mean(row["components_ms"].get(key, 0) for row in rows) for key in keys}
         lines.append(f"| {name} | {json.dumps(means)} |")
     lines += ["", f"Torch thread state: {report['timing_protocol']['torch_threads']}.",
+              "Each question/method is searched three times freshly; latency_ms is the median. p50/p95 summarize per-question medians (linear interpolation). Component medians need not sum exactly to total median. No query/result caches shared across methods.",
               "The prior fixed-block run had E5 min/median/max 36.4/124.6/1215.4 ms, versus RRF 29.9/36.8/43.0 ms. This showed order/startup sensitivity, not evidence that fusion inherently speeds up E5. Installed CPU encode had no general embedding cache (only an unrelated HPU tensor-cache branch). No application memoization exists; each E5 path calls search_chunks -> embed_query -> encode + SQL. Exact low-level runtime cause was not isolated. The corrected protocol and component boundaries are reported rather than claiming statistical significance.", "",
               f"QueryLog before/after: {report['query_log_before']} / {report['query_log_after']}; unchanged: {report['query_log_unchanged']}.",
               f"Duplicate ready filenames: {report['corpus']['duplicate_filenames']}. Missing gold pages: {report['missing_gold']}.", "",
@@ -140,11 +152,21 @@ def main():
         parser.error("rerank methods have only 20 candidates; k must not exceed 20")
     questions = [json.loads(line) for line in (ROOT / "eval/questions.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     integrity = test_integrity(questions)
+    run_id = str(uuid.uuid4())
+    run_marker = ROOT / 'eval/results/retrieval_test_run.json'
+    if args.split == 'test':
+        if not integrity['matches']:
+            raise ValueError('Frozen test integrity mismatch; final run aborted')
+        run_marker.parent.mkdir(parents=True, exist_ok=True)
+        # Exclusive creation: a partial/failed run also requires explicit review.
+        with run_marker.open('x', encoding='utf-8') as handle:
+            json.dump({'run_id': run_id, 'status': 'started', 'test_sha256': integrity['actual'],
+                       'started_at': datetime.now(timezone.utc).isoformat()}, handle, indent=2)
     selected = [row for row in questions if row["split"] == args.split and row["answerable"]]
     if not selected:
         raise ValueError("No answerable questions in requested split")
     before = history_count()
-    report = {"split": args.split, "k": args.k, "created_at": datetime.now(timezone.utc).isoformat(),
+    report = {"run_id": run_id, "split": args.split, "k": args.k, "created_at": datetime.now(timezone.utc).isoformat(),
               "answerable_count": len(selected), "ignored_unanswerable_count": sum(row["split"] == args.split and not row["answerable"] for row in questions),
               "type_denominators": dict(Counter(row["type"] for row in selected)),
               "test_integrity": integrity, "evaluated_questions_sha256": digest(selected),
@@ -154,7 +176,7 @@ def main():
               "environment": {"platform": platform.platform(), "python": platform.python_version(),
                               "packages": {name: version(name) for name in ("scikit-learn", "sentence-transformers", "torch", "SQLAlchemy", "pgvector")}},
               "setup_timings": {}, "methods": {}, "records": {}, "query_log_before": before}
-    report["timing_protocol"] = {"order": "per-question shuffled methods, seed=42", "torch_threads": {
+    report["timing_protocol"] = {"repeats": 3, "aggregation": "median per question/method; p50/p95 across those medians, linear percentile", "order": "per-question shuffled methods, seed=42", "torch_threads": {
         "before_warmup": [torch.get_num_threads(), torch.get_num_interop_threads()]},
         "warmup_inputs": ["Нужно уточнить порядок подачи заявления.",
                           "Подскажите, как студенту узнать условия проживания, порядок обращения и сроки оформления документов в университете.",
@@ -213,12 +235,18 @@ def main():
             order_rng.shuffle(method_order)
             for name in method_order:
                 retrieve = pipelines[name]
-                start = time.perf_counter()
-                hits, candidates, components = retrieve(question["question"], args.k)
-                latency = (time.perf_counter() - start) * 1000
+                repeats, component_repeats = [], []
+                for _ in range(3):
+                    start = time.perf_counter()
+                    hits, candidates, components = retrieve(question["question"], args.k)
+                    repeats.append((time.perf_counter()-start)*1000)
+                    component_repeats.append(components)
+                latency = statistics.median(repeats)
+                components = {key: statistics.median(c[key] for c in component_repeats) for key in components}
                 rank, doc_hit = relevance(question, hits)
                 candidate_rank, _ = relevance(question, candidates[:20])
                 rows_by_method[name].append({"id": question["id"], "type": question["type"], "rank": rank,
+                             "repeat_latencies_ms": repeats,
                              "components_ms": components,
                              "candidate_rank": candidate_rank,
                              "doc_hit": doc_hit, "latency_ms": latency,
@@ -234,6 +262,9 @@ def main():
     if not report["query_log_unchanged"]:
         print("WARNING QueryLog count changed; possible concurrent writer, no records deleted", flush=True)
     write_reports(report)
+    if args.split == 'test':
+        run_marker.write_text(json.dumps({'run_id': run_id, 'status': 'completed',
+            'test_sha256': integrity['actual'], 'completed_at': datetime.now(timezone.utc).isoformat()}, indent=2)+'\n', encoding='utf-8')
 
 
 if __name__ == "__main__":
