@@ -29,6 +29,9 @@ services:
       LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
       CHUNK_SIZE: ${CHUNK_SIZE:-800}
       CHUNK_OVERLAP: ${CHUNK_OVERLAP:-100}
+      SEARCH_MODE: ${SEARCH_MODE:-e5}
+      RERANK_MODEL: ${RERANK_MODEL:-cross-encoder/mmarco-mMiniLMv2-L12-H384-v1}
+      RERANK_CANDIDATES: ${RERANK_CANDIDATES:-20}
     depends_on:
       db:
         condition: service_healthy

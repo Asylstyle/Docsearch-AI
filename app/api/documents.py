@@ -6,6 +6,7 @@ from pypdf.errors import PdfReadError
 from app.db import get_db
 from app.ingestion.service import ingest_document
 from app.models import Document
+from app.search.service import invalidate_search_index
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
@@ -39,4 +40,5 @@ def delete_document(id: int, db: Session = Depends(get_db)):
         raise HTTPException(404, "Document not found")
     db.delete(document)
     db.commit()
+    invalidate_search_index()
     return Response(status_code=204)

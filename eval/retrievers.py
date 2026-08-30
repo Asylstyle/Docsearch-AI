@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from app.models import Chunk, Document
 from app.schemas import SearchHit
-from app.search.service import search_chunks
+from app.search.service import _e5_search
 from sqlalchemy import select
 
 
@@ -40,7 +40,8 @@ class TfidfRetriever:
 
 
 def e5_search(db, query, k):
-    return search_chunks(db, query, k)
+    # Always raw E5, independent of the production SEARCH_MODE dispatcher.
+    return _e5_search(db, query, k)
 
 
 RERANKER_MODEL = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"

@@ -7,7 +7,7 @@ from app.config import settings
 from app.models import Chunk
 from app.models import Document
 from app.schemas import ChunkData
-from app.search.service import embed_texts
+from app.search.service import embed_texts, invalidate_search_index
 
 
 def extract_pages(file_bytes: bytes) -> list[tuple[int, str]]:
@@ -66,6 +66,7 @@ def ingest_document(db, filename, file_bytes) -> Document:
         document.pages_count = pages_count
         document.status = "ready"
         db.commit()
+        invalidate_search_index()
         return document
     except Exception:
         db.rollback()
