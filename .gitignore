@@ -13,3 +13,4 @@ uploads/
 .idea/
 .vscode/
 eval/review.md
+.pytest_cache/
